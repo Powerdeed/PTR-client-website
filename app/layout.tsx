@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Open_Sans } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
+import ScrollIndicator from "@/components/ScrollIndicator";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
@@ -26,9 +27,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${plusJakartaSans.variable} ${openSans.variable} antialiased`}
+        className={`${plusJakartaSans.variable} ${openSans.variable} antialiased h-500`}
       >
         <Nav />
+        <ScrollIndicator />
         {children}
       </body>
     </html>

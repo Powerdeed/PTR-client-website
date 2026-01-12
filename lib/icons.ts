@@ -5,6 +5,21 @@ import {
   faXmark,
   faAngleUp,
   faAngleDown,
+  faBatteryEmpty,
+  faBatteryQuarter,
+  faBatteryHalf,
+  faBatteryThreeQuarters,
+  faBatteryFull,
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faBars, faXmark, faAngleUp, faAngleDown);
+library.add(
+  faBars,
+  faXmark,
+  faAngleUp,
+  faAngleDown,
+  faBatteryEmpty,
+  faBatteryQuarter,
+  faBatteryHalf,
+  faBatteryThreeQuarters,
+  faBatteryFull
+);
