@@ -78,7 +78,7 @@ export default function QuickNavs() {
             </div>
 
             <h4
-              className="text-[11px] text-bold w-20 text-(--primary-yellow) ml-2 leading-3"
+              className="text-[11px] font-bold w-20 text-(--primary-yellow) ml-2 leading-3 hover:underline"
               style={{
                 opacity: isActive ? 1 : 0,
                 visibility: isActive ? "visible" : "hidden",
