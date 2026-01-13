@@ -10,7 +10,12 @@ import {
   faBatteryHalf,
   faBatteryThreeQuarters,
   faBatteryFull,
+  faChargingStation,
+  faSolarPanel,
+  faReceipt,
 } from "@fortawesome/free-solid-svg-icons";
+
+import { faComments, faHardDrive } from "@fortawesome/free-regular-svg-icons";
 
 library.add(
   faBars,
@@ -21,5 +26,10 @@ library.add(
   faBatteryQuarter,
   faBatteryHalf,
   faBatteryThreeQuarters,
-  faBatteryFull
+  faBatteryFull,
+  faChargingStation,
+  faSolarPanel,
+  faReceipt,
+  faComments,
+  faHardDrive
 );
