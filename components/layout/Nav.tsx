@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "../lib/icons";
+import "../../lib/icons";
 
 export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
