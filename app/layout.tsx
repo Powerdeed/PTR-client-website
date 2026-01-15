@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${plusJakartaSans.variable} ${openSans.variable} antialiased h-500`}
+        className={`${plusJakartaSans.variable} ${openSans.variable} antialiased`}
       >
         <Nav />
         <ScrollIndicator />
