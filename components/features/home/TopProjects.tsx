@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image.js";
+import SubTitle from "./SubTitle";
 
 const projectImages = {
   elecJobsConstruction:
@@ -622,7 +623,8 @@ export default function TopProjects() {
 
   return (
     <div className="w-full px-0.5 lg:p-0">
-      <h2 className="text-center mb-7.5">Our Top Projects</h2>
+      <SubTitle subTitle="Our Top Projects" />
+
       {isMobile ? (
         <TopProjectsPhoneView
           uniqueCategories={uniqueCategories}

@@ -9,11 +9,11 @@ export default function page() {
     <>
       <Header />
 
-      <div className="flex flex-col gap-12.5 w-full p-[0_10px] lg:p-[0_10%] mt-12.5 mb-200">
+      <div className="flex flex-col gap-12.5 w-full p-[0_10px] lg:p-[0_10%] mt-12.5">
         <About />
-        <CoreValues h2Position="center" />
+        <CoreValues />
         <TopProjects />
-        {/* <Testimonials /> */}
+        <Testimonials />
       </div>
     </>
   );

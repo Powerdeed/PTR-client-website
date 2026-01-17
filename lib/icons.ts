@@ -16,6 +16,7 @@ import {
   faQuoteRight,
   faQuoteLeft,
   faCircleArrowRight,
+  faCircleArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { faComments, faHardDrive } from "@fortawesome/free-regular-svg-icons";
@@ -37,5 +38,6 @@ library.add(
   faHardDrive,
   faQuoteRight,
   faQuoteLeft,
-  faCircleArrowRight
+  faCircleArrowRight,
+  faCircleArrowLeft
 );

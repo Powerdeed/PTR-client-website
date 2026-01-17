@@ -1,3 +1,5 @@
+import SubTitle from "./SubTitle";
+
 const coreValues = {
   values: {
     value1: {
@@ -33,14 +35,11 @@ const coreValues = {
   },
 };
 
-export default function CoreValues({ h2Position }: { h2Position: string }) {
+export default function CoreValues() {
   return (
     <div>
-      {h2Position === "center" ? (
-        <div className="text-center mb-0.5 text-[24px] font-bold">
-          Our Core Values
-        </div>
-      ) : null}
+      <SubTitle subTitle="Our Core Values" />
+
       <div className="flex flex-wrap justify-center gap-[3%]">
         {Object.entries(coreValues.values).map(([key, value]) => (
           <div key={key} className="h-25 w-37.5 mb-2.5">
