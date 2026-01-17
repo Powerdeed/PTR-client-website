@@ -33,6 +33,7 @@ export default function About() {
             <Image
               src="/images/projects-images/Electrical-engineering-jobs-in-the-construction-industry.jpg"
               alt="Milestone Electrical and Solar Solutions"
+              sizes="(max-width: 1024px) 100%"
               fill
               className="w-full h-full object-cover"
             />

@@ -13,6 +13,9 @@ import {
   faChargingStation,
   faSolarPanel,
   faReceipt,
+  faQuoteRight,
+  faQuoteLeft,
+  faCircleArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { faComments, faHardDrive } from "@fortawesome/free-regular-svg-icons";
@@ -31,5 +34,8 @@ library.add(
   faSolarPanel,
   faReceipt,
   faComments,
-  faHardDrive
+  faHardDrive,
+  faQuoteRight,
+  faQuoteLeft,
+  faCircleArrowRight
 );
