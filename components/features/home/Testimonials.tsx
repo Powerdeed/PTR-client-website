@@ -81,7 +81,7 @@ export default function Testimonials() {
     function updateWidth() {
       if (testimonialEl.current) {
         setTestimonialWidth(
-          testimonialEl.current.getBoundingClientRect().width
+          testimonialEl.current.getBoundingClientRect().width,
         );
       }
     }
@@ -124,6 +124,7 @@ export default function Testimonials() {
                       }
                       alt=""
                       fill
+                      sizes="(max-width: 1024px) 100%"
                       className="object-cover rounded-[50%] relative overflow-hidden"
                     />
                   </div>

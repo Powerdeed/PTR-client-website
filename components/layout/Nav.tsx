@@ -81,7 +81,7 @@ export default function Nav() {
 
       <ul
         ref={mainMenu}
-        className={`absolute hidden lg:flex items-center gap-5 list-none top-12.5 lg:top-3 right-0 lg:right-[8%] text-[0.9em] pl-1 w-0 lg:w-fit h-[calc(100vh-50px)] lg:h-fit bg-(--primary-blue) lg:bg-transparent transition-[width_0.3s_ease-in-out] z-1`}
+        className={`absolute hidden lg:flex items-center gap-5 list-none top-12.5 lg:top-3 right-0 lg:right-[8%] text-[12px] pl-1 w-0 lg:w-fit h-[calc(100vh-50px)] lg:h-fit bg-(--primary-blue) lg:bg-transparent transition-[width_0.3s_ease-in-out] z-1`}
       >
         {[
           { href: "/", label: "Home" },
@@ -131,7 +131,7 @@ export default function Nav() {
               />
             </div>
           )}
-          <ul className="lg:top-5 w-full lg:w-40 relative transition-[height_0.3s_ease-in-out] lg:absolute pl-2 lg:pl-0 list-none z-2 leading-6">
+          <ul className="lg:top-5 w-full lg:w-40 relative transition-[height_0.3s_ease-in-out] lg:absolute list-none z-2 leading-6">
             {[
               { href: "/about/overview", label: "Overview" },
               { href: "/about/structure", label: "Structure" },
@@ -145,7 +145,7 @@ export default function Nav() {
                 ref={(el) => {
                   if (el) subMenuItems.current[idx] = el;
                 }}
-                className="hidden bg-(--primary-blue) items-center"
+                className="hidden bg-(--primary-blue) items-center pl-2"
               >
                 <Link
                   href={item.href}

@@ -4,6 +4,7 @@ import "./globals.css";
 import Nav from "@/components/layout/Nav";
 import ScrollIndicator from "@/components/layout/ScrollIndicator";
 import QuickNavs from "@/components/layout/QuickNavs";
+import Footer from "@/components/layout/Footer";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
@@ -34,6 +35,7 @@ export default function RootLayout({
         <ScrollIndicator />
         <QuickNavs />
         {children}
+        <Footer />
       </body>
     </html>
   );
