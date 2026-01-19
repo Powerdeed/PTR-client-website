@@ -55,7 +55,7 @@ export default function ServicesPage() {
         Explore Our Services
       </h1>
 
-      <div className="w-full lg:inline-flex gap-2.5 mt-5 justify-center text-[14.4px]">
+      <div className="w-full lg:flex gap-2.5 mt-5 justify-center text-[14.4px]">
         <div className="grid gap-10 mt-8 max-w-5xl mx-auto mb-10">
           {services.map((service) => (
             <div key={service.id} className="w-full lg:w-180">
