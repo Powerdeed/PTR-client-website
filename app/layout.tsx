@@ -3,7 +3,6 @@ import { Plus_Jakarta_Sans, Open_Sans } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/layout/Nav";
 import ScrollIndicator from "@/components/layout/ScrollIndicator";
-import QuickNavs from "@/components/layout/QuickNavs";
 import Footer from "@/components/layout/Footer";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -33,7 +32,6 @@ export default function RootLayout({
       >
         <Nav />
         <ScrollIndicator />
-        <QuickNavs />
         {children}
         <Footer />
       </body>

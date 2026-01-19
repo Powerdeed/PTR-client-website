@@ -1,39 +1,5 @@
+import { coreValues } from "@/data/dummyData";
 import SubTitle from "./SubTitle";
-
-const coreValues = {
-  values: {
-    value1: {
-      name: "Integrity",
-      description: "We act honestly and ethically in all we do.",
-      color: "#0a1f44",
-    },
-    value2: {
-      name: "Excellence",
-      description: "We strive for the highest standards and results.",
-      color: "#0043b9",
-    },
-    value3: {
-      name: "Innovation",
-      description: "We embrace creativity and new ideas.",
-      color: "#ffd600",
-    },
-    value4: {
-      name: "Customer Focus",
-      description: "We prioritize our clients’ needs and satisfaction.",
-      color: "#ff0000",
-    },
-    value5: {
-      name: "Teamwork",
-      description: "We collaborate and support each other.",
-      color: "#00c896",
-    },
-    value6: {
-      name: "Safety",
-      description: "We ensure a safe environment for all.",
-      color: "#61ffd7",
-    },
-  },
-};
 
 export default function CoreValues() {
   return (
