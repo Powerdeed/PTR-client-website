@@ -1,94 +1,24 @@
 "use client";
 
 // modules
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
+
+// components
 import SubTitle from "./SubTitle";
 
-const testimonials = [
-  {
-    id: "6870da6360461b0545bb47e6",
-    name: "John Doe",
-    title: "CEO, Acme Corp",
-    testimonial:
-      "Powerdeed exceeded our expectations with their professionalism and expertise.",
-    profilePic: "profile-image",
-  },
-  {
-    id: "6870e4f7e43b11bdb76674b5",
-    name: "Jane Smith",
-    title: "Resident",
-    testimonial: "The team was friendly and efficient. Highly recommended!",
-    profilePic: "profile-image",
-  },
-  {
-    id: "6870e52d5f5d5c2b57831af2",
-    name: "Michael Brown",
-    title: "Facility Manager",
-    testimonial: "Their solutions are reliable and cost-effective.",
-    profilePic: "profile-image",
-  },
-  {
-    id: "6870e5435f5d5c2b57831af5",
-    name: "Emily White",
-    title: "Homeowner",
-    testimonial: "I am very satisfied with the service provided by Powerdeed.",
-    profilePic: "profile-image",
-  },
-  {
-    id: "6870e5545f5d5c2b57831af8",
-    name: "David Green",
-    title: "Business Owner",
-    testimonial: "Prompt response and excellent customer care.",
-    profilePic: "profile-image",
-  },
-  {
-    id: "6870e5795f5d5c2b57831afb",
-    name: "Sophia Lee",
-    title: "Resident",
-    testimonial: "They made the whole process seamless and easy.",
-    profilePic: "profile-image",
-  },
-  {
-    id: "6870e5a55f5d5c2b57831afe",
-    name: "Olivia Brown",
-    title: "Property Manager",
-    testimonial: "We will definitely work with Powerdeed again.",
-    profilePic: "profile-image",
-  },
-  {
-    id: "6870e5b85f5d5c2b57831b01",
-    name: "Daniel Kim",
-    title: "Resident",
-    testimonial: "Great value for money and top-notch service.",
-    profilePic: "profile-image",
-  },
-  {
-    id: "6870e5cb5f5d5c2b57831b04",
-    name: "Grace Wilson",
-    title: "CEO, Wilson Enterprises",
-    testimonial: "Professional, reliable, and trustworthy.",
-    profilePic: "profile-image",
-  },
-];
+// utils
+import { handleScroll } from "@/utils/interactions";
+
+// data
+import { testimonials } from "@/data/dummyData";
 
 export default function Testimonials() {
-  const [testimonialWidth, setTestimonialWidth] = useState(0);
-
   const testimonialEl = useRef<HTMLDivElement | null>(null);
-  useEffect(() => {
-    function updateWidth() {
-      if (testimonialEl.current) {
-        setTestimonialWidth(
-          testimonialEl.current.getBoundingClientRect().width,
-        );
-      }
-    }
-    updateWidth();
-    window.addEventListener("resize", updateWidth);
-    return () => window.removeEventListener("resize", updateWidth);
-  }, [testimonialWidth]);
+  const containerRef = useRef<Record<string, HTMLDivElement | null>>({
+    testimonials: null,
+  });
 
   return (
     <div className="p-0 w-full lg:px-[10%] mb-7.5 relative">
@@ -98,15 +28,15 @@ export default function Testimonials() {
         className="left-0.5 lg:left-[5%] absolute top-[calc(50%+1em)] text-[30px] cursor-pointer z-1"
         icon={["fas", "circle-arrow-left"]}
         style={{ color: "#0a1f448a" }}
-        onClick={(e) =>
-          e.currentTarget.nextElementSibling?.scrollBy({
-            left: -testimonialWidth,
-            behavior: "smooth",
-          })
-        }
+        onClick={() => handleScroll(containerRef, "left", "testimonials")}
       />
 
-      <div className="flex gap-0 overflow-x-hidden w-full rounded-[10px] bg-gray-200 py-2.5">
+      <div
+        className="flex gap-0 overflow-x-hidden w-full rounded-[10px] bg-gray-200 py-2.5"
+        ref={(el) => {
+          if (el) containerRef.current["testimonials"] = el;
+        }}
+      >
         {testimonials.length > 0
           ? testimonials.map((t, idx) => (
               <div
@@ -156,12 +86,7 @@ export default function Testimonials() {
         className="right-0.5 lg:right-[5%] absolute top-[calc(50%+1em)] text-[30px] cursor-pointer z-1"
         icon={["fas", "circle-arrow-right"]}
         style={{ color: "#0a1f448a" }}
-        onClick={(e) =>
-          e.currentTarget.previousElementSibling?.scrollBy({
-            left: testimonialWidth,
-            behavior: "smooth",
-          })
-        }
+        onClick={() => handleScroll(containerRef, "right", "testimonials")}
       />
     </div>
   );

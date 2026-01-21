@@ -8,16 +8,20 @@ import Link from "next/link";
 
 export default function SidePanel({ topProjects }: { topProjects: Project[] }) {
   return (
-    <div className="w-full md:w-[90%] lg:w-100">
+    <div className="w-full md:w-[90%] lg:w-100 text-[12px] font-medium lg:sticky top-20 lg:top-22.5 rounded-[10px] bg-white shadow-md">
       <ReachUsForm />
+
       <hr style={{ margin: "5px 0" }} />
-      <div className="w-full bg-(--terciary-grey) rounded-[10px] grid justify-center py-2.5 mb-1.25 lg:mb-0">
+
+      <div className="w-full bg-(--terciary-grey) rounded-[10px] flex flex-col justify-center p-2.5 mb-1.25 lg:mb-0">
         <h3 className="text-[18px] text-center m-[5px_5px_10px_5px] font-bold">
           See what we&apos;ve been working on
         </h3>
+
         <h5 className="text-center m-0.5">
           A glimpse into some of our recent projects across Kenya.
         </h5>
+
         {topProjects.map((project, idx) => (
           <Link
             href="/projects"
@@ -35,14 +39,19 @@ export default function SidePanel({ topProjects }: { topProjects: Project[] }) {
                 className="object-cover rounded-[10px] scale-100 duration-300 hover:scale-[1.2]"
               />
             </div>
+
             <h4 className="italic group-hover:text(--secondary-blue)">
               {project.name}
             </h4>
           </Link>
         ))}
-        <h4 className="cursor-pointer m-[10px_0_0_10px] text-(--secondary-blue) italic hover:underline">
+
+        <Link
+          href="/projects"
+          className="cursor-pointer m-[10px_0_0_10px] text-(--secondary-blue) italic hover:underline"
+        >
           Explore all projects &rarr;
-        </h4>
+        </Link>
       </div>
     </div>
   );
