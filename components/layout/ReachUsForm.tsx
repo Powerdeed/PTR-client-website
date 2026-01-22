@@ -70,7 +70,7 @@ export default function ReachUsForm() {
   };
 
   return (
-    <div className="h-max bg-(--terciary-grey) rounded-[10px] p-2.5">
+    <div className="h-max bg-(--terciary-grey)/50 rounded-[10px] p-2.5">
       <div className="text-[18px] text-center m-[5px_5px_10px_5px] font-bold">
         Here&apos;s How You Can Reach Us
       </div>

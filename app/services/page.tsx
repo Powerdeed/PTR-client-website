@@ -11,13 +11,10 @@ import SidePanel from "@/components/layout/SidePanel";
 // data
 import { projectImages, services } from "@/data/dummyData";
 
-// services
-import { topProjects } from "@/services/projects";
-
 // utils
 import { handleScroll } from "@/utils/interactions";
 
-export default function ServicesPage() {
+export default function Services() {
   const imageRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
   return (
@@ -76,7 +73,8 @@ export default function ServicesPage() {
             </div>
           ))}
         </div>
-        <SidePanel topProjects={topProjects} />
+
+        <SidePanel options={["reach us", "projects"]} />
       </div>
     </div>
   );

@@ -725,3 +725,284 @@ export const projectImages = {
   powerPost: "/images/projects-images/power-post.jpg",
   wasteRecycle: "/images/projects-images/waste-recycle.jpg",
 };
+
+export const certificateImages = [
+  "/images/certifications/Change-of-particulars.png",
+  "/images/certifications/Participating-license.png",
+  "/images/certifications/Registration-NCA.png",
+];
+
+export const aboutIntro = {
+  aboutOverview1: {
+    image: projectImages.elecJobsConstruction,
+    title: "With over 15 years of experience",
+    description:
+      "Powerdeed is your trusted engineering partner, delivering reliable, high-quality electrical and solar solutions with the latest technologies and a team of certified professionals. We blend deep technical expertise with a customer-centric approach—ensuring every system we design, install, and maintain meets the highest standards of safety, efficiency, and performance.",
+    flipped: false,
+  },
+  aboutOverview2: {
+    image: projectImages.elecJobsConstruction,
+    title: "Our Mission & Vision",
+    description:
+      "We’re committed to empowering Kenya’s growth through sustainable, innovative engineering. Our mission is to uphold excellence, integrity, and professionalism in every project—leveraging cutting-edge renewable energy and smart electrical systems to build tomorrow’s infrastructure today.",
+    flipped: true,
+  },
+};
+
+export const projectCategories = {
+  "Electrical Installation": "ELECTRICAL",
+  "Solar Installation": "SOLAR",
+  Generators: "GENERATORS",
+  Automation: "AUTOMATION",
+  CCTV: "CCTV",
+  Alarms: "ALARMS",
+};
+
+export const aboutUs = {
+  overview: {
+    title: "Company Overview",
+    description: [
+      {
+        id: "b805a61f-2527-477e-8c72-1b8256784929",
+        type: "paragraph",
+        createdAt: "2026-01-22T13:06:05.776Z",
+        data: {
+          text: "Welcome to Powerdeed Engineering Services, your trusted partner in electrical engineering and renewable energy solutions. Established in 2014, Powerdeed has grown from humble beginnings in Nairobi to a reputable force in Nyeri, Kenya, where we now proudly serve individuals, businesses, and institutions across commercial, residential, and industrial sectors.",
+        },
+      },
+      {
+        id: "9ccaac1f-9470-478d-b525-d09c54e53299",
+        type: "paragraph",
+        createdAt: "2026-01-22T13:06:10.144Z",
+        data: {
+          text: "At the heart of Powerdeed is a commitment to innovation, quality, sustainability, and integrity. From custom electrical installations to cutting-edge solar energy systems, our solutions are designed to be reliable, efficient, and environmentally responsible.",
+        },
+      },
+      {
+        id: "28cd952a-1d50-4983-9c5f-568f600c3f6a",
+        type: "paragraph",
+        createdAt: "2026-01-22T13:06:20.063Z",
+        data: {
+          text: "Backed by a skilled team of engineers and technicians, and certified by both the Energy and Petroleum Regulatory Authority (EPRA) and the National Construction Authority (NCA), we consistently meet the highest standards of safety and performance.",
+        },
+      },
+      {
+        id: "9c9ba01f-6dee-462d-861c-14f980f77c65",
+        type: "paragraph",
+        createdAt: "2026-01-22T13:06:32.575Z",
+        data: {
+          text: "Whether you’re upgrading your home’s wiring, powering your business with solar, or securing your premises with alarm systems, Powerdeed offers turnkey solutions, from design to installation and maintenance, tailored to your unique needs.",
+        },
+      },
+      {
+        id: "06dde98b-4007-4a3b-b5d9-a80c7e4aa7bd",
+        type: "paragraph",
+        createdAt: "2026-01-22T13:06:40.166Z",
+        data: {
+          text: "Join us as we light the way toward a smarter, greener future, one project at a time.\nPowerdeed: Powering Progress, Empowering Communities.",
+        },
+      },
+    ],
+  },
+  mission: {
+    title: "Mission",
+    description: [
+      {
+        id: "b805a61f-2527-477e-8c72-1b8256784929",
+        type: "paragraph",
+        createdAt: "2026-01-22T13:06:05.776Z",
+        data: {
+          text: "To provide sustainable, safe, and innovative energy and security solutions that empower our clients and communities.",
+        },
+      },
+    ],
+  },
+  vision: {
+    title: "Vision",
+    description: [
+      {
+        id: "b805a61f-2527-477e-8c72-1b8256784929",
+        type: "paragraph",
+        createdAt: "2026-01-22T13:06:05.776Z",
+        data: {
+          text: "To be the most reliable and forward-thinking engineering service provider in Africa, recognized for excellence, safety, and environmental responsibility.",
+        },
+      },
+    ],
+  },
+  whyChoose: {
+    title: "Why Choose Powerdeed?",
+    description: [
+      {
+        id: "b805a61f-2527-477e-8c72-1b8256784929",
+        type: "paragraph",
+        createdAt: "2026-01-22T13:06:05.776Z",
+        data: {
+          text: "We combine experience, professionalism, and a client-first approach to deliver tailored solutions that meet global standards. Our skilled team, compliance with safety regulations, and use of quality materials ensure long-lasting results. Powerdeed is more than a service provider—we’re your reliable partner from consultation to completion.",
+        },
+      },
+    ],
+  },
+};
+
+export const uniqueFeatures = {
+  title: "Unique Features & benefits",
+  description: {
+    benefit1: {
+      benefit: "Turnkey Solutions",
+      color1: "#0a1f44",
+      color2: "#0043b9",
+    },
+    benefit2: {
+      benefit: "Customized Approach",
+      color1: "#ffd600",
+      color2: "#ffeb86",
+    },
+    benefit3: {
+      benefit: "Certified Expertise",
+      color1: "#ff0000",
+      color2: "#ff3636",
+    },
+    benefit4: {
+      benefit: "Sustainable Focus",
+      color1: "#00c896",
+      color2: "#61ffd7",
+    },
+    benefit5: {
+      benefit: "24/7 Support",
+      color1: "#454545",
+      color2: "#838383",
+    },
+  },
+  width: "100%",
+};
+
+export function shuffleArray(array: string[] | number[]) {
+  for (let i = array.length - 1; i >= 1; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+export const blogs = {
+  "Electrical Installation": [
+    {
+      id: "electrical-1",
+      topic: "Electrical Installation",
+      title: "How Backup Power Can Save Your Business During Blackouts",
+      description:
+        "Discover the importance of reliable backup power systems for businesses and how electrical installations can ensure uninterrupted operations during unexpected outages. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptatum.",
+      date: "11th June 2021",
+      link: "/blog/electrical-installation/1",
+    },
+    {
+      id: "electrical-2",
+      topic: "Electrical Installation",
+      title: "Modern Wiring Techniques for Safer Homes",
+      description:
+        "Explore the latest advancements in electrical wiring that enhance safety and efficiency in residential installations. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptatum.",
+      date: "23rd August 2022",
+      link: "/blog/electrical-installation/2",
+    },
+  ],
+  "Solar Installation": [
+    {
+      id: "solar-1",
+      topic: "Solar Installation",
+      title: "How the War in Israel and Iraq Is Affecting the Energy Sector",
+      description:
+        "An in-depth look at how global conflicts impact solar energy adoption and the broader renewable energy market. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptatum.",
+      date: "5th October 2023",
+      link: "/blog/solar-installation/1",
+    },
+    {
+      id: "solar-2",
+      topic: "Solar Installation",
+      title: "5 Reasons to Switch to Solar in 2024",
+      description:
+        "Learn why now is the perfect time to invest in solar energy for your home or business. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptatum.",
+      date: "15th January 2024",
+      link: "/blog/solar-installation/2",
+    },
+  ],
+  Generators: [
+    {
+      id: "generators-1",
+      topic: "Generators",
+      title: "Choosing the Right Generator for Your Facility",
+      description:
+        "A comprehensive guide to selecting generators that match your power needs and budget. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptatum.",
+      date: "2nd March 2022",
+      link: "/blog/generators/1",
+    },
+    {
+      id: "generators-2",
+      topic: "Generators",
+      title: "Generator Maintenance: Tips for Longevity",
+      description:
+        "Essential maintenance practices to keep your generators running efficiently and reliably. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptatum.",
+      date: "19th July 2023",
+      link: "/blog/generators/2",
+    },
+  ],
+  Automation: [
+    {
+      id: "automation-1",
+      topic: "Automation",
+      title: "Smart Automation: The Future of Industrial Efficiency",
+      description:
+        "How automation is revolutionizing industrial processes and boosting productivity. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptatum.",
+      date: "28th February 2023",
+      link: "/blog/automation/1",
+    },
+    {
+      id: "automation-2",
+      topic: "Automation",
+      title: "Integrating IoT in Building Automation",
+      description:
+        "The benefits and challenges of implementing IoT solutions in modern building automation systems. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptatum.",
+      date: "10th November 2022",
+      link: "/blog/automation/2",
+    },
+  ],
+  CCTV: [
+    {
+      id: "cctv-1",
+      topic: "CCTV",
+      title: "Top 5 CCTV Trends for 2024",
+      description:
+        "Stay ahead with the latest trends in CCTV technology for enhanced security and monitoring. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptatum.",
+      date: "7th April 2024",
+      link: "/blog/cctv/1",
+    },
+    {
+      id: "cctv-2",
+      topic: "CCTV",
+      title: "How to Choose the Best CCTV System for Your Business",
+      description:
+        "Key factors to consider when selecting a CCTV system to protect your assets. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptatum.",
+      date: "12th December 2023",
+      link: "/blog/cctv/2",
+    },
+  ],
+  Alarms: [
+    {
+      id: "alarms-1",
+      topic: "Alarms",
+      title: "Alarm Systems: Protecting Your Home and Business",
+      description:
+        "An overview of modern alarm systems and how they deter threats and provide peace of mind. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptatum.",
+      date: "30th September 2022",
+      link: "/blog/alarms/1",
+    },
+    {
+      id: "alarms-2",
+      topic: "Alarms",
+      title: "Integrating Alarms with Smart Home Technology",
+      description:
+        "Discover how smart technology is transforming traditional alarm systems for better security. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptatum.",
+      date: "18th May 2023",
+      link: "/blog/alarms/2",
+    },
+  ],
+};

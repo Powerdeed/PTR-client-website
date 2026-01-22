@@ -1,11 +1,8 @@
 import { coreValues } from "@/data/dummyData";
-import SubTitle from "./SubTitle";
 
 export default function CoreValues() {
   return (
     <div>
-      <SubTitle subTitle="Our Core Values" />
-
       <div className="flex flex-wrap justify-center gap-[3%]">
         {Object.entries(coreValues.values).map(([key, value]) => (
           <div key={key} className="h-25 w-37.5 mb-2.5">

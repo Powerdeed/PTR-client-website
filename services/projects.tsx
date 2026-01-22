@@ -10,13 +10,10 @@ const grouped = allProjectsArray.reduce<Record<string, Project[]>>(
   {},
 );
 
-const flattened = Object.entries(grouped).flatMap(([category, projects]) =>
-  projects.map((project) => ({
-    ...project,
-    category,
-  })),
+export const topProjects = Object.entries(grouped).flatMap(
+  ([category, projects]) =>
+    projects.map((project) => ({
+      ...project,
+      category,
+    })),
 );
-
-const shuffled = [...flattened].sort(() => 0.5 - Math.random());
-
-export const topProjects = shuffled.slice(0, 3);

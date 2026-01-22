@@ -1,9 +1,9 @@
 import About from "@/components/features/home/About";
-import CoreValues from "@/components/features/home/CoreValues";
 import Header from "@/components/features/home/Header";
 import QuickNavs from "@/components/features/home/QuickNavs";
 import Testimonials from "@/components/features/home/Testimonials";
 import TopProjects from "@/components/features/home/TopProjects";
+import CoreValues from "@/components/layout/CoreValues";
 
 export default function page() {
   return (

@@ -17,6 +17,10 @@ import {
   faQuoteLeft,
   faCircleArrowRight,
   faCircleArrowLeft,
+  faArrowLeft,
+  faArrowRight,
+  faGem,
+  faArrowsToCircle,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { faComments, faHardDrive } from "@fortawesome/free-regular-svg-icons";
@@ -39,5 +43,9 @@ library.add(
   faQuoteRight,
   faQuoteLeft,
   faCircleArrowRight,
-  faCircleArrowLeft
+  faCircleArrowLeft,
+  faArrowLeft,
+  faArrowRight,
+  faGem,
+  faArrowsToCircle,
 );
