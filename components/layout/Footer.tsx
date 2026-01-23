@@ -17,7 +17,7 @@ const links = [
   "services",
   "about/overview",
   "about/structure",
-  "about/certifications",
+  "about/certificates",
   "projects",
   "blog",
   "contact",
@@ -44,12 +44,10 @@ export default function Footer() {
   // }, []);
 
   return (
-    <footer className="relative w-full h-max lg:h-75 p-[0_10%_80px_10%] bg-(--primary-blue) text-[12px] text-(--primary-yellow) grid gap-5">
+    <footer className="relative w-full h-max lg:h-75 p-[0_10%_80px_10%] bg-(--primary-blue) text-[12px] text-(--primary-yellow) grid gap-5 pt-2.5">
       <div>
         <ul className="w-full lg:w-[25%] list-none grid gap-2.5 float-none text-center lg:float-left lg:text-left mb-2.5 lg:mb-0">
-          <li className="Contacts" style={{ fontWeight: "bold" }}>
-            Our Contacts
-          </li>
+          <li className="Contacts font-bold text-[14px]">Our Contacts</li>
 
           {!contacts ? (
             <li>Loading contacts...</li>
@@ -85,7 +83,7 @@ export default function Footer() {
         </ul>
 
         <ul className="w-full lg:w-[25%] list-none grid gap-2.5 float-none text-center lg:float-left lg:text-left mb-2.5 lg:mb-0">
-          <li style={{ fontWeight: "bold" }}>Our Socials:</li>
+          <li className="socials font-bold text-[14px]">Our Socials:</li>
 
           <li className="grid lg:block justify-center">
             <a

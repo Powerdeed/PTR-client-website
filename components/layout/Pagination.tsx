@@ -8,11 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function Pagination() {
   const pathname = usePathname();
   const router = useRouter();
-  const pages = [
-    "/about/overview",
-    "/about/structure",
-    "/about/certifications",
-  ];
+  const pages = ["/about/overview", "/about/structure", "/about/certificates"];
 
   const currentIndex = pages.indexOf(pathname);
 

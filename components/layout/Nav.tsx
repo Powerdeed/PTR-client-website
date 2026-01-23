@@ -136,7 +136,7 @@ export default function Nav() {
               { href: "/about/overview", label: "Overview" },
               { href: "/about/structure", label: "Structure" },
               {
-                href: "/about/certifications",
+                href: "/about/certificates",
                 label: "Certificates & Licenses",
               },
             ].map((item, idx) => (

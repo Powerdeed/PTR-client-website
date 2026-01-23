@@ -14,20 +14,38 @@ import { DraftifyBlock } from "draftify";
 
 export default function Overview() {
   return (
-    <div>
+    <div className="grid gap-5 text-[12px]">
       {/* About information */}
-      <div>
-        <DraftifyBlocksReader
-          blocksData={aboutUs.overview.description as DraftifyBlock[]}
-        />
-      </div>
+      <div className="grid gap-5">
+        <div>
+          <Title title="Overview" icon={["fas", "question"]} />
+          <DraftifyBlocksReader
+            blocksData={aboutUs.overview.description as DraftifyBlock[]}
+          />
+        </div>
 
-      {/* <AboutInfo {...aboutUs.overview} />
-      <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-5">
-        <AboutInfo {...aboutUs.mission} height={"3.5em"} />
-        <AboutInfo {...aboutUs.vision} height={"3.5em"} />
+        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-5">
+          <div>
+            <Title title="Mission" icon={["fas", "thumbs-up"]} />
+            <DraftifyBlocksReader
+              blocksData={aboutUs.mission.description as DraftifyBlock[]}
+            />
+          </div>
+          <div>
+            <Title title="Vision" icon={["fas", "crosshairs"]} />
+            <DraftifyBlocksReader
+              blocksData={aboutUs.vision.description as DraftifyBlock[]}
+            />
+          </div>
+        </div>
+
+        <div>
+          <Title title="Why choose us" icon={["fas", "question"]} />
+          <DraftifyBlocksReader
+            blocksData={aboutUs.whyChoose.description as DraftifyBlock[]}
+          />
+        </div>
       </div>
-      <AboutInfo {...aboutUs.whyChoose} /> */}
 
       {/* Unique features */}
       <div className="unique-features grid gap-5">

@@ -21,6 +21,11 @@ import {
   faArrowRight,
   faGem,
   faArrowsToCircle,
+  faQuestion,
+  faThumbsUp,
+  faCrosshairs,
+  faChevronLeft,
+  faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { faComments, faHardDrive } from "@fortawesome/free-regular-svg-icons";
@@ -48,4 +53,9 @@ library.add(
   faArrowRight,
   faGem,
   faArrowsToCircle,
+  faQuestion,
+  faThumbsUp,
+  faCrosshairs,
+  faChevronLeft,
+  faChevronRight,
 );

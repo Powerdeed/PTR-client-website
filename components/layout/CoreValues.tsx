@@ -16,7 +16,7 @@ export default function CoreValues() {
               >
                 {value.name}
               </div>
-              <p className="mt-2.5 p-1.25 text-[12px] font-semibold text-center text-(--primary-grey) hidden pb-2.5 group-hover:block">
+              <p className="mt-2.5 p-1.25 font-semibold text-center text-(--primary-grey) hidden pb-2.5 group-hover:block">
                 {value.description}
               </p>
             </div>

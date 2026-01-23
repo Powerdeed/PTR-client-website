@@ -1,3 +1,23 @@
+export interface CoreValue {
+  name: string;
+  description: string;
+  color: string;
+}
+
+export interface CoreValuesData {
+  values: {
+    [key: string]: CoreValue;
+  };
+}
+
+export interface Testimonial {
+  id: string;
+  name: string;
+  title: string;
+  testimonial: string;
+  profilePic: string;
+}
+
 export interface Service {
   id: string;
   name: string;
