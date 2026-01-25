@@ -16,7 +16,9 @@ export default function SidePanel({ options }: { options: Option[] }) {
             {option === "blogs" && <TopBlogs />}
           </div>
 
-          {idx < options.length - 1 && <hr className="my-2" />}
+          {idx < options.length - 1 && (
+            <hr className="my-2 text-(--terciary-grey)" />
+          )}
         </div>
       ))}
     </div>

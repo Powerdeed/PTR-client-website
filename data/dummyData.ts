@@ -1,4 +1,4 @@
-import { Blogs } from "@/lib/types/types";
+import { Blogs, Projects } from "@/lib/types/types";
 
 export const coreValues = {
   values: {
@@ -706,511 +706,202 @@ export const allProjectsArray = [
   },
 ];
 
-export const projects = [
+export const projects: Projects = [
   {
     id: "686f8a913673b0db0950398b",
     category: "Electrical",
-    projects: [
-      {
-        name: "Commercial Office Wiring Upgrade",
-        images: [
-          "expansionProject",
-          "gridScale",
-          "solarRural",
-          "electricalInstallation",
-        ],
-        description:
-          "Complete rewiring and electrical system upgrade for a multi-story commercial office building, ensuring compliance with modern safety standards.",
-      },
+    name: "Commercial Office Wiring Upgrade",
+    images: [
+      "expansionProject",
+      "gridScale",
+      "solarRural",
+      "electricalInstallation",
     ],
+    description:
+      "Complete rewiring and electrical system upgrade for a multi-story commercial office building, ensuring compliance with modern safety standards.",
   },
   {
     id: "686f8c333673b0db0950398d",
     category: "Electrical",
-    projects: [
-      {
-        name: "Residential Smart Home Installation",
-        images: [
-          "solarPower",
-          "electricalInstallation3",
-          "electricalInstallation",
-          "electricalInstallation2",
-        ],
-        description:
-          "Installation of smart electrical systems, including automated lighting and energy-efficient wiring in a luxury residential estate.",
-      },
+    name: "Residential Smart Home Installation",
+    images: [
+      "solarPower",
+      "electricalInstallation3",
+      "electricalInstallation",
+      "electricalInstallation2",
     ],
+    description:
+      "Installation of smart electrical systems, including automated lighting and energy-efficient wiring in a luxury residential estate.",
   },
   {
     id: "686f955050a5c5fc27b617e2",
     category: "Electrical",
-    projects: [
-      {
-        name: "Industrial Panel Board Replacement",
-        images: [
-          "electricalInstallation3",
-          "electricalInstallation",
-          "gridScale",
-          "electricalInstallation2",
-        ],
-        description:
-          "Replacement and commissioning of outdated industrial panel boards to improve reliability and safety in a manufacturing facility.",
-      },
+    name: "Industrial Panel Board Replacement",
+    images: [
+      "electricalInstallation3",
+      "electricalInstallation",
+      "gridScale",
+      "electricalInstallation2",
     ],
+    description:
+      "Replacement and commissioning of outdated industrial panel boards to improve reliability and safety in a manufacturing facility.",
   },
   {
     id: "686f95f450a5c5fc27b617ec",
     category: "Electrical",
-    projects: [
-      {
-        name: "Hospital Emergency Power System",
-        images: [
-          "electricalInstallation2",
-          "solarEnergy",
-          "solarRural",
-          "expansionProject",
-        ],
-        description:
-          "Design and installation of a backup power system for critical care units in a regional hospital.",
-      },
+    name: "Hospital Emergency Power System",
+    images: [
+      "electricalInstallation2",
+      "solarEnergy",
+      "solarRural",
+      "expansionProject",
     ],
+    description:
+      "Design and installation of a backup power system for critical care units in a regional hospital.",
   },
   {
     id: "686f962750a5c5fc27b617f0",
     category: "Electrical",
-    projects: [
-      {
-        name: "School Electrical Renovation",
-        images: [
-          "electricalInstallation3",
-          "gridScale",
-          "solarRural",
-          "solarRural",
-        ],
-        description:
-          "Comprehensive electrical renovation for a public school, including new lighting, outlets, and surge protection.",
-      },
+    name: "School Electrical Renovation",
+    images: [
+      "electricalInstallation3",
+      "gridScale",
+      "solarRural",
+      "solarRural",
     ],
+    description:
+      "Comprehensive electrical renovation for a public school, including new lighting, outlets, and surge protection.",
   },
   {
     id: "686f967650a5c5fc27b617f4",
     category: "Solar",
-    projects: [
-      {
-        name: "Commercial Rooftop Solar PV System",
-        images: [
-          "hydrogenProduction",
-          "solarPanelImage",
-          "solarEnergy",
-          "solarPower",
-        ],
-        description:
-          "Installation of a high-capacity rooftop solar photovoltaic system for a shopping mall.",
-      },
+    name: "Commercial Rooftop Solar PV System",
+    images: [
+      "hydrogenProduction",
+      "solarPanelImage",
+      "solarEnergy",
+      "solarPower",
     ],
+    description:
+      "Installation of a high-capacity rooftop solar photovoltaic system for a shopping mall.",
   },
   {
     id: "686f969c50a5c5fc27b617f8",
     category: "Solar",
-    projects: [
-      {
-        name: "Residential Solar Water Heating",
-        images: [
-          "gridScale",
-          "solarResources",
-          "hydrogenProduction",
-          "solarPower",
-        ],
-        description:
-          "Integration of solar water heating panels in a residential housing project.",
-      },
-    ],
+    name: "Residential Solar Water Heating",
+    images: ["gridScale", "solarResources", "hydrogenProduction", "solarPower"],
+    description:
+      "Integration of solar water heating panels in a residential housing project.",
   },
   {
     id: "686f96c250a5c5fc27b617fc",
     category: "Solar",
-    projects: [
-      {
-        name: "Solar-Powered Irrigation System",
-        images: ["solarPower", "expansionProject", "powerPost", "wasteRecycle"],
-        description:
-          "Design and implementation of a solar-powered irrigation system for an agricultural farm.",
-      },
-    ],
+    name: "Solar-Powered Irrigation System",
+    images: ["solarPower", "expansionProject", "powerPost", "wasteRecycle"],
+    description:
+      "Design and implementation of a solar-powered irrigation system for an agricultural farm.",
   },
   {
     id: "686f96e750a5c5fc27b61800",
     category: "Solar",
-    projects: [
-      {
-        name: "Grid-Tied Solar Power Plant",
-        images: [
-          "hydrogenProduction",
-          "expansionProject",
-          "electricalInstallation2",
-          "wasteRecycle",
-        ],
-        description:
-          "Construction and commissioning of a grid-tied solar power plant for a municipal utility.",
-      },
-      {
-        name: "Grid-Tied Solar Power Plant",
-        images: [
-          "hydrogenProduction",
-          "expansionProject",
-          "electricalInstallation2",
-          "wasteRecycle",
-        ],
-        description:
-          "Construction and commissioning of a grid-tied solar power plant for a municipal utility.",
-      },
+    name: "Grid-Tied Solar Power Plant",
+    images: [
+      "hydrogenProduction",
+      "expansionProject",
+      "electricalInstallation2",
+      "wasteRecycle",
     ],
+    description:
+      "Construction and commissioning of a grid-tied solar power plant for a municipal utility.",
   },
   {
     id: "686f974e50a5c5fc27b61808",
     category: "Generators",
-    projects: [
-      {
-        name: "Hospital Standby Generator Installation",
-        images: [
-          "hydrogenProduction",
-          "industrialCommercial",
-          "solarPanelImage",
-          "wasteRecycle",
-        ],
-        description:
-          "Installation of high-capacity standby generators to ensure uninterrupted power supply for a hospital.",
-      },
+    name: "Hospital Standby Generator Installation",
+    images: [
+      "hydrogenProduction",
+      "industrialCommercial",
+      "solarPanelImage",
+      "wasteRecycle",
     ],
+    description:
+      "Installation of high-capacity standby generators to ensure uninterrupted power supply for a hospital.",
   },
   {
     id: "686f97a450a5c5fc27b6180c",
     category: "Generators",
-    projects: [
-      {
-        name: "Industrial Diesel Generator Upgrade",
-        images: [
-          "expansionProject",
-          "solarRural",
-          "solarPanelImage",
-          "powerPost",
-        ],
-        description:
-          "Upgrade and maintenance of diesel generators for a large-scale manufacturing plant.",
-      },
-      {
-        name: "Industrial Diesel Generator Upgrade",
-        images: [
-          "expansionProject",
-          "solarRural",
-          "solarPanelImage",
-          "powerPost",
-        ],
-        description:
-          "Upgrade and maintenance of diesel generators for a large-scale manufacturing plant.",
-      },
-    ],
+    name: "Industrial Diesel Generator Upgrade",
+    images: ["expansionProject", "solarRural", "solarPanelImage", "powerPost"],
+    description:
+      "Upgrade and maintenance of diesel generators for a large-scale manufacturing plant.",
   },
   {
     id: "686f97e950a5c5fc27b61814",
     category: "Generators",
-    projects: [
-      {
-        name: "Commercial Generator Synchronization",
-        images: [
-          "hydrogenProduction",
-          "solarEnergy",
-          "electricalInstallation2",
-          "electricalInstallation",
-        ],
-        description:
-          "Synchronization of multiple generators for seamless power transfer in a commercial complex.",
-      },
+    name: "Commercial Generator Synchronization",
+    images: [
+      "hydrogenProduction",
+      "solarEnergy",
+      "electricalInstallation2",
+      "electricalInstallation",
     ],
+    description:
+      "Synchronization of multiple generators for seamless power transfer in a commercial complex.",
   },
   {
     id: "686f981350a5c5fc27b61818",
     category: "Generators",
-    projects: [
-      {
-        name: "Data Center Backup Power Solution",
-        images: [
-          "electricalInstallation3",
-          "electricalInstallation",
-          "electricalInstallation2",
-          "electricalInstallation3",
-        ],
-        description:
-          "Design and installation of a backup generator system for a mission-critical data center.",
-      },
+    name: "Data Center Backup Power Solution",
+    images: [
+      "electricalInstallation3",
+      "electricalInstallation",
+      "electricalInstallation2",
+      "electricalInstallation3",
     ],
+    description:
+      "Design and installation of a backup generator system for a mission-critical data center.",
   },
   {
     id: "686f983350a5c5fc27b6181c",
     category: "Generators",
-    projects: [
-      {
-        name: "Residential Estate Generator Supply",
-        images: [
-          "expansionProject",
-          "solarResources",
-          "electricalInstallation2",
-          "hydrogenProduction",
-        ],
-        description:
-          "Supply and installation of backup generators for a gated residential estate.",
-      },
+    name: "Residential Estate Generator Supply",
+    images: [
+      "expansionProject",
+      "solarResources",
+      "electricalInstallation2",
+      "hydrogenProduction",
     ],
+    description:
+      "Supply and installation of backup generators for a gated residential estate.",
   },
   {
     id: "686f985b50a5c5fc27b61820",
     category: "Automation",
-    projects: [
-      {
-        name: "Factory Process Automation Upgrade",
-        images: [
-          "wasteRecycle",
-          "powerPost",
-          "industrialCommercial",
-          "hydrogenProduction",
-        ],
-        description:
-          "Upgrade of factory automation systems to improve production efficiency and reduce downtime.",
-      },
+    name: "Factory Process Automation Upgrade",
+    images: [
+      "wasteRecycle",
+      "powerPost",
+      "industrialCommercial",
+      "hydrogenProduction",
     ],
+    description:
+      "Upgrade of factory automation systems to improve production efficiency and reduce downtime.",
   },
   {
     id: "686f987d50a5c5fc27b61824",
     category: "Automation",
-    projects: [
-      {
-        name: "Building Management System Integration",
-        images: ["gridScale", "powerPost", "expansionProject", "wasteRecycle"],
-        description:
-          "Integration of a centralized building management system for automated control of HVAC, lighting, and security.",
-      },
-    ],
+    name: "Building Management System Integration",
+    images: ["gridScale", "powerPost", "expansionProject", "wasteRecycle"],
+    description:
+      "Integration of a centralized building management system for automated control of HVAC, lighting, and security.",
   },
   {
     id: "686f98a450a5c5fc27b61828",
     category: "Automation",
-    projects: [
-      {
-        name: "Automated Lighting Control Project",
-        images: [
-          "solarRural",
-          "powerPost",
-          "gridScale",
-          "electricalInstallation",
-        ],
-        description:
-          "Implementation of automated lighting controls in a commercial office block for energy savings.",
-      },
-    ],
-  },
-  {
-    id: "686f98cb50a5c5fc27b6182c",
-    category: "Automation",
-    projects: [
-      {
-        name: "Remote Monitoring for Water Treatment Plant",
-        images: [
-          "electricalInstallation3",
-          "expansionProject",
-          "gridScale",
-          "electricalInstallation",
-        ],
-        description:
-          "Deployment of remote monitoring and automation for a municipal water treatment facility.",
-      },
-    ],
-  },
-  {
-    id: "686f98ec50a5c5fc27b61830",
-    category: "Automation",
-    projects: [
-      {
-        name: "Smart Warehouse Automation",
-        images: [
-          "solarEnergy",
-          "expansionProject",
-          "solarPanelImage",
-          "electricalInstallation",
-        ],
-        description:
-          "Installation of smart automation solutions for inventory and logistics management in a warehouse.",
-      },
-    ],
-  },
-  {
-    id: "686f991a50a5c5fc27b61834",
-    category: "CCTV",
-    projects: [
-      {
-        name: "City Mall CCTV Surveillance System",
-        images: [
-          "solarPower",
-          "gridScale",
-          "solarPanelImage",
-          "industrialCommercial",
-        ],
-        description:
-          "Design and installation of a comprehensive CCTV surveillance system for a city shopping mall.",
-      },
-    ],
-  },
-  {
-    id: "686f993d50a5c5fc27b61838",
-    category: "CCTV",
-    projects: [
-      {
-        name: "Industrial Perimeter Security Upgrade",
-        images: [
-          "powerPost",
-          "gridScale",
-          "wasteRecycle",
-          "hydrogenProduction",
-        ],
-        description:
-          "Upgrade of perimeter security with high-definition CCTV cameras for an industrial park.",
-      },
-    ],
-  },
-  {
-    id: "686f996450a5c5fc27b6183c",
-    category: "CCTV",
-    projects: [
-      {
-        name: "School Campus Video Monitoring",
-        images: [
-          "expansionProject",
-          "solarRural",
-          "wasteRecycle",
-          "solarEnergy",
-        ],
-        description:
-          "Deployment of a campus-wide video monitoring system for enhanced student safety.",
-      },
-    ],
-  },
-  {
-    id: "686f998950a5c5fc27b61840",
-    category: "CCTV",
-    projects: [
-      {
-        name: "Residential Estate CCTV Integration",
-        images: [
-          "electricalInstallation",
-          "solarRural",
-          "electricalInstallation2",
-          "electricalInstallation3",
-        ],
-        description:
-          "Integration of CCTV systems across multiple residential blocks for centralized monitoring",
-      },
-    ],
-  },
-  {
-    id: "686f99b550a5c5fc27b61844",
-    category: "CCTV",
-    projects: [
-      {
-        name: "Traffic Intersection Surveillance",
-        images: [
-          "solarEnergy",
-          "expansionProject",
-          "electricalInstallation2",
-          "powerPost",
-        ],
-        description:
-          "Installation of CCTV cameras at major traffic intersections for city traffic management.",
-      },
-    ],
-  },
-  {
-    id: "686f99e150a5c5fc27b61848",
-    category: "Alarms",
-    projects: [
-      {
-        name: "Bank Intruder Alarm System",
-        images: [
-          "electricalInstallation",
-          "solarPower",
-          "solarRural",
-          "powerPost",
-        ],
-        description:
-          "Installation of advanced intruder alarm systems for a national bank branch network.",
-      },
-      {
-        name: "Fire Alarm Upgrade for Office Tower",
-        images: ["powerPost", "solarPower", "wasteRecycle", "gridScale"],
-        description:
-          "Upgrade and commissioning of fire alarm systems in a high-rise office tower.",
-      },
-    ],
-  },
-  {
-    id: "686f9a2d50a5c5fc27b61850",
-    category: "Alarms",
-    projects: [
-      {
-        name: "Warehouse Burglar Alarm Installation",
-        images: [
-          "electricalInstallation3",
-          "expansionProject",
-          "wasteRecycle",
-          "industrialCommercial",
-        ],
-        description:
-          "Installation of burglar alarm systems for a logistics warehouse facility.",
-      },
-    ],
-  },
-  {
-    id: "686f9a5850a5c5fc27b61854",
-    category: "Alarms",
-    projects: [
-      {
-        name: "Smart Home Alarm Integration",
-        images: [
-          "gridScale",
-          "solarRural",
-          "solarResources",
-          "solarPanelImage",
-        ],
-        description:
-          "Integration of smart alarm systems with home automation for enhanced residential security.",
-      },
-      {
-        name: "School Emergency Alert System",
-        images: [
-          "electricalInstallation2",
-          "electricalInstallation3",
-          "electricalInstallation",
-          "expansionProject",
-        ],
-        description:
-          "Deployment of an emergency alert and alarm system for a large school campus.",
-      },
-    ],
-  },
-  {
-    id: "686f9aad50a5c5fc27b6185c",
-    category: "Alarms",
-    projects: [
-      {
-        name: "School Emergency Alert System",
-        images: [
-          "electricalInstallation2",
-          "electricalInstallation3",
-          "electricalInstallation",
-          "expansionProject",
-        ],
-        description:
-          "Deployment of an emergency alert and alarm system for a large school campus.",
-      },
-    ],
+    name: "Automated Lighting Control",
+    images: ["solarRural", "solarEnergy", "expansionProject", "gridScale"],
+    description:
+      "Design and installation of automated lighting control for a large-scale commercial project.",
   },
 ];
 
@@ -1801,114 +1492,3 @@ export const blogs: Blogs = [
     },
   },
 ];
-
-// export const blogs = {
-//   "Electrical Installation": [
-//     {
-//       title: "How Backup Power Can Save Your Business During Blackouts",
-//       description:
-//         "Discover the importance of reliable backup power systems for businesses and how electrical installations can ensure uninterrupted operations during unexpected outages. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptatum.",
-//       author: "Bernard Kuria",
-//       date: "11th June 2021",
-//       blog: dummyBlog1,
-//     },
-//     {
-//       title: "Modern Wiring Techniques for Safer Homes",
-//       description:
-//         "Explore the latest advancements in electrical wiring that enhance safety and efficiency in residential installations. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptatum.",
-//       author: "Bernard Kuria",
-//       date: "23rd August 2022",
-//       blog: dummyBlog1,
-//     },
-//   ],
-//   "Solar Installation": [
-//     {
-//       title: "How the War in Israel and Iraq Is Affecting the Energy Sector",
-//       description:
-//         "An in-depth look at how global conflicts impact solar energy adoption and the broader renewable energy market. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptatum.",
-//       date: "5th October 2023",
-//       author: "Bernard Kuria",
-//       blog: dummyBlog1,
-//     },
-//     {
-//       title: "5 Reasons to Switch to Solar in 2024",
-//       description:
-//         "Learn why now is the perfect time to invest in solar energy for your home or business. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptatum.",
-//       author: "Bernard Kuria",
-//       date: "15th January 2024",
-//       blog: dummyBlog1,
-//     },
-//   ],
-//   Generators: [
-//     {
-//       title: "Choosing the Right Generator for Your Facility",
-//       description:
-//         "A comprehensive guide to selecting generators that match your power needs and budget. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptatum.",
-//       author: "Bernard Kuria",
-//       date: "2nd March 2022",
-//       blog: dummyBlog1,
-//     },
-//     {
-//       title: "Generator Maintenance: Tips for Longevity",
-//       description:
-//         "Essential maintenance practices to keep your generators running efficiently and reliably. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptatum.",
-//       author: "Bernard Kuria",
-//       date: "19th July 2023",
-//       blog: dummyBlog1,
-//     },
-//   ],
-//   Automation: [
-//     {
-//       title: "Smart Automation: The Future of Industrial Efficiency",
-//       description:
-//         "How automation is revolutionizing industrial processes and boosting productivity. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptatum.",
-//       author: "Bernard Kuria",
-//       date: "28th February 2023",
-//       blog: dummyBlog1,
-//     },
-//     {
-//       title: "Integrating IoT in Building Automation",
-//       description:
-//         "The benefits and challenges of implementing IoT solutions in modern building automation systems. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptatum.",
-//       author: "Bernard Kuria",
-//       date: "10th November 2022",
-//       blog: dummyBlog1,
-//     },
-//   ],
-//   CCTV: [
-//     {
-//       title: "Top 5 CCTV Trends for 2024",
-//       description:
-//         "Stay ahead with the latest trends in CCTV technology for enhanced security and monitoring. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptatum.",
-//       author: "Bernard Kuria",
-//       date: "7th April 2024",
-//       blog: dummyBlog1,
-//     },
-//     {
-//       title: "How to Choose the Best CCTV System for Your Business",
-//       description:
-//         "Key factors to consider when selecting a CCTV system to protect your assets. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptatum.",
-//       author: "Bernard Kuria",
-//       date: "12th December 2023",
-//       blog: dummyBlog1,
-//     },
-//   ],
-//   Alarms: [
-//     {
-//       title: "Alarm Systems: Protecting Your Home and Business",
-//       description:
-//         "An overview of modern alarm systems and how they deter threats and provide peace of mind. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptatum.",
-//       author: "Bernard Kuria",
-//       date: "30th September 2022",
-//       blog: dummyBlog1,
-//     },
-//     {
-//       title: "Integrating Alarms with Smart Home Technology",
-//       description:
-//         "Discover how smart technology is transforming traditional alarm systems for better security. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptatum.",
-//       author: "Bernard Kuria",
-//       date: "18th May 2023",
-//       blog: dummyBlog1,
-//     },
-//   ],
-// };

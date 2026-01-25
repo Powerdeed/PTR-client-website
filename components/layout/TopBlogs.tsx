@@ -70,7 +70,7 @@ export default function TopBlogs() {
     "polygon(4% 25%, 96% 25%, 96% 0, 100% 25%, 100% 100%, 0 100%, 0 25%, 4% 0 )";
 
   return (
-    <div className="w-full h-fit border border-(terciary-grey) rounded-[10px] inline-block text-center p-2.5">
+    <div className="w-full h-fit border border-(--terciary-grey) rounded-[10px] inline-block text-center p-2.5">
       <div className="relative mx-5 text-[1.3em] text-(--secondary-blue) font-semibold text-center">
         Hot Topics
         <FontAwesomeIcon
@@ -88,7 +88,7 @@ export default function TopBlogs() {
         />
       )}
 
-      <div className="h-[50vh] overflow-hidden" ref={blogsContainerRef}>
+      <div className="h-[60vh] overflow-hidden" ref={blogsContainerRef}>
         {topBlogs.map((blog) => (
           <div key={blog.id}>
             <div className="w-75 inline-block text-left my-1.25">
@@ -98,12 +98,12 @@ export default function TopBlogs() {
               >
                 <h5 className="blog-glimpse-topic">topic: {blog.topic}</h5>
               </div>
-              <div className="flex flex-col bg-(--terciary-grey)/25 mx-[4%] py-1.25 h-15 lg:h-30">
+              <div className="flex flex-col bg-(--terciary-grey)/25 mx-[4%] py-1.25 h-30">
                 <div className="flex-1">
                   <div className="text-[1em] mb-1.25 text-(--secondary-blue) px-[4%]">
                     {blog.blogDoc.metadata?.docTitle}
                   </div>
-                  <p className="line-clamp-4 mb-1.25 text-[0.9em] px-[4%]">
+                  <p className="line-clamp-4 mb-1.25 text-[0.9em] px-[4%] text-justify">
                     {blog.blogDoc.metadata?.description}
                   </p>
                 </div>

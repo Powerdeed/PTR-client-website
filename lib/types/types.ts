@@ -28,12 +28,14 @@ export interface Service {
 }
 
 export interface Project {
-  id?: string;
+  id: string;
   name: string;
   images: string[];
   description: string;
-  category?: string;
+  category: string;
 }
+
+export type Projects = Project[];
 
 export interface CategoryGroup {
   id: string;
