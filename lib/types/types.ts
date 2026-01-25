@@ -1,3 +1,5 @@
+import { DraftifyDocument } from "draftify";
+
 export interface CoreValue {
   name: string;
   description: string;
@@ -38,3 +40,11 @@ export interface CategoryGroup {
   category: string;
   projects: Project[];
 }
+
+export type Blog = {
+  id: number;
+  topic: string;
+  blogDoc: DraftifyDocument;
+};
+
+export type Blogs = Blog[];

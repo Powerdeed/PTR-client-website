@@ -26,6 +26,7 @@ import {
   faCrosshairs,
   faChevronLeft,
   faChevronRight,
+  faRotate,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { faComments, faHardDrive } from "@fortawesome/free-regular-svg-icons";
@@ -58,4 +59,5 @@ library.add(
   faCrosshairs,
   faChevronLeft,
   faChevronRight,
+  faRotate,
 );
