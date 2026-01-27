@@ -5,12 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 // import axios from "axios";
 
-const contacts = {
-  location: "Wakiawa House, Nyeri Town, Kenya",
-  phone: "+254 722 316 721",
-  email: "powerdeedtechnologies@gmail.com",
-  "working-hours": "Mon-Fri: 8:00am - 5:00pm",
-};
+import { contacts } from "@/data/dummyData";
 
 const links = [
   "",

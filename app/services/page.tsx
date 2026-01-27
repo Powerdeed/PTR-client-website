@@ -32,7 +32,7 @@ export default function Services() {
               <div className="relative h-60 md:h-90 overflow-hidden rounded-xl">
                 <FontAwesomeIcon
                   icon={["fas", "circle-arrow-left"]}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 text-3xl cursor-pointer z-10 text-white drop-shadow"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 text-3xl cursor-pointer z-1 text-white drop-shadow"
                   onClick={() => handleScroll(imageRefs, "left", service.id)}
                 />
 
@@ -62,7 +62,7 @@ export default function Services() {
                 {/* Right Arrow */}
                 <FontAwesomeIcon
                   icon={["fas", "circle-arrow-right"]}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-3xl cursor-pointer z-10 text-white drop-shadow"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-3xl cursor-pointer z-1 text-white drop-shadow"
                   onClick={() => handleScroll(imageRefs, "right", service.id)}
                 />
               </div>

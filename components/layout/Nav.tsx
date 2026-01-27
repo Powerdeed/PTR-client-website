@@ -61,7 +61,7 @@ export default function Nav() {
   const isActive = (path: string) => (pathname === path ? "underline" : "");
 
   return (
-    <nav className="relative flex items-center w-full h-12.5 pl-[8%] z-2 bg-[linear-gradient(to_right,var(--secondary-blue)_30%,var(--primary-blue)_70%)] text-(--primary-yellow)">
+    <nav className="relative flex items-center w-full h-12.5 px-2.5 z-2 bg-[linear-gradient(to_right,var(--secondary-blue)_30%,var(--primary-blue)_70%)] text-(--primary-yellow)">
       <Link href="/" className="company-name">
         <div className="no-underline leading-5">
           <h1 className="font-extrabold text-[1.7em] m-0">POWERDEED</h1>
