@@ -23,7 +23,7 @@ export default function Header() {
           across Kenya.
         </p>
       </div>
-      <div className="w-full flex justify-center gap-20 md:gap-25 p-[0_2px]">
+      <div className="w-full flex justify-center gap-5 md:gap-10 p-[0_2px]">
         <button className="text-4 w-50 h-12.5 border-0 rounded-[100px] text-(--primary-yellow) bg-[linear-gradient(45deg,var(--primary-blue)_50%,var(--secondary-blue)_90%)] bg-(--secondary-blue) hover:bg-none hover:bg-(--primary-blue) hover:transition-[background-color_0.3s_ease_in_out]">
           <Link
             href={"../404"}
