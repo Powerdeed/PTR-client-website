@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image.js";
 import SubTitle from "./SubTitle";
 
-import { allProjectsArray, projectImages } from "@/data/dummyData";
+import { projects, projectImages } from "@/data/dummyData";
 
 export default function TopProjects() {
   const [active, setActive] = useState("Electrical");
@@ -51,7 +51,7 @@ export default function TopProjects() {
   }, [slideIn, setSlideIn]);
 
   const uniqueCategories = [
-    ...new Set(allProjectsArray.map((project) => project.category)),
+    ...new Set(projects.map((project) => project.category)),
   ];
 
   useEffect(() => {
@@ -97,19 +97,17 @@ export default function TopProjects() {
         ref={projectCards}
         className="mx-auto w-full lg:w-fit grid grid-cols-[1fr] lg:grid-cols-[1fr_1fr] gap-37.5 justify-center"
       >
-        {allProjectsArray
+        {projects
           .filter((project) => project.category === active)
           .slice(0, 4)
           .map((project, idx) => (
             <div
-              key={project.id || project.projects[0].name || idx}
+              key={project.id || project.name || idx}
               className="group bg-(--primary-blue) relative w-full lg:w-100 h-62.5 rounded-[10px] cursor-pointer"
             >
               <Image
                 src={`${
-                  projectImages[
-                    project.projects[0].images[0] as keyof typeof projectImages
-                  ]
+                  projectImages[project.images[0] as keyof typeof projectImages]
                 }`}
                 alt=""
                 fill
@@ -117,7 +115,7 @@ export default function TopProjects() {
                 className="w-full h-full object-cover rounded-[10px] group-hover:opacity-50 group-hover:duration-500"
               />
               <p className="group-hover:opacity-100 group-hover:-translate-y-17.5 group-hover:duration-500 text-white bottom-0 absolute opacity-0 p-[0_10px]">
-                {project.projects[0].name}
+                {project.name}
               </p>
             </div>
           ))}
