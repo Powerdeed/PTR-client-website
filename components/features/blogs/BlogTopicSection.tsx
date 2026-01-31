@@ -12,8 +12,8 @@ export default function BlogTopicSection() {
           className="w-full h-full"
         />
 
-        <div className="absolute top-1/2 left-10 text-(--primary-yellow) text-[40px] font-bold">
-          Electrical
+        <div className="absolute top-1/2 left-2.5 md:left-10 text-(--primary-yellow) text-[30px] md:text-[40px] font-bold">
+          Topic: Electrical
           <div className="text-[16px] lg:text-[20px] font-normal text-(--primary-blue)">
             Explore latest trends in electrical construction
           </div>
