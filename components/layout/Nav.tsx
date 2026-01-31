@@ -61,7 +61,7 @@ export default function Nav() {
   const isActive = (path: string) => (pathname === path ? "underline" : "");
 
   return (
-    <nav className="relative flex items-center w-full h-12.5 px-2.5 z-2 bg-[linear-gradient(to_right,var(--secondary-blue)_30%,var(--primary-blue)_70%)] text-(--primary-yellow)">
+    <nav className="relative flex items-center w-full h-12.5 px-2.5 z-3 bg-[linear-gradient(to_right,var(--secondary-blue)_30%,var(--primary-blue)_70%)] text-(--primary-yellow)">
       <Link href="/" className="company-name">
         <div className="no-underline leading-5">
           <h1 className="font-extrabold text-[1.7em] m-0">POWERDEED</h1>
@@ -71,7 +71,7 @@ export default function Nav() {
         </div>
       </Link>
 
-      <div className="lg:hidden">
+      <div className={`${isMenuOpen ? "hidden" : null}`}>
         <FontAwesomeIcon
           className={`cursor-pointer absolute top-4 right-2.5 w-4 h-4 transition-[width_0.3s_ease-in-out]`}
           icon={["fas", `${!isMenuOpen ? "bars" : "xmark"}`]}
@@ -81,8 +81,16 @@ export default function Nav() {
 
       <ul
         ref={mainMenu}
-        className={`absolute hidden lg:flex items-center gap-5 list-none top-12.5 lg:top-3 right-0 lg:right-[8%] text-[12px] pl-1 w-0 lg:w-fit h-[calc(100vh-50px)] lg:h-fit bg-(--primary-blue) lg:bg-transparent transition-[width_0.3s_ease-in-out] z-1`}
+        className={`fixed lg:absolute hidden lg:flex items-center gap-5 list-none pt-12.5 top-0 lg:top-3 right-0 lg:right-[8%] text-[12px] pl-1 w-0 lg:w-fit h-screen lg:h-fit bg-(--primary-blue) lg:bg-transparent transition-[width_0.3s_ease-in-out] -z-1`}
       >
+        <div className={`${isMenuOpen ? null : "hidden"}`}>
+          <FontAwesomeIcon
+            className={`cursor-pointer absolute top-4 right-2.5 w-4 h-4 transition-[width_0.3s_ease-in-out]`}
+            icon={["fas", `${!isMenuOpen ? "bars" : "xmark"}`]}
+            onClick={toggleMenu}
+          />
+        </div>
+
         {[
           { href: "/", label: "Home" },
           { href: "/services", label: "Services" },

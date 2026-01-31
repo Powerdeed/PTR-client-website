@@ -23,7 +23,7 @@ export default function Services() {
         Explore Our Services
       </h1>
 
-      <div className="w-fit lg:flex flex-2 gap-2.5 mt-5 justify-center text-[14.4px] mb-10">
+      <div className="w-fit lg:flex gap-2.5 mt-5 justify-center text-[14.4px] mb-10">
         <div className="grid gap-10 mx-auto mb-10">
           {services.map((service) => (
             <div key={service.id} className="w-full lg:min-w-150 lg:max-w-180">

@@ -14,6 +14,7 @@ export default function TopProjects() {
 
   useEffect(() => {
     const cardsSection = projectCards.current;
+
     function animate() {
       if (cardsSection) {
         cardsSection.style.transition =

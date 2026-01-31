@@ -14,7 +14,7 @@ const links = [
   "about/structure",
   "about/certificates",
   "projects",
-  "blog",
+  "blogs",
   "contact",
 ];
 

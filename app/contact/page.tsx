@@ -30,7 +30,7 @@ export default function Contact() {
 
   return (
     <div className="w-full lg:inline-flex p-2.5 text-[0.8em] lg:h-[calc(100vh-350px)] lg:min-h-200">
-      <div className="flex-1 relative lg:mr-2.5 bg-(--terciary-grey)/50 p-2.5 lg:p-0 mb-2.5">
+      <div className="flex-1 relative lg:mr-2.5 bg-(--terciary-grey)/30 p-2.5 lg:p-0 mb-2.5">
         <div className="w-full h-100 flex flex-col justify-center items-center relative mb-2.5">
           <div className="absolute z-1 w-full h-full text-(--primary-yellow) flex text-center items-center justify-center">
             <div>

@@ -28,11 +28,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${plusJakartaSans.variable} ${openSans.variable} antialiased`}
+        className={`${plusJakartaSans.variable} ${openSans.variable} antialiased flex flex-col min-h-screen`}
       >
         <Nav />
         <ScrollIndicator />
-        {children}
+        <div className="flex-1">{children}</div>
         <Footer />
       </body>
     </html>

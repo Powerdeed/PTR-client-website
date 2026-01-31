@@ -23,7 +23,7 @@ export default function TopProjects() {
     getRandomProjects();
   }, []);
   return (
-    <div className="w-full bg-(--terciary-grey)/50 rounded-[10px] flex flex-col justify-center p-2.5 mb-1.25 lg:mb-0">
+    <div className="w-full bg-(--terciary-grey)/30 rounded-[10px] flex flex-col justify-center p-2.5 mb-1.25 lg:mb-0">
       <h3 className="text-[18px] text-center m-[5px_5px_10px_5px] font-bold">
         See what we&apos;ve been working on
       </h3>
