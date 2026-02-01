@@ -540,6 +540,51 @@ export const uniqueFeatures = {
   width: "100%",
 };
 
+export const blogTopics = [
+  {
+    id: 1,
+    topic: "Electrical",
+    description:
+      "Insights into modern electrical systems, safety practices, and real-world installations that power homes, businesses, and industries.",
+    image: "/images/blogTopicImages/Electrical.jpeg",
+  },
+  {
+    id: 2,
+    topic: "Solar",
+    description:
+      "Exploring solar technologies, renewable energy trends, and practical solutions for sustainable power generation.",
+    image: "/images/blogTopicImages/Solar.jpg",
+  },
+  {
+    id: 3,
+    topic: "Generators",
+    description:
+      "Deep dives into backup power systems, generator selection, maintenance strategies, and reliability planning.",
+    image: "/images/blogTopicImages/generators.jpg",
+  },
+  {
+    id: 4,
+    topic: "Automation",
+    description:
+      "Articles on smart systems, industrial automation, and how intelligent control is reshaping efficiency and productivity.",
+    image: "/images/blogTopicImages/Automation.jpg",
+  },
+  {
+    id: 5,
+    topic: "CCTV",
+    description:
+      "Guides and insights on surveillance systems, security design, and best practices for monitoring and protection.",
+    image: "/images/blogTopicImages/CCTV.jpg",
+  },
+  {
+    id: 6,
+    topic: "Alarms",
+    description:
+      "Understanding alarm systems, threat detection, and modern approaches to safety and early-warning technologies.",
+    image: "/images/blogTopicImages/Alarms.jpg",
+  },
+];
+
 export const blogs: Blogs = [
   {
     id: 1,

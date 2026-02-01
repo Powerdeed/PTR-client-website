@@ -71,7 +71,7 @@ export default function Nav() {
         </div>
       </Link>
 
-      <div className={`${isMenuOpen ? "hidden" : null}`}>
+      <div className={`${isMenuOpen ? "hidden" : "lg:hidden"}`}>
         <FontAwesomeIcon
           className={`cursor-pointer absolute top-4 right-2.5 w-4 h-4 transition-[width_0.3s_ease-in-out]`}
           icon={["fas", `${!isMenuOpen ? "bars" : "xmark"}`]}
@@ -81,7 +81,7 @@ export default function Nav() {
 
       <ul
         ref={mainMenu}
-        className={`fixed lg:absolute hidden lg:flex items-center gap-5 list-none pt-12.5 top-0 lg:top-3 right-0 lg:right-[8%] text-[12px] pl-1 w-0 lg:w-fit h-screen lg:h-fit bg-(--primary-blue) lg:bg-transparent transition-[width_0.3s_ease-in-out] -z-1`}
+        className={`fixed lg:absolute hidden lg:flex items-center gap-5 list-none pt-12.5 lg:pt-0 top-0 lg:top-3 right-0 lg:right-[8%] text-[12px] pl-1 w-0 lg:w-fit h-screen lg:h-fit bg-(--primary-blue) lg:bg-transparent transition-[width_0.3s_ease-in-out] -z-1`}
       >
         <div className={`${isMenuOpen ? null : "hidden"}`}>
           <FontAwesomeIcon

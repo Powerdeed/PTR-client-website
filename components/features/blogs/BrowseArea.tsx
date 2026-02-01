@@ -3,17 +3,24 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 
+import { groupedBlogs } from "@/services/blogs";
+
 export default function BrowseArea({
   compressed,
   setCompressed,
+  selectedTopic,
+  setSelectedTopic,
+  setBlogSelected,
 }: {
   compressed: boolean;
   setCompressed: Dispatch<SetStateAction<boolean>>;
+  selectedTopic: string;
+  setSelectedTopic: Dispatch<SetStateAction<string>>;
+  setBlogSelected: Dispatch<SetStateAction<boolean>>;
 }) {
   const browseArea = useRef<HTMLDivElement | null>(null);
   const [fixed, setFixed] = useState(false);
   const [smallScreen, setSmallScreen] = useState(false);
-  const [activeTopic, setActiveTopic] = useState(false);
 
   useEffect(() => {
     const screenSizeSetter = () => {
@@ -92,32 +99,46 @@ export default function BrowseArea({
             className="border rounded-[10px] text-center min-h-7.5 text-[11px]"
           />
 
-          <ul className="grid gap-2.5 text-[12px]">
-            <li
-              className={`border rounded-[10px] p-1.25 overflow-hidden transition-[max-height,border-color] duration-300 ease-in-out
-                ${activeTopic ? "border-(--secondary-blue) max-h-40" : "max-h-10"}
+          <ul
+            className={`grid gap-2.5 text-[12px] ${smallScreen && "max-h-100 overflow-y-scroll"}`}
+          >
+            {Object.entries(groupedBlogs).map(([topic, blogArray]) => (
+              <li
+                key={topic}
+                className={`border rounded-[10px] p-1.25 overflow-hidden transition-[max-height,border-color] duration-300 ease-in-out
+                ${selectedTopic === topic ? "border-(--secondary-blue) max-h-40" : "max-h-10"}
               `}
-            >
-              <div
-                className="flex items-center font-semibold text-(--secondary-blue) cursor-pointer"
-                onClick={() => setActiveTopic((prev) => !prev)}
               >
-                <div className="flex-1">Electrical</div>
-                <FontAwesomeIcon
-                  icon={["fas", `angle-${activeTopic ? "up" : "down"}`]}
-                />
-              </div>
+                <div
+                  className="flex items-center font-semibold text-(--secondary-blue) cursor-pointer"
+                  onClick={() =>
+                    setSelectedTopic((prev) => (prev === topic ? "" : topic))
+                  }
+                >
+                  <div className="flex-1">{topic}</div>
+                  <FontAwesomeIcon
+                    icon={[
+                      "fas",
+                      `angle-${selectedTopic === topic ? "up" : "down"}`,
+                    ]}
+                  />
+                </div>
 
-              <ol className="pl-3 leading-normal grid gap-2.5">
-                <li className="cursor-pointer">
-                  Modern Wiring techniques for safer homes
-                </li>
-
-                <li className="cursor-pointer mr-2.5">
-                  How backup power can save your business during blackouts
-                </li>
-              </ol>
-            </li>
+                <ol className="pl-3 leading-normal grid gap-2.5">
+                  {blogArray.map((b) => (
+                    <li
+                      key={b.id}
+                      className="cursor-pointer"
+                      onClick={() => {
+                        setBlogSelected(true);
+                      }}
+                    >
+                      {b.blogDoc.metadata?.docTitle}
+                    </li>
+                  ))}
+                </ol>
+              </li>
+            ))}
           </ul>
         </div>
       )}

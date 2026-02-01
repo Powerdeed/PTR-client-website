@@ -50,3 +50,10 @@ export type Blog = {
 };
 
 export type Blogs = Blog[];
+
+export type BlogTopics = {
+  id: number;
+  topic: string;
+  description: string;
+  image: string;
+}[];
