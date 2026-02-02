@@ -1,7 +1,7 @@
 "use client";
 
-import { blogs } from "@/data/dummyData";
-import { Blogs } from "@/lib/types/types";
+import { BlogMeta } from "@/lib/types/types";
+import { getRandomTopBlogs } from "@/services/blogs";
 import { getCurrentDateFormatted } from "@/utils/dateConverter";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
@@ -10,20 +10,7 @@ import { useEffect, useRef, useState } from "react";
 export default function TopBlogs() {
   const blogsContainerRef = useRef<HTMLDivElement | null>(null);
   const [isAtTop, setIsAtTop] = useState(true);
-  const [topBlogs, setTopBlogs] = useState<Blogs>([]);
-
-  function shuffleArray(array: Blogs) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-  }
-
-  function getRandomTopBlogs() {
-    const shuffled = [...blogs];
-    shuffleArray(shuffled);
-    return shuffled.slice(0, 10);
-  }
+  const [topBlogs, setTopBlogs] = useState<BlogMeta[]>([]);
 
   useEffect(() => {
     function topBlogsFunc() {
@@ -101,10 +88,10 @@ export default function TopBlogs() {
               <div className="flex flex-col bg-(--terciary-grey)/25 mx-[4%] py-1.25 h-30">
                 <div className="flex-1">
                   <div className="text-[1em] mb-1.25 text-(--secondary-blue) px-[4%]">
-                    {blog.blogDoc.metadata?.docTitle}
+                    {blog.title}
                   </div>
                   <p className="line-clamp-4 mb-1.25 text-[0.9em] px-[4%] text-justify">
-                    {blog.blogDoc.metadata?.description}
+                    {blog.description}
                   </p>
                 </div>
                 <Link
@@ -120,10 +107,8 @@ export default function TopBlogs() {
               >
                 <div className="blog-glimpse-date">
                   Posted on{" "}
-                  {blog.blogDoc.metadata?.createdAt &&
-                    getCurrentDateFormatted(
-                      new Date(blog.blogDoc.metadata.createdAt),
-                    )}
+                  {blog.createdAt &&
+                    getCurrentDateFormatted(new Date(blog.createdAt))}
                 </div>
               </div>
             </div>

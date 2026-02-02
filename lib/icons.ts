@@ -35,6 +35,8 @@ import {
 
 import { faComments, faHardDrive } from "@fortawesome/free-regular-svg-icons";
 
+import { faWhatsapp, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+
 library.add(
   faBars,
   faXmark,
@@ -68,4 +70,6 @@ library.add(
   faRotate,
   faArrowDown,
   faArrowUp,
+  faWhatsapp,
+  faLinkedin,
 );

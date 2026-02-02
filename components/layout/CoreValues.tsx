@@ -4,8 +4,8 @@ export default function CoreValues() {
   return (
     <div>
       <div className="flex flex-wrap justify-center gap-[3%]">
-        {Object.entries(coreValues.values).map(([key, value]) => (
-          <div key={key} className="h-25 w-37.5 mb-2.5">
+        {coreValues.map((value) => (
+          <div key={value.name} className="h-25 w-37.5 mb-2.5">
             <div
               className="group items-center h-12.5 rounded-[10px] overflow-hidden transition-[height_300ms] cursor-pointer pt-3 hover:h-full hover:transition-[height_300ms]"
               style={{ boxShadow: `1px 1px 15px ${value.color}` }}

@@ -1,41 +1,52 @@
-import { Blogs, Projects } from "@/lib/types/types";
+import {
+  AboutIntro,
+  AboutUs,
+  BlogContent,
+  BlogMeta,
+  BlogTopics,
+  Comment,
+  Contacts,
+  CoreValue,
+  Projects,
+  Service,
+  Testimonial,
+  UniqueFeatures,
+} from "@/lib/types/types";
 
-export const coreValues = {
-  values: {
-    value1: {
-      name: "Integrity",
-      description: "We act honestly and ethically in all we do.",
-      color: "#0a1f44",
-    },
-    value2: {
-      name: "Excellence",
-      description: "We strive for the highest standards and results.",
-      color: "#0043b9",
-    },
-    value3: {
-      name: "Innovation",
-      description: "We embrace creativity and new ideas.",
-      color: "#ffd600",
-    },
-    value4: {
-      name: "Customer Focus",
-      description: "We prioritize our clients’ needs and satisfaction.",
-      color: "#ff0000",
-    },
-    value5: {
-      name: "Teamwork",
-      description: "We collaborate and support each other.",
-      color: "#00c896",
-    },
-    value6: {
-      name: "Safety",
-      description: "We ensure a safe environment for all.",
-      color: "#61ffd7",
-    },
+export const coreValues: CoreValue[] = [
+  {
+    name: "Integrity",
+    description: "We act honestly and ethically in all we do.",
+    color: "#0a1f44",
   },
-};
+  {
+    name: "Excellence",
+    description: "We strive for the highest standards and results.",
+    color: "#0043b9",
+  },
+  {
+    name: "Innovation",
+    description: "We embrace creativity and new ideas.",
+    color: "#ffd600",
+  },
+  {
+    name: "Customer Focus",
+    description: "We prioritize our clients’ needs and satisfaction.",
+    color: "#ff0000",
+  },
+  {
+    name: "Teamwork",
+    description: "We collaborate and support each other.",
+    color: "#00c896",
+  },
+  {
+    name: "Safety",
+    description: "We ensure a safe environment for all.",
+    color: "#61ffd7",
+  },
+];
 
-export const testimonials = [
+export const testimonials: Testimonial[] = [
   {
     id: "6870da6360461b0545bb47e6",
     name: "John Doe",
@@ -102,7 +113,7 @@ export const testimonials = [
   },
 ];
 
-export const services = [
+export const services: Service[] = [
   {
     id: "686cdfd3331af187616e70bc",
     name: "Electrical Installation",
@@ -395,34 +406,25 @@ export const certificateImages = [
   "/images/certifications/Registration-NCA.png",
 ];
 
-export const aboutIntro = {
-  aboutOverview1: {
-    image: projectImages.elecJobsConstruction,
+export const aboutIntro: AboutIntro[] = [
+  {
     title: "With over 15 years of experience",
     description:
       "Powerdeed is your trusted engineering partner, delivering reliable, high-quality electrical and solar solutions with the latest technologies and a team of certified professionals. We blend deep technical expertise with a customer-centric approach—ensuring every system we design, install, and maintain meets the highest standards of safety, efficiency, and performance.",
+    image: projectImages.elecJobsConstruction,
     flipped: false,
   },
-  aboutOverview2: {
-    image: projectImages.elecJobsConstruction,
+  {
     title: "Our Mission & Vision",
     description:
       "We’re committed to empowering Kenya’s growth through sustainable, innovative engineering. Our mission is to uphold excellence, integrity, and professionalism in every project—leveraging cutting-edge renewable energy and smart electrical systems to build tomorrow’s infrastructure today.",
+    image: projectImages.elecJobsConstruction,
     flipped: true,
   },
-};
+];
 
-export const projectCategories = {
-  "Electrical Installation": "ELECTRICAL",
-  "Solar Installation": "SOLAR",
-  Generators: "GENERATORS",
-  Automation: "AUTOMATION",
-  CCTV: "CCTV",
-  Alarms: "ALARMS",
-};
-
-export const aboutUs = {
-  overview: {
+export const aboutUs: AboutUs[] = [
+  {
     title: "Company Overview",
     description: [
       {
@@ -467,7 +469,7 @@ export const aboutUs = {
       },
     ],
   },
-  mission: {
+  {
     title: "Mission",
     description: [
       {
@@ -480,7 +482,7 @@ export const aboutUs = {
       },
     ],
   },
-  vision: {
+  {
     title: "Vision",
     description: [
       {
@@ -493,7 +495,7 @@ export const aboutUs = {
       },
     ],
   },
-  whyChoose: {
+  {
     title: "Why Choose Powerdeed?",
     description: [
       {
@@ -506,89 +508,187 @@ export const aboutUs = {
       },
     ],
   },
-};
+];
 
-export const uniqueFeatures = {
-  title: "Unique Features & benefits",
-  description: {
-    benefit1: {
-      benefit: "Turnkey Solutions",
-      color1: "#0a1f44",
-      color2: "#0043b9",
-    },
-    benefit2: {
-      benefit: "Customized Approach",
-      color1: "#ffd600",
-      color2: "#ffeb86",
-    },
-    benefit3: {
-      benefit: "Certified Expertise",
-      color1: "#ff0000",
-      color2: "#ff3636",
-    },
-    benefit4: {
-      benefit: "Sustainable Focus",
-      color1: "#00c896",
-      color2: "#61ffd7",
-    },
-    benefit5: {
-      benefit: "24/7 Support",
-      color1: "#454545",
-      color2: "#838383",
-    },
-  },
-  width: "100%",
-};
-
-export const blogTopics = [
+export const uniqueFeatures: UniqueFeatures[] = [
   {
-    id: 1,
-    topic: "Electrical",
+    benefit: "Turnkey Solutions",
+    color1: "#0a1f44",
+    color2: "#0043b9",
+  },
+  {
+    benefit: "Customized Approach",
+    color1: "#ffd600",
+    color2: "#ffeb86",
+  },
+  {
+    benefit: "Certified Expertise",
+    color1: "#ff0000",
+    color2: "#ff3636",
+  },
+  {
+    benefit: "Sustainable Focus",
+    color1: "#00c896",
+    color2: "#61ffd7",
+  },
+  {
+    benefit: "24/7 Support",
+    color1: "#454545",
+    color2: "#838383",
+  },
+];
+
+export const blogTopics: BlogTopics = [
+  {
+    id: "1",
+    topic: "electrical",
     description:
       "Insights into modern electrical systems, safety practices, and real-world installations that power homes, businesses, and industries.",
     image: "/images/blogTopicImages/Electrical.jpeg",
   },
   {
-    id: 2,
-    topic: "Solar",
+    id: "2",
+    topic: "solar",
     description:
       "Exploring solar technologies, renewable energy trends, and practical solutions for sustainable power generation.",
     image: "/images/blogTopicImages/Solar.jpg",
   },
   {
-    id: 3,
-    topic: "Generators",
+    id: "3",
+    topic: "generators",
     description:
       "Deep dives into backup power systems, generator selection, maintenance strategies, and reliability planning.",
-    image: "/images/blogTopicImages/generators.jpg",
+    image: "/images/blogTopicImages/Generators.jpg",
   },
   {
-    id: 4,
-    topic: "Automation",
+    id: "4",
+    topic: "automation",
     description:
       "Articles on smart systems, industrial automation, and how intelligent control is reshaping efficiency and productivity.",
     image: "/images/blogTopicImages/Automation.jpg",
   },
   {
-    id: 5,
-    topic: "CCTV",
+    id: "5",
+    topic: "cctv",
     description:
       "Guides and insights on surveillance systems, security design, and best practices for monitoring and protection.",
     image: "/images/blogTopicImages/CCTV.jpg",
   },
   {
-    id: 6,
-    topic: "Alarms",
+    id: "6",
+    topic: "alarms",
     description:
       "Understanding alarm systems, threat detection, and modern approaches to safety and early-warning technologies.",
     image: "/images/blogTopicImages/Alarms.jpg",
   },
 ];
 
-export const blogs: Blogs = [
+export const blogsMeta: BlogMeta[] = [
   {
-    id: 1,
-    topic: "Electrical",
+    id: "1",
+    topic: "electrical",
+    title: "How Backup Power Can Save Your Business During Blackouts",
+    description:
+      "Discover the importance of reliable backup power systems for businesses and how electrical installations can ensure uninterrupted operations during unexpected outages.",
+    image: "",
+    author: "Unknown",
+    createdAt: "2026-01-24T01:23:46.613Z",
+  },
+  {
+    id: "2",
+    topic: "solar",
+    title: "How the War in Israel and Iraq Is Affecting the Energy Sector",
+    description:
+      "An in-depth look at how global conflicts impact solar energy adoption and the broader renewable energy market.",
+    image: "",
+    author: "Unknown",
+    createdAt: "2026-01-24T01:23:46.613Z",
+  },
+  {
+    id: "3",
+    topic: "generators",
+    title: "Choosing the Right Generator for Your Facility",
+    description:
+      "A comprehensive guide to selecting generators that match your power needs and budget.",
+    image: "",
+    author: "Unknown",
+    createdAt: "2026-01-24T01:23:46.613Z",
+  },
+  {
+    id: "4",
+    topic: "automation",
+    title: "Smart Automation: The Future of Industrial Efficiency",
+    description:
+      "How automation is revolutionizing industrial processes and boosting productivity.",
+    image: "",
+    author: "Unknown",
+    createdAt: "2026-01-24T01:23:46.613Z",
+  },
+  {
+    id: "5",
+    topic: "cctv",
+    title: "Top 5 CCTV Trends for 2024",
+    description:
+      "Stay ahead with the latest trends in CCTV technology for enhanced security and monitoring.",
+    image: "",
+    author: "Unknown",
+    createdAt: "2026-01-24T01:23:46.613Z",
+  },
+  {
+    id: "6",
+    topic: "alarms",
+    title: "Protecting Your Home and Business",
+    description:
+      "An overview of modern alarm systems and how they deter threats and provide peace of mind.",
+    image: "",
+    author: "Unknown",
+    createdAt: "2026-01-24T01:23:46.613Z",
+  },
+  {
+    id: "7",
+    topic: "electrical",
+    title: "Modern Wiring Techniques for Safer Homes",
+    description:
+      "Explore the latest advancements in electrical wiring that enhance safety and efficiency in residential installations.",
+    image: "",
+    author: "Unknown",
+    createdAt: "2026-01-24T01:23:46.613Z",
+  },
+  {
+    id: "8",
+    topic: "solar",
+    title: "How the War in Israel and Iraq Is Affecting the Energy Sector",
+    description:
+      "An in-depth look at how global conflicts impact solar energy adoption and the broader renewable energy market.",
+    image: "",
+    author: "Unknown",
+    createdAt: "2026-01-24T01:23:46.613Z",
+  },
+  {
+    id: "9",
+    topic: "generators",
+    title: "Generator Maintenance: Tips for Longevity",
+    description:
+      "Essential maintenance practices to keep your generators running efficiently and reliably.",
+    image: "",
+    author: "Unknown",
+    createdAt: "2026-01-24T01:23:46.613Z",
+  },
+  {
+    id: "10",
+    topic: "automation",
+    title: "Integrating IoT in Building Automation",
+    description:
+      "The benefits and challenges of implementing IoT solutions in modern building automation systems.",
+    image: "",
+    author: "Unknown",
+    createdAt: "2026-01-24T01:23:46.613Z",
+  },
+];
+
+export const blogsContent: BlogContent[] = [
+  {
+    id: "1",
     blogDoc: {
       metadata: {
         docTitle: "How Backup Power Can Save Your Business During Blackouts",
@@ -628,8 +728,7 @@ export const blogs: Blogs = [
     },
   },
   {
-    id: 2,
-    topic: "Solar",
+    id: "2",
     blogDoc: {
       metadata: {
         docTitle:
@@ -670,8 +769,7 @@ export const blogs: Blogs = [
     },
   },
   {
-    id: 3,
-    topic: "Generators",
+    id: "3",
     blogDoc: {
       metadata: {
         docTitle: "Choosing the Right Generator for Your Facility",
@@ -711,8 +809,7 @@ export const blogs: Blogs = [
     },
   },
   {
-    id: 4,
-    topic: "Automation",
+    id: "4",
     blogDoc: {
       metadata: {
         docTitle: "Smart Automation: The Future of Industrial Efficiency",
@@ -752,8 +849,7 @@ export const blogs: Blogs = [
     },
   },
   {
-    id: 5,
-    topic: "CCTV",
+    id: "5",
     blogDoc: {
       metadata: {
         docTitle: "Top 5 CCTV Trends for 2024",
@@ -793,8 +889,7 @@ export const blogs: Blogs = [
     },
   },
   {
-    id: 6,
-    topic: "Alarms",
+    id: "6",
     blogDoc: {
       metadata: {
         docTitle: "Protecting Your Home and Business",
@@ -834,8 +929,7 @@ export const blogs: Blogs = [
     },
   },
   {
-    id: 7,
-    topic: "Electrical",
+    id: "7",
     blogDoc: {
       metadata: {
         docTitle: "Modern Wiring Techniques for Safer Homes",
@@ -875,8 +969,7 @@ export const blogs: Blogs = [
     },
   },
   {
-    id: 8,
-    topic: "Solar",
+    id: "8",
     blogDoc: {
       metadata: {
         docTitle:
@@ -917,8 +1010,7 @@ export const blogs: Blogs = [
     },
   },
   {
-    id: 9,
-    topic: "Generators",
+    id: "9",
     blogDoc: {
       metadata: {
         docTitle: "Generator Maintenance: Tips for Longevity",
@@ -958,8 +1050,7 @@ export const blogs: Blogs = [
     },
   },
   {
-    id: 10,
-    topic: "Automation",
+    id: "10",
     blogDoc: {
       metadata: {
         docTitle: "Integrating IoT in Building Automation",
@@ -1000,9 +1091,52 @@ export const blogs: Blogs = [
   },
 ];
 
-export const contacts = {
-  location: "Wakiawa House, Nyeri Town, Kenya",
-  phone: "+254 722 316 721",
-  email: "powerdeedtechnologies@gmail.com",
-  "working-hours": "Mon-Fri: 8:00am - 5:00pm",
+export const comments: Comment[] = [
+  {
+    docId: "3",
+    id: "1",
+    comment: "Good Job",
+    likes: 3,
+  },
+  {
+    docId: "3",
+    id: "1",
+    comment: "Loved it",
+    likes: 3,
+  },
+  {
+    docId: "3",
+    id: "2",
+    comment: "Good Job",
+    likes: 3,
+  },
+  {
+    docId: "3",
+    id: "2",
+    comment: "I enjoed it",
+    likes: 3,
+  },
+  {
+    docId: "3",
+    id: "3",
+    comment: "Very informative",
+    likes: 3,
+  },
+];
+
+export const contacts: Contacts = {
+  general: {
+    location: "Wakiawa House, Nyeri Town, Kenya",
+    phone: "+254 722 316 721",
+    email: "powerdeedtechnologies@gmail.com",
+    "working-hours": "Mon-Fri: 8:00am - 5:00pm",
+  },
+  socials: {
+    linkedIn: {
+      link: "https://www.linkedin.com/in/alfred-kuria-58199a106/?originalSubdomain=ke",
+    },
+    WhatsApp: {
+      link: "https://wa.me/254722316721?text=Hi%2C%20I%20found%20you%20on%20the%20website",
+    },
+  },
 };

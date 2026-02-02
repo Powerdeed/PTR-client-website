@@ -20,7 +20,10 @@ export default function Overview() {
         <div>
           <Title title="Overview" icon={["fas", "question"]} />
           <DraftifyBlocksReader
-            blocksData={aboutUs.overview.description as DraftifyBlock[]}
+            blocksData={
+              aboutUs.find((about) => about.title === "Company Overview")
+                ?.description as DraftifyBlock[]
+            }
           />
         </div>
 
@@ -28,13 +31,19 @@ export default function Overview() {
           <div>
             <Title title="Mission" icon={["fas", "thumbs-up"]} />
             <DraftifyBlocksReader
-              blocksData={aboutUs.mission.description as DraftifyBlock[]}
+              blocksData={
+                aboutUs.find((about) => about.title === "Mission")
+                  ?.description as DraftifyBlock[]
+              }
             />
           </div>
           <div>
             <Title title="Vision" icon={["fas", "crosshairs"]} />
             <DraftifyBlocksReader
-              blocksData={aboutUs.vision.description as DraftifyBlock[]}
+              blocksData={
+                aboutUs.find((about) => about.title === "Vision")
+                  ?.description as DraftifyBlock[]
+              }
             />
           </div>
         </div>
@@ -42,27 +51,30 @@ export default function Overview() {
         <div>
           <Title title="Why choose us" icon={["fas", "question"]} />
           <DraftifyBlocksReader
-            blocksData={aboutUs.whyChoose.description as DraftifyBlock[]}
+            blocksData={
+              aboutUs.find((about) => about.title === "Why Choose Powerdeed?")
+                ?.description as DraftifyBlock[]
+            }
           />
         </div>
       </div>
 
       {/* Unique features */}
       <div className="unique-features grid gap-5">
-        <Title title={uniqueFeatures.title} icon={["fas", "gem"]} />
+        <Title title="Unique Features & benefits" icon={["fas", "gem"]} />
 
         <div className="inline-flex justify-center gap-7.5 lg:gap-15">
-          <FeatureContainer {...uniqueFeatures.description.benefit1} />
-          <FeatureContainer {...uniqueFeatures.description.benefit2} />
+          <FeatureContainer {...uniqueFeatures[0]} />
+          <FeatureContainer {...uniqueFeatures[1]} />
         </div>
 
         <div className="inline-flex justify-center gap-10 lg:gap-55">
-          <FeatureContainer {...uniqueFeatures.description.benefit3} />
-          <FeatureContainer {...uniqueFeatures.description.benefit4} />
+          <FeatureContainer {...uniqueFeatures[2]} />
+          <FeatureContainer {...uniqueFeatures[3]} />
         </div>
 
         <div className="inline-flex justify-center">
-          <FeatureContainer {...uniqueFeatures.description.benefit5} />
+          <FeatureContainer {...uniqueFeatures[4]} />
         </div>
       </div>
 

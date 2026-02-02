@@ -1,56 +1,34 @@
 "use client";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
+import { Dispatch, SetStateAction } from "react";
+import Link from "next/link";
 
 import { groupedBlogs } from "@/services/blogs";
+
+import { useArticle } from "@/hooks/useArticle";
 
 export default function BrowseArea({
   compressed,
   setCompressed,
   selectedTopic,
   setSelectedTopic,
-  setBlogSelected,
 }: {
   compressed: boolean;
   setCompressed: Dispatch<SetStateAction<boolean>>;
   selectedTopic: string;
   setSelectedTopic: Dispatch<SetStateAction<string>>;
-  setBlogSelected: Dispatch<SetStateAction<boolean>>;
 }) {
-  const browseArea = useRef<HTMLDivElement | null>(null);
-  const [fixed, setFixed] = useState(false);
-  const [smallScreen, setSmallScreen] = useState(false);
-
-  useEffect(() => {
-    const screenSizeSetter = () => {
-      setSmallScreen(window.innerWidth < 768);
-    };
-
-    screenSizeSetter();
-    window.addEventListener("resize", screenSizeSetter);
-
-    return () => window.removeEventListener("resize", screenSizeSetter);
-  }, []);
-
-  useEffect(() => {
-    if (!smallScreen) return;
-
-    const handleScroll = () => {
-      setFixed(window.scrollY >= 50);
-    };
-
-    handleScroll();
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [smallScreen]);
+  const { browseArea, fixedProperty, smallScreen } = useArticle(
+    "",
+    selectedTopic,
+  );
 
   return (
     <div
       ref={browseArea}
       className={`
-        ${fixed ? "fixed top-0 left-0" : "relative"}
+        ${fixedProperty ? "fixed top-0 left-0" : "relative"}
         md:relative
         leading-7.5
         transition-all
@@ -109,31 +87,28 @@ export default function BrowseArea({
                 ${selectedTopic === topic ? "border-(--secondary-blue) max-h-40" : "max-h-10"}
               `}
               >
-                <div
+                <Link
+                  href={`/articles/${topic}`}
                   className="flex items-center font-semibold text-(--secondary-blue) cursor-pointer"
-                  onClick={() =>
-                    setSelectedTopic((prev) => (prev === topic ? "" : topic))
-                  }
+                  onClick={() => {
+                    if (selectedTopic !== topic) setSelectedTopic(topic);
+                  }}
                 >
-                  <div className="flex-1">{topic}</div>
+                  <div className="flex-1">
+                    {topic.charAt(0).toUpperCase() + topic.slice(1)}
+                  </div>
                   <FontAwesomeIcon
                     icon={[
                       "fas",
                       `angle-${selectedTopic === topic ? "up" : "down"}`,
                     ]}
                   />
-                </div>
+                </Link>
 
-                <ol className="pl-3 leading-normal grid gap-2.5">
+                <ol className="p-1 leading-normal grid gap-2.5">
                   {blogArray.map((b) => (
-                    <li
-                      key={b.id}
-                      className="cursor-pointer"
-                      onClick={() => {
-                        setBlogSelected(true);
-                      }}
-                    >
-                      {b.blogDoc.metadata?.docTitle}
+                    <li key={b.id} className="cursor-pointer">
+                      <Link href={`/articles/${topic}/${b.id}`}>{b.title}</Link>
                     </li>
                   ))}
                 </ol>
