@@ -28,7 +28,8 @@ export default function BrowseArea({
   return (
     <div
       ref={browseArea}
-      className={` relative
+      className={`
+        ${fixedProperty ? "not-has-focus:fixed relative top-0 left-0" : "relative"}
         md:relative
         leading-7.5
         transition-all
@@ -66,12 +67,12 @@ export default function BrowseArea({
         />
       </div>
 
-      {!compressed && (
+      {
         <div className="flex flex-col gap-2.5 mt-2.5 md:mt-0">
           <input
             type="text"
             placeholder="Search by name or tag"
-            className="border rounded-[10px] text-center min-h-7.5 text-[11px]"
+            className={`${!compressed ? "border" : null} rounded-[10px] text-center min-h-7.5 text-[11px]`}
           />
 
           <ul
@@ -80,7 +81,7 @@ export default function BrowseArea({
             {Object.entries(groupedBlogs).map(([topic, blogArray]) => (
               <li
                 key={topic}
-                className={`border rounded-[10px] p-1.25 overflow-hidden transition-[max-height,border-color] duration-300 ease-in-out
+                className={`rounded-[10px] ${!compressed ? "p-1.25 border" : null} overflow-hidden transition-[max-height,border-color] duration-300 ease-in-out
                 ${selectedTopic === topic ? "border-(--secondary-blue) max-h-40" : "max-h-10"}
               `}
               >
@@ -113,7 +114,7 @@ export default function BrowseArea({
             ))}
           </ul>
         </div>
-      )}
+      }
     </div>
   );
 }
