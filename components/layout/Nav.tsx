@@ -168,7 +168,7 @@ export default function Nav() {
 
         {[
           { href: "/projects", label: "Projects" },
-          { href: "/articles", label: "Articles" },
+          { href: "/articles/electrical", label: "Articles" },
           { href: "/contact", label: "Contact" },
         ].map((item, idx) => (
           <li

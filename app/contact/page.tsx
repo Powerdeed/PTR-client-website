@@ -95,7 +95,7 @@ export default function Contact() {
               <h2 className="section-title text-(--primary-blue) font-semibold">
                 We&apos;re right Here
               </h2>
-              <div className="w-full h-[calc(100%-3em)] relative border border-(--primary-blue) rounded-[10px]">
+              <div className="w-full h-full relative border border-(--primary-blue) rounded-[10px] p-2.5">
                 map
               </div>
             </div>

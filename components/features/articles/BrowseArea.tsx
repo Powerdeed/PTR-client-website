@@ -7,6 +7,7 @@ import Link from "next/link";
 import { groupedBlogs } from "@/services/blogs";
 
 import { useArticle } from "@/hooks/useArticle";
+import Button from "@/components/ui/Button";
 
 export default function BrowseArea({
   compressed,
@@ -28,7 +29,7 @@ export default function BrowseArea({
     <div
       ref={browseArea}
       className={`
-        ${fixedProperty ? "fixed top-0 left-0" : "relative"}
+        ${fixedProperty ? "not-has-focus:fixed relative top-0 left-0" : "relative"}
         md:relative
         leading-7.5
         transition-all
@@ -44,33 +45,30 @@ export default function BrowseArea({
     >
       <div
         className={`absolute
-          w-fit h-10
-          py-1 px-2
-          rounded-[10px]
-          text-(--primary-yellow)
-          bg-[linear-gradient(45deg,var(--primary-blue)_50%,var(--secondary-blue)_90%)] hover:bg-none
-          bg-(--secondary-blue) hover:bg-(--primary-blue)
-          transition-transform hover:transition-[background-color_0.3s_ease_in_out]
+          w-[calc(100vw-40px)] md:w-fit
           md:-right-15
           top-2.5
           z-2
-          cursor-pointer
           ${compressed ? "translate-x-2.5" : "translate-x-0"}`}
         onClick={() => setCompressed((prev) => !prev)}
       >
-        <button className="w-[calc(100vw-50px)] block md:hidden">
-          Browse Topics
-        </button>
-
-        <div className="hidden md:block">
-          <FontAwesomeIcon
-            icon={["fas", `angle-${compressed ? "right" : "left"}`]}
-          />
-        </div>
+        <Button
+          color={"blue"}
+          content={
+            smallScreen ? (
+              "Browse Topics"
+            ) : (
+              <FontAwesomeIcon
+                icon={["fas", `angle-${compressed ? "right" : "left"}`]}
+              />
+            )
+          }
+          rounded={10}
+        />
       </div>
 
       {!compressed && (
-        <div className="flex flex-col gap-2.5">
+        <div className="flex flex-col gap-2.5 mt-2.5 md:mt-0">
           <input
             type="text"
             placeholder="Search by name or tag"

@@ -1,6 +1,7 @@
 // modules
 import Link from "next/link.js";
 import Image from "next/image.js";
+import Button from "@/components/ui/Button";
 
 export default function Header() {
   return (
@@ -24,22 +25,24 @@ export default function Header() {
         </p>
       </div>
       <div className="w-full flex justify-center gap-5 md:gap-10 p-[0_2px]">
-        <button className="text-4 w-50 h-12.5 border-0 rounded-[100px] text-(--primary-yellow) bg-[linear-gradient(45deg,var(--primary-blue)_50%,var(--secondary-blue)_90%)] bg-(--secondary-blue) hover:bg-none hover:bg-(--primary-blue) hover:transition-[background-color_0.3s_ease_in_out]">
-          <Link
-            href={"../404"}
-            className="no-underline text-(--primary-yellow)"
-          >
-            Request a Quotation
-          </Link>
-        </button>
-        <button className="text-4 w-50 h-12.5 border-0 rounded-[100px] text-(--primary-yellow) bg-[linear-gradient(45deg,var(--primary-grey)_50%,var(--secondary-grey)_90%)] bg-(--secondary-grey) hover:bg-none hover:bg-(--primary-grey) hover:transition-[background-color_0.3s_ease_in_out]">
-          <Link
-            href={"../services"}
-            className="no-underline text-(--primary-yellow)"
-          >
-            Explore Our Services
-          </Link>
-        </button>
+        <Link href={"../404"} className="no-underline text-(--primary-yellow)">
+          <Button
+            color={"blue"}
+            content={"Explore Our Services"}
+            rounded={100}
+          />
+        </Link>
+
+        <Link
+          href={"../services"}
+          className="no-underline text-(--primary-yellow)"
+        >
+          <Button
+            color={"grey"}
+            content={"Request a Quotation"}
+            rounded={100}
+          />
+        </Link>
       </div>
     </div>
   );

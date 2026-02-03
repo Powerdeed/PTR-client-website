@@ -30,17 +30,17 @@ export default function ArticlePostClient({
         setSelectedTopic={setSelectedTopic}
       />
 
-      <div className="min-h-[calc(100vh-350px)] flex-1">
-        <div className="pt-15 flex flex-col items-center h-full p-2.5 lg:p-20 bg-background">
-          <div className="blog-reading bg-white w-full h-full lg:max-w-260 min-h-125 p-2.5 md:px-20 md:py-25 flex flex-col gap-2.5 text-[13px]">
-            {blogContent && (
-              <DraftifyBlocksReader
-                blocksData={blogContent.blogDoc.blocks}
-                fontFamily="Open Sans"
-              />
-            )}
-          </div>
+      <div className="px-5 py-20 lg:p-25 min-h-[calc(100vh-350px)] flex-1 flex flex-col items-center">
+        <div className="flex flex-col gap-2.5 items-center w-full lg:max-w-260 min-h-150 h-full px-5 py-10 md:px-20 md:py-25 bg-white text-[13px]">
+          {blogContent && (
+            <DraftifyBlocksReader
+              blocksData={blogContent.blogDoc.blocks}
+              fontFamily="Open Sans"
+            />
+          )}
         </div>
+
+        {/* <Comment /> */}
       </div>
     </div>
   );
