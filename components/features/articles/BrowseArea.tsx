@@ -28,8 +28,7 @@ export default function BrowseArea({
   return (
     <div
       ref={browseArea}
-      className={`
-        ${fixedProperty ? "not-has-focus:fixed relative top-0 left-0" : "relative"}
+      className={` relative
         md:relative
         leading-7.5
         transition-all
