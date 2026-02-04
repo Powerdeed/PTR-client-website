@@ -14,14 +14,15 @@ export default function Blogs({
 }) {
   const { articleTopic } = use(params);
 
-  const { smallScreen, setSmallScreen, selectedTopic, setSelectedTopic } =
-    useArticle("", articleTopic);
+  const { smallScreen, selectedTopic, setSelectedTopic } = useArticle(
+    "",
+    articleTopic,
+  );
 
   return (
     <div className="md:flex">
       <BrowseArea
-        compressed={smallScreen}
-        setCompressed={setSmallScreen}
+        smallScreen={smallScreen}
         selectedTopic={selectedTopic}
         setSelectedTopic={setSelectedTopic}
       />

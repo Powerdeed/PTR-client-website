@@ -7,9 +7,10 @@ import { useEffect, useRef, useState } from "react";
 export const useArticle = (post: string, articleTopic: string) => {
   const browseArea = useRef<HTMLDivElement | null>(null);
   const [smallScreen, setSmallScreen] = useState(false);
+  const [compressed, setCompressed] = useState(false);
   const [selectedTopic, setSelectedTopic] = useState<string>(articleTopic);
   const [blogContent, setBlogContent] = useState<BlogContent>();
-  const [fixedProperty, setFixedProperty] = useState(false);
+  // const [fixedProperty, setFixedProperty] = useState(false);
 
   /* ---------- get blog content and store it ---------- */
   useEffect(() => {
@@ -33,26 +34,27 @@ export const useArticle = (post: string, articleTopic: string) => {
   }, []);
 
   /* ---------- handle scroll on small screen sizes ---------- */
-  useEffect(() => {
-    if (!smallScreen) return;
+  // useEffect(() => {
+  //   if (!smallScreen) return;
 
-    const handleScroll = () => {
-      setFixedProperty(window.scrollY >= 50);
-    };
+  //   const handleScroll = () => {
+  //     setFixedProperty(window.scrollY >= 50);
+  //   };
 
-    handleScroll();
-    window.addEventListener("scroll", handleScroll);
+  //   handleScroll();
+  //   window.addEventListener("scroll", handleScroll);
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [smallScreen]);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, [smallScreen]);
 
   return {
     browseArea,
-    fixedProperty,
     smallScreen,
     setSmallScreen,
     selectedTopic,
     setSelectedTopic,
     blogContent,
+    compressed,
+    setCompressed,
   };
 };

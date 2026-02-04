@@ -13,19 +13,13 @@ export default function ArticlePostClient({
   articleTopic: string;
   post: string;
 }) {
-  const {
-    smallScreen,
-    setSmallScreen,
-    selectedTopic,
-    setSelectedTopic,
-    blogContent,
-  } = useArticle(post, articleTopic);
+  const { smallScreen, selectedTopic, setSelectedTopic, blogContent } =
+    useArticle(post, articleTopic);
 
   return (
     <div className="md:flex">
       <BrowseArea
-        compressed={smallScreen}
-        setCompressed={setSmallScreen}
+        smallScreen={smallScreen}
         selectedTopic={selectedTopic}
         setSelectedTopic={setSelectedTopic}
       />

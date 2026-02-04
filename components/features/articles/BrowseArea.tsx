@@ -10,17 +10,15 @@ import { useArticle } from "@/hooks/useArticle";
 import Button from "@/components/ui/Button";
 
 export default function BrowseArea({
-  compressed,
-  setCompressed,
+  smallScreen,
   selectedTopic,
   setSelectedTopic,
 }: {
-  compressed: boolean;
-  setCompressed: Dispatch<SetStateAction<boolean>>;
+  smallScreen: boolean;
   selectedTopic: string;
   setSelectedTopic: Dispatch<SetStateAction<string>>;
 }) {
-  const { browseArea, fixedProperty, smallScreen } = useArticle(
+  const { browseArea, compressed, setCompressed } = useArticle(
     "",
     selectedTopic,
   );
@@ -29,7 +27,7 @@ export default function BrowseArea({
     <div
       ref={browseArea}
       className={`
-        ${fixedProperty ? "not-has-focus:fixed relative top-0 left-0" : "relative"}
+        relative
         md:relative
         leading-7.5
         transition-all
@@ -44,12 +42,11 @@ export default function BrowseArea({
       `}
     >
       <div
-        className={`absolute
+        className={`${compressed ? "" : " md:-right-15"} absolute
           w-[calc(100vw-40px)] md:w-fit
-          md:-right-15
           top-2.5
           z-2
-          ${compressed ? "translate-x-2.5" : "translate-x-0"}`}
+          ${compressed ? "ml-2.5" : ""}`}
         onClick={() => setCompressed((prev) => !prev)}
       >
         <Button
@@ -67,54 +64,54 @@ export default function BrowseArea({
         />
       </div>
 
-      {
-        <div className="flex flex-col gap-2.5 mt-2.5 md:mt-0">
-          <input
-            type="text"
-            placeholder="Search by name or tag"
-            className={`${!compressed ? "border" : null} rounded-[10px] text-center min-h-7.5 text-[11px]`}
-          />
+      <div
+        className={`flex flex-col gap-2.5 ${!compressed && "mt-2.5"} md:mt-0`}
+      >
+        <input
+          type="text"
+          placeholder="Search by name or tag"
+          className={`${!compressed ? "border" : null} rounded-[10px] text-center min-h-7.5 text-[11px]`}
+        />
 
-          <ul
-            className={`grid gap-2.5 text-[12px] ${smallScreen && "max-h-100 overflow-y-scroll"}`}
-          >
-            {Object.entries(groupedBlogs).map(([topic, blogArray]) => (
-              <li
-                key={topic}
-                className={`rounded-[10px] ${!compressed ? "p-1.25 border" : null} overflow-hidden transition-[max-height,border-color] duration-300 ease-in-out
+        <ul
+          className={`grid gap-2.5 text-[12px] ${compressed && "max-h-100 overflow-y-scroll"}`}
+        >
+          {Object.entries(groupedBlogs).map(([topic, blogArray]) => (
+            <li
+              key={topic}
+              className={`rounded-[10px] ${!compressed ? "p-1.25 border" : null} overflow-hidden transition-[max-height,border-color] duration-300 ease-in-out
                 ${selectedTopic === topic ? "border-(--secondary-blue) max-h-40" : "max-h-10"}
               `}
+            >
+              <Link
+                href={`/articles/${topic}`}
+                className="flex items-center font-semibold text-(--secondary-blue) cursor-pointer"
+                onClick={() => {
+                  if (selectedTopic !== topic) setSelectedTopic(topic);
+                }}
               >
-                <Link
-                  href={`/articles/${topic}`}
-                  className="flex items-center font-semibold text-(--secondary-blue) cursor-pointer"
-                  onClick={() => {
-                    if (selectedTopic !== topic) setSelectedTopic(topic);
-                  }}
-                >
-                  <div className="flex-1">
-                    {topic.charAt(0).toUpperCase() + topic.slice(1)}
-                  </div>
-                  <FontAwesomeIcon
-                    icon={[
-                      "fas",
-                      `angle-${selectedTopic === topic ? "up" : "down"}`,
-                    ]}
-                  />
-                </Link>
+                <div className="flex-1">
+                  {topic.charAt(0).toUpperCase() + topic.slice(1)}
+                </div>
+                <FontAwesomeIcon
+                  icon={[
+                    "fas",
+                    `angle-${selectedTopic === topic ? "up" : "down"}`,
+                  ]}
+                />
+              </Link>
 
-                <ol className="p-1 leading-normal grid gap-2.5">
-                  {blogArray.map((b) => (
-                    <li key={b.id} className="cursor-pointer">
-                      <Link href={`/articles/${topic}/${b.id}`}>{b.title}</Link>
-                    </li>
-                  ))}
-                </ol>
-              </li>
-            ))}
-          </ul>
-        </div>
-      }
+              <ol className="p-1 leading-normal grid gap-2.5">
+                {blogArray.map((b) => (
+                  <li key={b.id} className="cursor-pointer">
+                    <Link href={`/articles/${topic}/${b.id}`}>{b.title}</Link>
+                  </li>
+                ))}
+              </ol>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
