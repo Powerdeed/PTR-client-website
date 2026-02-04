@@ -26,14 +26,18 @@ import {
   faGem,
   faArrowsToCircle,
   faQuestion,
-  faThumbsUp,
   faCrosshairs,
   faChevronLeft,
   faChevronRight,
   faRotate,
 } from "@fortawesome/free-solid-svg-icons";
 
-import { faComments, faHardDrive } from "@fortawesome/free-regular-svg-icons";
+import {
+  faComments,
+  faHardDrive,
+  faPaperPlane,
+  faThumbsUp,
+} from "@fortawesome/free-regular-svg-icons";
 
 import { faWhatsapp, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
@@ -72,4 +76,5 @@ library.add(
   faArrowUp,
   faWhatsapp,
   faLinkedin,
+  faPaperPlane,
 );

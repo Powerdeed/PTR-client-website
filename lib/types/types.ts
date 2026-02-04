@@ -61,7 +61,7 @@ export type CategoryGroup = {
   projects: Project[];
 };
 
-export type BlogMeta = {
+export type ArticleMeta = {
   id: string;
   topic: string;
   title: string;
@@ -69,21 +69,23 @@ export type BlogMeta = {
   image: string;
   author: string;
   createdAt: string;
+  tags: string[];
+  comments: number;
 };
 
-export type BlogContent = {
+export type ArticleContent = {
   id: string;
-  blogDoc: DraftifyDocument;
+  articleDoc: DraftifyDocument;
 };
 
-export type BlogTopic = {
+export type ArticleTopic = {
   id: string;
   topic: string;
   description: string;
   image: string;
 };
 
-export type BlogTopics = BlogTopic[];
+export type ArticleTopics = ArticleTopic[];
 
 export type Comment = {
   docId: string;

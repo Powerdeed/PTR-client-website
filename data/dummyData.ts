@@ -1,9 +1,9 @@
 import {
   AboutIntro,
   AboutUs,
-  BlogContent,
-  BlogMeta,
-  BlogTopics,
+  ArticleContent,
+  ArticleMeta,
+  ArticleTopics,
   Comment,
   Contacts,
   CoreValue,
@@ -538,7 +538,7 @@ export const uniqueFeatures: UniqueFeatures[] = [
   },
 ];
 
-export const blogTopics: BlogTopics = [
+export const articleTopics: ArticleTopics = [
   {
     id: "1",
     topic: "electrical",
@@ -583,7 +583,7 @@ export const blogTopics: BlogTopics = [
   },
 ];
 
-export const blogsMeta: BlogMeta[] = [
+export const articlesMeta: ArticleMeta[] = [
   {
     id: "1",
     topic: "electrical",
@@ -593,6 +593,8 @@ export const blogsMeta: BlogMeta[] = [
     image: "",
     author: "Unknown",
     createdAt: "2026-01-24T01:23:46.613Z",
+    tags: ["electrical", "power"],
+    comments: 0,
   },
   {
     id: "2",
@@ -603,6 +605,8 @@ export const blogsMeta: BlogMeta[] = [
     image: "",
     author: "Unknown",
     createdAt: "2026-01-24T01:23:46.613Z",
+    tags: ["energy", "power"],
+    comments: 0,
   },
   {
     id: "3",
@@ -613,6 +617,8 @@ export const blogsMeta: BlogMeta[] = [
     image: "",
     author: "Unknown",
     createdAt: "2026-01-24T01:23:46.613Z",
+    tags: ["generators", "power"],
+    comments: 0,
   },
   {
     id: "4",
@@ -623,6 +629,8 @@ export const blogsMeta: BlogMeta[] = [
     image: "",
     author: "Unknown",
     createdAt: "2026-01-24T01:23:46.613Z",
+    tags: ["automation", "efficiency"],
+    comments: 0,
   },
   {
     id: "5",
@@ -633,6 +641,8 @@ export const blogsMeta: BlogMeta[] = [
     image: "",
     author: "Unknown",
     createdAt: "2026-01-24T01:23:46.613Z",
+    tags: ["cctv", "security"],
+    comments: 0,
   },
   {
     id: "6",
@@ -643,6 +653,8 @@ export const blogsMeta: BlogMeta[] = [
     image: "",
     author: "Unknown",
     createdAt: "2026-01-24T01:23:46.613Z",
+    tags: ["business", "alarms"],
+    comments: 0,
   },
   {
     id: "7",
@@ -653,6 +665,8 @@ export const blogsMeta: BlogMeta[] = [
     image: "",
     author: "Unknown",
     createdAt: "2026-01-24T01:23:46.613Z",
+    tags: ["electrical", "safety", "efficiency"],
+    comments: 0,
   },
   {
     id: "8",
@@ -663,6 +677,8 @@ export const blogsMeta: BlogMeta[] = [
     image: "",
     author: "Unknown",
     createdAt: "2026-01-24T01:23:46.613Z",
+    tags: ["solar", "war", "energy", "renewable", "global"],
+    comments: 0,
   },
   {
     id: "9",
@@ -673,6 +689,8 @@ export const blogsMeta: BlogMeta[] = [
     image: "",
     author: "Unknown",
     createdAt: "2026-01-24T01:23:46.613Z",
+    tags: ["generators", "efficiency", "maintenance"],
+    comments: 0,
   },
   {
     id: "10",
@@ -683,13 +701,15 @@ export const blogsMeta: BlogMeta[] = [
     image: "",
     author: "Unknown",
     createdAt: "2026-01-24T01:23:46.613Z",
+    tags: ["automation", "IoT"],
+    comments: 0,
   },
 ];
 
-export const blogsContent: BlogContent[] = [
+export const articlesContent: ArticleContent[] = [
   {
     id: "1",
-    blogDoc: {
+    articleDoc: {
       metadata: {
         docTitle: "How Backup Power Can Save Your Business During Blackouts",
         description:
@@ -729,7 +749,7 @@ export const blogsContent: BlogContent[] = [
   },
   {
     id: "2",
-    blogDoc: {
+    articleDoc: {
       metadata: {
         docTitle:
           "How the War in Israel and Iraq Is Affecting the Energy Sector",
@@ -770,7 +790,7 @@ export const blogsContent: BlogContent[] = [
   },
   {
     id: "3",
-    blogDoc: {
+    articleDoc: {
       metadata: {
         docTitle: "Choosing the Right Generator for Your Facility",
         description:
@@ -810,7 +830,7 @@ export const blogsContent: BlogContent[] = [
   },
   {
     id: "4",
-    blogDoc: {
+    articleDoc: {
       metadata: {
         docTitle: "Smart Automation: The Future of Industrial Efficiency",
         description:
@@ -850,7 +870,7 @@ export const blogsContent: BlogContent[] = [
   },
   {
     id: "5",
-    blogDoc: {
+    articleDoc: {
       metadata: {
         docTitle: "Top 5 CCTV Trends for 2024",
         description:
@@ -890,7 +910,7 @@ export const blogsContent: BlogContent[] = [
   },
   {
     id: "6",
-    blogDoc: {
+    articleDoc: {
       metadata: {
         docTitle: "Protecting Your Home and Business",
         description:
@@ -930,7 +950,7 @@ export const blogsContent: BlogContent[] = [
   },
   {
     id: "7",
-    blogDoc: {
+    articleDoc: {
       metadata: {
         docTitle: "Modern Wiring Techniques for Safer Homes",
         description:
@@ -970,7 +990,7 @@ export const blogsContent: BlogContent[] = [
   },
   {
     id: "8",
-    blogDoc: {
+    articleDoc: {
       metadata: {
         docTitle:
           "How the War in Israel and Iraq Is Affecting the Energy Sector",
@@ -1011,7 +1031,7 @@ export const blogsContent: BlogContent[] = [
   },
   {
     id: "9",
-    blogDoc: {
+    articleDoc: {
       metadata: {
         docTitle: "Generator Maintenance: Tips for Longevity",
         description:
@@ -1051,7 +1071,7 @@ export const blogsContent: BlogContent[] = [
   },
   {
     id: "10",
-    blogDoc: {
+    articleDoc: {
       metadata: {
         docTitle: "Integrating IoT in Building Automation",
         description:
@@ -1093,13 +1113,13 @@ export const blogsContent: BlogContent[] = [
 
 export const comments: Comment[] = [
   {
-    docId: "3",
+    docId: "1",
     id: "1",
     comment: "Good Job",
     likes: 3,
   },
   {
-    docId: "3",
+    docId: "2",
     id: "1",
     comment: "Loved it",
     likes: 3,
@@ -1111,13 +1131,13 @@ export const comments: Comment[] = [
     likes: 3,
   },
   {
-    docId: "3",
+    docId: "4",
     id: "2",
     comment: "I enjoed it",
     likes: 3,
   },
   {
-    docId: "3",
+    docId: "5",
     id: "3",
     comment: "Very informative",
     likes: 3,

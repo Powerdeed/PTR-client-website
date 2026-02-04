@@ -1,7 +1,7 @@
 "use client";
 
-import { BlogMeta } from "@/lib/types/types";
-import { getRandomTopBlogs } from "@/services/blogs";
+import { ArticleMeta } from "@/lib/types/types";
+import { getRandomTopBlogs } from "@/services/articles";
 import { getCurrentDateFormatted } from "@/utils/dateConverter";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
@@ -10,7 +10,7 @@ import { useEffect, useRef, useState } from "react";
 export default function TopBlogs() {
   const blogsContainerRef = useRef<HTMLDivElement | null>(null);
   const [isAtTop, setIsAtTop] = useState(true);
-  const [topBlogs, setTopBlogs] = useState<BlogMeta[]>([]);
+  const [topBlogs, setTopBlogs] = useState<ArticleMeta[]>([]);
 
   useEffect(() => {
     function topBlogsFunc() {

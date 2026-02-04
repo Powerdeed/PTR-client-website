@@ -3,30 +3,30 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-import { getBlogTopic, getTopicBlogs } from "@/services/blogs";
+import { getArticleTopic, getTopicArticles } from "@/services/articles";
 
-import { BlogMeta, BlogTopic } from "@/lib/types/types";
+import { ArticleMeta, ArticleTopic } from "@/lib/types/types";
 
 import Link from "next/link";
 
 export default function BlogTopicSection({
   selectedTopic,
-  blogTopicFromLink,
+  articleTopicFromLink,
 }: {
   selectedTopic: string;
-  blogTopicFromLink: string;
+  articleTopicFromLink: string;
 }) {
   const [currentTopic, setCurrentTopic] = useState<string | null>(null);
-  const [blogTopic, setBlogTopic] = useState<BlogTopic | null>(null);
-  const [blogs, setBlogs] = useState<BlogMeta[] | null>(null);
+  const [articleTopic, setArticleTopic] = useState<ArticleTopic | null>(null);
+  const [blogs, setBlogs] = useState<ArticleMeta[] | null>(null);
 
   /* ---------- sync searched topic ---------- */
   useEffect(() => {
-    if (!blogTopicFromLink) return;
+    if (!articleTopicFromLink) return;
 
-    const getCurrentTopic = () => setCurrentTopic(blogTopicFromLink);
+    const getCurrentTopic = () => setCurrentTopic(articleTopicFromLink);
     getCurrentTopic();
-  }, [blogTopicFromLink]);
+  }, [articleTopicFromLink]);
 
   /* ---------- sync selected topic ---------- */
   useEffect(() => {
@@ -42,22 +42,22 @@ export default function BlogTopicSection({
     if (!currentTopic) return;
 
     const setBlogData = () => {
-      setBlogTopic(getBlogTopic(currentTopic) ?? null);
-      setBlogs(getTopicBlogs(currentTopic) ?? null);
+      setArticleTopic(getArticleTopic(currentTopic) ?? null);
+      setBlogs(getTopicArticles(currentTopic) ?? null);
     };
 
     setBlogData();
   }, [currentTopic]);
 
-  if (!blogTopic || !blogs) return null;
+  if (!articleTopic || !blogs) return null;
 
   return (
     <div className="flex flex-col gap-2.5 md:gap-5 mb-2.5 md:mb-5">
       {/* ---------- HERO SECTION ---------- */}
       <div className="relative w-full h-100 overflow-hidden">
         <Image
-          src={blogTopic.image}
-          alt={`${blogTopic.topic} topic cover image`}
+          src={articleTopic.image}
+          alt={`${articleTopic.topic} topic cover image`}
           fill
           sizes="100vw"
           className="object-cover"
@@ -67,11 +67,13 @@ export default function BlogTopicSection({
         <div className="absolute top-1/2 left-2.5 md:left-10 -translate-y-1/2 max-w-[80%] text-white">
           <div className="text-[30px] md:text-[40px] font-bold leading-tight">
             Topic:{" "}
-            <span className="text-(--primary-yellow)">{blogTopic.topic}</span>
+            <span className="text-(--primary-yellow)">
+              {articleTopic.topic}
+            </span>
           </div>
 
           <p className="mt-2 text-[16px] lg:text-[20px] font-normal opacity-90">
-            {blogTopic.description}
+            {articleTopic.description}
           </p>
         </div>
       </div>

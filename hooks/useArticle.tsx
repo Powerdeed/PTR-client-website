@@ -1,31 +1,31 @@
 "use client";
 
-import { BlogContent } from "@/lib/types/types";
-import { getBlogContent } from "@/services/blogs";
+import { ArticleContent } from "@/lib/types/types";
+import { getArticleContent, getArticleMetas } from "@/services/articles";
 import { useEffect, useRef, useState } from "react";
 
-export const useArticle = (post: string, articleTopic: string) => {
+export const useArticle = (postId: string, articleTopic: string) => {
   const browseArea = useRef<HTMLDivElement | null>(null);
   const [smallScreen, setSmallScreen] = useState(false);
   const [compressed, setCompressed] = useState(false);
   const [selectedTopic, setSelectedTopic] = useState<string>(articleTopic);
-  const [blogContent, setBlogContent] = useState<BlogContent>();
-  // const [fixedProperty, setFixedProperty] = useState(false);
+  const [blogContent, setArticleContent] = useState<ArticleContent>();
+  const [searchedArticle, setSearchedArticle] = useState<string | null>(null);
+  const [addCommentCheck, setAddCommentCheck] = useState<boolean>(true);
+  const [commentAddStatus, setCommentAddStatus] = useState(false);
 
   /* ---------- get blog content and store it ---------- */
   useEffect(() => {
-    if (!post) return;
+    if (!postId) return;
 
-    const setContent = () => setBlogContent(getBlogContent(post));
+    const setContent = () => setArticleContent(getArticleContent(postId));
 
     setContent();
-  }, [post]);
+  }, [postId]);
 
   /* ---------- trigger on small screen sizes ---------- */
   useEffect(() => {
-    const screenSizeSetter = () => {
-      setSmallScreen(window.innerWidth < 768);
-    };
+    const screenSizeSetter = () => setSmallScreen(window.innerWidth < 768);
 
     screenSizeSetter();
     window.addEventListener("resize", screenSizeSetter);
@@ -33,21 +33,57 @@ export const useArticle = (post: string, articleTopic: string) => {
     return () => window.removeEventListener("resize", screenSizeSetter);
   }, []);
 
-  /* ---------- handle scroll on small screen sizes ---------- */
-  // useEffect(() => {
-  //   if (!smallScreen) return;
+  /* ---------- get artlicles that match the searched text ---------- */
+  const articlesMatchingSearch = () => {
+    if (!searchedArticle) return [];
 
-  //   const handleScroll = () => {
-  //     setFixedProperty(window.scrollY >= 50);
-  //   };
+    const search = searchedArticle.toLowerCase();
 
-  //   handleScroll();
-  //   window.addEventListener("scroll", handleScroll);
+    const metas = getArticleMetas();
 
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, [smallScreen]);
+    const filteredMetas = metas.filter((meta) => {
+      const searchableText = (
+        meta.title +
+        " " +
+        meta.description +
+        " " +
+        meta.topic +
+        " " +
+        meta.tags.join(" ")
+      ).toLowerCase();
+
+      return searchableText.includes(search);
+    });
+
+    return filteredMetas;
+  };
+
+  /* ---------- highliting the searched text ---------- */
+  function highlightMatch(text: string, query: string) {
+    if (!query) return text;
+
+    const lowerText = text.toLowerCase();
+    const lowerQuery = query.toLowerCase();
+
+    const start = lowerText.indexOf(lowerQuery);
+    if (start === -1) return text;
+
+    const end = start + query.length;
+
+    return (
+      <>
+        {text.slice(0, start)}
+        <span className="text-(--secondary-blue) font-semibold">
+          {text.slice(start, end)}
+        </span>
+        {text.slice(end)}
+      </>
+    );
+  }
 
   return {
+    searchedArticle,
+    setSearchedArticle,
     browseArea,
     smallScreen,
     setSmallScreen,
@@ -56,5 +92,9 @@ export const useArticle = (post: string, articleTopic: string) => {
     blogContent,
     compressed,
     setCompressed,
+    articlesMatchingSearch,
+    highlightMatch,
+    addCommentCheck,
+    commentAddStatus,
   };
 };
