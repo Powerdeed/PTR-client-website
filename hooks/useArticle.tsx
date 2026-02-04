@@ -33,6 +33,11 @@ export const useArticle = (postId: string, articleTopic: string) => {
     return () => window.removeEventListener("resize", screenSizeSetter);
   }, []);
 
+  useEffect(() => {
+    const runCompressOnSmallScreen = () => setCompressed(true);
+    runCompressOnSmallScreen();
+  }, [smallScreen]);
+
   /* ---------- get artlicles that match the searched text ---------- */
   const articlesMatchingSearch = () => {
     if (!searchedArticle) return [];

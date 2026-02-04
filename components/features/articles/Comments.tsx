@@ -184,7 +184,7 @@ function Comment({
   };
 
   return (
-    <div className="rounded-[10px] grid gap-2.5 bg-white rounded-2.5 dark:bg-black w-full p-2">
+    <div className="rounded-[10px] grid gap-2.5 bg-white rounded-2.5 w-full p-2">
       <div>{comment.comment}</div>
       <div className="flex gap-2.5 items-center">
         {comment.likes}
