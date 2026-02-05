@@ -74,7 +74,7 @@ function EditComment({
           submit();
         }
       }}
-      tabIndex={0} // allows div to capture keyboard events
+      tabIndex={0}
     >
       <textarea
         placeholder="Add comment here"
@@ -84,7 +84,7 @@ function EditComment({
       />
 
       <button
-        className="text-(--primary-blue) cursor-pointer rounded-[10px] p-1 h-7 bg-(--secondary-blue) hover:bg-(--primary-blue) hover:text-(--secondary-blue)"
+        className="text-white cursor-pointer rounded-[10px] p-1 h-7 bg-(--secondary-blue) hover:bg-(--primary-blue)"
         onClick={submit}
       >
         {commentAddStatus ? "Adding Comment..." : "Add comment"}{" "}
