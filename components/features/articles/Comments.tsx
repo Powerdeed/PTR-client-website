@@ -1,69 +1,41 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import type { ArticleMeta, Comment } from "@/lib/types/types";
-import { useEffect, useState } from "react";
+import type { Comment } from "@/lib/types/types";
 
-import { getSpecificArticleComments } from "@/services/comments";
-import { getArticleMetaById } from "@/services/articles";
+import { useArticlePost } from "@/hooks/useArticlePost";
 
-export default function Comments({
-  articleId,
-  //   handleAddComment,
-  //   handleAddCommentLike,
-  commentAddStatus,
-  addCommentCheck,
-}: {
-  articleId: string;
-  //   handleAddComment: (args: {
-  //     blogId: string;
-  //     comment: string;
-  //     comments: number;
-  //   }) => Promise<void>;
-  //   handleAddCommentLike: (args: { docId: string; likes: number }) => void;
-  commentAddStatus: boolean;
-  addCommentCheck: boolean;
-}) {
-  //   const [blog, setBlog] = useState<ArticleMeta>();
-  const [comments, setComments] = useState<Comment[]>();
+export default function Comments({ articleId }: { articleId: string }) {
   const [visibleCount, setVisibleCount] = useState<number>(5);
 
-  useEffect(() => {
-    async function fetchComments() {
-      const comments = getSpecificArticleComments(articleId);
-      setComments(comments as Comment[]);
-
-      //   const articleMeta = getArticleMetaById(articleId);
-      //   setBlog(articleMeta as ArticleMeta);
-    }
-
-    fetchComments();
-  }, [articleId, addCommentCheck]);
+  const { comments, handleAddComment, handleAddCommentLike, commentAddStatus } =
+    useArticlePost(articleId);
 
   return (
     <div className="text-[12px] w-full flex flex-col gap-2.5">
       <strong>Comments (Anonymous)</strong>
       <div className="grid gap-5">
         <EditComment
-          //   blogId={articleId}
-          //   handleAddComment={handleAddComment}
+          handleAddComment={handleAddComment}
           commentAddStatus={commentAddStatus}
-          //   comments={blog?.comments || 0}
         />
 
         {!comments ? (
           <div>Loading comments</div>
         ) : (
-          comments.slice(0, visibleCount).map((c: Comment) => (
-            <Comment
-              key={c.docId}
-              id={c.docId}
-              comment={c}
-              //   likes={c.likes}
-              // handleAddCommentLike={handleAddCommentLike}
-            />
-          ))
+          comments
+            .slice(0, visibleCount)
+            .map((c: Comment) => (
+              <Comment
+                key={c.docId}
+                id={c.docId}
+                comment={c}
+                likes={c.likes}
+                handleAddCommentLike={handleAddCommentLike}
+              />
+            ))
         )}
 
         {comments && visibleCount < comments.length && (
@@ -80,25 +52,17 @@ export default function Comments({
 }
 
 function EditComment({
-  //   blogId,
-  //   comments,
-  //   handleAddComment,
+  handleAddComment,
   commentAddStatus,
 }: {
-  //   blogId: string;
-  //   handleAddComment: (args: {
-  //     blogId: string;
-  //     comment: string;
-  //     comments: number;
-  //   }) => Promise<void>;
-  //   comments: number;
+  handleAddComment: (comment: string) => void;
   commentAddStatus: boolean;
 }) {
   const [comment, setComment] = useState("");
 
   const submit = () => {
     if (!comment.trim()) return;
-    // handleAddComment({ blogId, comment, comments: comments + 1 });
+    handleAddComment(comment);
     setComment("");
   };
 
@@ -114,7 +78,7 @@ function EditComment({
     >
       <textarea
         placeholder="Add comment here"
-        className="border rounded-[10px] bg-white flex-1 w-full min-h-20 focus:outline-(--secondary-blue) focus:ring-0 p-1"
+        className="rounded-[10px] bg-white flex-1 w-full min-h-20 focus:outline-0 focus:ring-0 p-2"
         value={comment}
         onChange={(e) => setComment(e.target.value)}
       />
@@ -133,13 +97,13 @@ function EditComment({
 function Comment({
   id,
   comment,
-  //   likes,
-  //   handleAddCommentLike,
+  likes,
+  handleAddCommentLike,
 }: {
   id: string;
   comment: Comment;
-  //   likes: number;
-  //   handleAddCommentLike: (args: { docId: string; likes: number }) => void;
+  likes: number;
+  handleAddCommentLike: (docId: string, likes: number) => void;
 }) {
   const [liked, setLiked] = useState(false);
   const [bounce, setBounce] = useState(false);
@@ -162,13 +126,10 @@ function Comment({
   };
 
   const handleLikeClick = () => {
-    // const newLikes = liked ? likes - 1 : likes + 1;
+    const newLikes = liked ? likes - 1 : likes + 1;
 
     setLiked(!liked);
-    // handleAddCommentLike({
-    //   docId: id,
-    //   likes: newLikes,
-    // });
+    handleAddCommentLike(id, newLikes);
 
     const likedComments = JSON.parse(
       localStorage.getItem("likedComments") || "[]",

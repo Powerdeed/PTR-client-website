@@ -6,6 +6,7 @@ import BrowseArea from "@/components/features/articles/BrowseArea";
 
 import { useArticle } from "@/hooks/useArticle";
 import Comments from "./Comments";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function ArticlePostClient({
   articleTopic,
@@ -26,8 +27,6 @@ export default function ArticlePostClient({
     blogContent,
     articlesMatchingSearch,
     highlightMatch,
-    addCommentCheck,
-    commentAddStatus,
   } = useArticle(postId, articleTopic);
 
   return (
@@ -55,14 +54,20 @@ export default function ArticlePostClient({
           )}
         </div>
 
-        <Comments
-          articleId={postId}
-          addCommentCheck={addCommentCheck}
-          commentAddStatus={commentAddStatus}
-        />
+        <div className="flex gap-2.5 items-center">
+          Was this helpful?
+          <FontAwesomeIcon
+            className="cursor-pointer"
+            icon={["far", "thumbs-up"]}
+          />{" "}
+          <FontAwesomeIcon
+            className="cursor-pointer"
+            icon={["far", "thumbs-down"]}
+          />
+        </div>
+
+        <Comments articleId={postId} />
       </div>
     </div>
   );
 }
-
-// .

@@ -37,6 +37,7 @@ import {
   faHardDrive,
   faPaperPlane,
   faThumbsUp,
+  faThumbsDown,
 } from "@fortawesome/free-regular-svg-icons";
 
 import { faWhatsapp, faLinkedin } from "@fortawesome/free-brands-svg-icons";
@@ -77,4 +78,5 @@ library.add(
   faWhatsapp,
   faLinkedin,
   faPaperPlane,
+  faThumbsDown,
 );

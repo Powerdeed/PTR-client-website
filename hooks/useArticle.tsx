@@ -11,8 +11,6 @@ export const useArticle = (postId: string, articleTopic: string) => {
   const [selectedTopic, setSelectedTopic] = useState<string>(articleTopic);
   const [blogContent, setArticleContent] = useState<ArticleContent>();
   const [searchedArticle, setSearchedArticle] = useState<string | null>(null);
-  const [addCommentCheck, setAddCommentCheck] = useState<boolean>(true);
-  const [commentAddStatus, setCommentAddStatus] = useState(false);
 
   /* ---------- get blog content and store it ---------- */
   useEffect(() => {
@@ -34,7 +32,8 @@ export const useArticle = (postId: string, articleTopic: string) => {
   }, []);
 
   useEffect(() => {
-    const runCompressOnSmallScreen = () => setCompressed(true);
+    const runCompressOnSmallScreen = () =>
+      smallScreen ? setCompressed(true) : null;
     runCompressOnSmallScreen();
   }, [smallScreen]);
 
@@ -99,7 +98,5 @@ export const useArticle = (postId: string, articleTopic: string) => {
     setCompressed,
     articlesMatchingSearch,
     highlightMatch,
-    addCommentCheck,
-    commentAddStatus,
   };
 };
