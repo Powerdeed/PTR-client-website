@@ -29,7 +29,7 @@ export default function Overview() {
 
         <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-5">
           <div>
-            <Title title="Mission" icon={["fas", "thumbs-up"]} />
+            <Title title="Mission" icon={["far", "thumbs-up"]} />
             <DraftifyBlocksReader
               blocksData={
                 aboutUs.find((about) => about.title === "Mission")

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,6 +9,7 @@ import "../../lib/icons";
 export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
+  const [smallScreen, setSmallScreen] = useState(false);
 
   const mainMenu = useRef<HTMLUListElement | null>(null);
   const menuItems = useRef<HTMLLIElement[]>([]);
@@ -23,13 +24,11 @@ export default function Nav() {
 
     if (isMenuOpen) {
       mainMenu.current.style.width = "0px";
-      mainMenu.current.style.display = "none";
       menuItems.current.forEach((li) => {
         li.style.display = "none";
       });
     } else {
       mainMenu.current.style.width = "160px";
-      mainMenu.current.style.display = "block";
       menuItems.current.forEach((li, idx) => {
         setTimeout(() => {
           li.style.display = "block";
@@ -47,16 +46,22 @@ export default function Nav() {
         li.style.display = "none";
       });
     } else {
-      subMenuItems.current.forEach((li, idx) => {
-        setTimeout(() => {
-          li.style.display = "block";
-          li.style.opacity = "1";
-        }, idx * 120);
-        li.style.opacity = "0";
+      subMenuItems.current.forEach((li) => {
+        li.style.display = "block";
+        li.style.opacity = "1";
         li.style.transition = "opacity 0.3s ease-in-out";
       });
     }
   };
+
+  useEffect(() => {
+    const screenSizeSetter = () => setSmallScreen(window.innerWidth < 768);
+
+    screenSizeSetter();
+    window.addEventListener("resize", screenSizeSetter);
+
+    return () => window.removeEventListener("resize", screenSizeSetter);
+  }, []);
 
   const isActive = (path: string) => (pathname === path ? "underline" : "");
 
@@ -71,21 +76,29 @@ export default function Nav() {
         </div>
       </Link>
 
-      <div className={`${isMenuOpen ? "hidden" : "lg:hidden"}`}>
+      <div className={`${isMenuOpen ? "hidden" : "md:hidden"}`}>
         <FontAwesomeIcon
-          className={`cursor-pointer absolute top-4 right-2.5 w-4 h-4 transition-[width_0.3s_ease-in-out]`}
+          className={`cursor-pointer absolute top-4 right-2.5 w-4 h-4`}
           icon={["fas", `${!isMenuOpen ? "bars" : "xmark"}`]}
           onClick={toggleMenu}
         />
       </div>
 
+      {/* Overlay */}
+      {smallScreen && isMenuOpen && (
+        <div
+          className="absolute top-0 left-0 w-screen h-screen bg-(--primary-blue)/50 z-2"
+          onClick={toggleMenu}
+        ></div>
+      )}
+
       <ul
         ref={mainMenu}
-        className={`fixed lg:absolute hidden lg:flex items-center gap-5 list-none pt-12.5 lg:pt-0 top-0 lg:top-3 right-0 lg:right-[8%] text-[12px] pl-1 w-0 lg:w-fit h-screen lg:h-fit bg-(--primary-blue) lg:bg-transparent transition-[width_0.3s_ease-in-out] -z-1`}
+        className={`fixed md:absolute md:flex items-center gap-5 list-none pt-12.5 md:pt-0 top-0 md:top-3 right-0 md:right-[8%] text-[12px] pl-1 w-0 md:w-fit h-screen md:h-fit bg-(--primary-blue) md:bg-transparent transition-[width_0.3s_ease-in-out] z-3`}
       >
         <div className={`${isMenuOpen ? null : "hidden"}`}>
           <FontAwesomeIcon
-            className={`cursor-pointer absolute top-4 right-2.5 w-4 h-4 transition-[width_0.3s_ease-in-out]`}
+            className={`cursor-pointer absolute top-4 right-2.5 w-4 h-4`}
             icon={["fas", `${!isMenuOpen ? "bars" : "xmark"}`]}
             onClick={toggleMenu}
           />
@@ -102,7 +115,11 @@ export default function Nav() {
             }}
             className="cursor-pointer no-underline mb-3.75 md:mb-0 hover:underline"
           >
-            <Link href={item.href} className={isActive(item.href)}>
+            <Link
+              href={item.href}
+              className={isActive(item.href)}
+              onClick={() => smallScreen && toggleMenu()}
+            >
               {item.label}
             </Link>
           </li>
@@ -130,23 +147,20 @@ export default function Nav() {
             toggleSubMenu();
           }}
         >
-          About Us{" "}
+          About Us
           {isMenuOpen && (
-            <div className="lg:hidden">
+            <div className="md:hidden">
               <FontAwesomeIcon
                 icon={["fas", `angle-${isSubMenuOpen ? "up" : "down"}`]}
                 className="absolute right-2.5 top-1"
               />
             </div>
           )}
-          <ul className="lg:top-5 w-full lg:w-40 relative transition-[height_0.3s_ease-in-out] lg:absolute list-none z-2 leading-6">
+          <ul className="md:top-5 w-full md:w-40 relative transition-[height_0.3s_ease-in-out] md:absolute list-none z-2 leading-6">
             {[
               { href: "/about/overview", label: "Overview" },
               { href: "/about/structure", label: "Structure" },
-              {
-                href: "/about/certificates",
-                label: "Certificates & Licenses",
-              },
+              { href: "/about/certificates", label: "Certificates & Licenses" },
             ].map((item, idx) => (
               <li
                 key={item.href}
@@ -178,7 +192,11 @@ export default function Nav() {
             }}
             className="cursor-pointer no-underline mb-3.75 md:mb-0 hover:underline"
           >
-            <Link href={item.href} className={isActive(item.href)}>
+            <Link
+              href={item.href}
+              className={isActive(item.href)}
+              onClick={() => smallScreen && toggleMenu()}
+            >
               {item.label}
             </Link>
           </li>
