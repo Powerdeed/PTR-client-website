@@ -1,5 +1,11 @@
 import { DraftifyBlock, DraftifyDocument } from "draftify";
 
+export type NavItem = {
+  href: string;
+  label: string;
+  subLinks?: NavItem[];
+};
+
 export type AboutUs = {
   title: string;
   description: DraftifyBlock[];
@@ -106,4 +112,8 @@ export type Contacts = {
       link: string;
     };
   };
+};
+
+export type FormFillingOptions = {
+  [key: string]: string[];
 };

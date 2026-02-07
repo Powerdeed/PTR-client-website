@@ -65,7 +65,7 @@ export default function TopProjects() {
   }, []);
 
   return (
-    <div className="w-full px-0.5 lg:p-0">
+    <div className="w-full px-0.5 md:p-0">
       <SubTitle subTitle="Our Top Projects" />
 
       {isMobile ? (
@@ -96,7 +96,7 @@ export default function TopProjects() {
 
       <div
         ref={projectCards}
-        className="mx-auto w-full lg:w-fit grid grid-cols-[1fr] lg:grid-cols-[1fr_1fr] gap-37.5 justify-center"
+        className="mx-auto w-full md:w-fit grid grid-cols-[1fr] md:grid-cols-[1fr_1fr] gap-37.5 justify-center"
       >
         {projects
           .filter((project) => project.category === active)
@@ -104,7 +104,7 @@ export default function TopProjects() {
           .map((project, idx) => (
             <div
               key={project.id || project.name || idx}
-              className="group bg-(--primary-blue) relative w-full lg:w-100 h-62.5 rounded-[10px] cursor-pointer"
+              className="group bg-(--primary-blue) relative w-full md:w-100 h-62.5 rounded-[10px] cursor-pointer"
             >
               <Image
                 src={`${

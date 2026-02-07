@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 
-import { articlesMeta } from "@/data/dummyData";
+// import { articlesMeta } from "@/data/dummyData";
 
 import { Comment } from "@/lib/types/types";
 
-import { getArticleMetaById } from "@/services/articles";
+// import { getArticleMetaById } from "@/services/articles";
 import {
   getSpecificArticleComments,
   getSpecificComment,
@@ -18,15 +18,16 @@ export function useArticlePost(articleId: string) {
   );
   const [commentAddStatus, setCommentAddStatus] = useState(false);
 
-  const updateCommentNumber = (comments: number) => {
-    const targetArticle = getArticleMetaById(articleId);
+  // *********** WE'LL USE THIS LATER **********
+  //   const updateCommentNumber = (comments: number) => {
+  //     const targetArticle = getArticleMetaById(articleId);
 
-    const updatedArticle = { ...targetArticle, comments };
+  //     const updatedArticle = { ...targetArticle, comments };
 
-    const updatedArticles = articlesMeta.map((article) =>
-      article.id === articleId ? updatedArticle : article,
-    );
-  };
+  //     const updatedArticles = articlesMeta.map((article) =>
+  //       article.id === articleId ? updatedArticle : article,
+  //     );
+  //   };
 
   const addComment = (comment: string) => {
     const newComment: Comment = {
@@ -42,12 +43,12 @@ export function useArticlePost(articleId: string) {
   };
 
   const handleAddComment = (comment: string) => {
-    const articleComments = getArticleMetaById(articleId);
+    // const articleComments = getArticleMetaById(articleId);
 
-    const newCommentNumber = articleComments ? articleComments.comments + 1 : 0;
+    // const newCommentNumber = articleComments ? articleComments.comments + 1 : 0;
 
     setCommentAddStatus(true);
-    updateCommentNumber(newCommentNumber);
+    // updateCommentNumber(newCommentNumber);
 
     addComment(comment);
     setCommentAddStatus(false);

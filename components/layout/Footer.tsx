@@ -8,21 +8,22 @@ import { usePathname } from "next/navigation";
 import { contacts } from "@/data/dummyData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconName } from "@fortawesome/fontawesome-svg-core";
-
-const links = [
-  "",
-  "services",
-  "about/overview",
-  "about/structure",
-  "about/certificates",
-  "projects",
-  "articles",
-  "contact",
-];
+import { NAVIGATION } from "@/utils/constants";
 
 export default function Footer() {
   // const API = import.meta.env.VITE_API_BASE_URL;
   // const [contacts, setContacts] = useState({});
+
+  const flattenedNavigation = NAVIGATION.flatMap(
+    ({ href, label, subLinks }) => {
+      const parent = href ? [{ href, label }] : [];
+
+      const children =
+        subLinks?.map(({ href, label }) => ({ href, label })) ?? [];
+
+      return [...parent, ...children];
+    },
+  );
 
   const pathname = usePathname();
 
@@ -56,34 +57,23 @@ export default function Footer() {
         </ul>
 
         <ul className="w-full lg:w-[25%] list-none grid justify-center gap-2.5 float-none text-center lg:float-left lg:text-left mb-2.5 lg:mb-0">
-          {links.map((path, index) => {
-            const lastSegment = path.split("/").pop();
-
-            const label =
-              path === ""
-                ? "Home"
-                : lastSegment
-                  ? lastSegment.charAt(0).toUpperCase() + lastSegment.slice(1)
-                  : "";
-
-            return (
-              <li key={index}>
-                <Link
-                  className={`${pathname === `/${path}` ? "underline" : ""}`}
-                  href={`/${path}`}
-                >
-                  {label}
-                </Link>
-              </li>
-            );
-          })}
+          {flattenedNavigation.map((path, index) => (
+            <li key={index}>
+              <Link
+                className={`${pathname === `/${path}` ? "underline" : ""}`}
+                href={path.href}
+              >
+                {path.label}
+              </Link>
+            </li>
+          ))}
         </ul>
 
         <ul className="w-full lg:w-[25%] list-none grid justify-center gap-2.5 float-none text-center lg:float-left lg:text-left mb-2.5 lg:mb-0">
           <li className="socials font-bold text-[14px]">Our Socials:</li>
 
           {Object.entries(contacts.socials).map(([social, value]) => (
-            <li key={social} className="grid lg:block justify-center">
+            <li key={social} className="grid lg:block justify-center underline">
               <Link
                 href={value.link}
                 target="_blank"

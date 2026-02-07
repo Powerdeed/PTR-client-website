@@ -8,7 +8,7 @@ export default function About() {
       {aboutIntro.map((about, idx) => (
         <div
           key={idx}
-          className={`w-full flex flex-col mb-7.5 lg:grid grid-cols-2 items-center gap-5 ${
+          className={`w-full flex flex-col mb-7.5 md:grid grid-cols-2 items-center gap-5 ${
             about.flipped ? "rotate-y-180" : ""
           }`}
         >

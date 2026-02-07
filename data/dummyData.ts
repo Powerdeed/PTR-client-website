@@ -7,6 +7,7 @@ import {
   Comment,
   Contacts,
   CoreValue,
+  FormFillingOptions,
   Projects,
   Service,
   Testimonial,
@@ -1159,4 +1160,29 @@ export const contacts: Contacts = {
       link: "https://wa.me/254722316721?text=Hi%2C%20I%20found%20you%20on%20the%20website",
     },
   },
+};
+
+export const formFillingOptions: FormFillingOptions = {
+  projectSectorOptions: [
+    "Electrical Installation",
+    "Solar Power Installation",
+    "Automation",
+    "Alarms",
+    "Generators",
+  ],
+  propertyTypeOptions: [
+    "Residential",
+    "Commercial",
+    "Industrial",
+    "Institutional",
+  ],
+  hearAboutUsOptions: [
+    "Website",
+    "Social Media",
+    "Friend",
+    "Advert",
+    "Web Search",
+    "Event",
+    "Other",
+  ],
 };

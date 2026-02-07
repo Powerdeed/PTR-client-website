@@ -27,7 +27,7 @@ export default function Projects() {
 
   return (
     <div className="md:flex w-full p-[20px_10px] text-[12px] gap-2.5">
-      <div className="flex-1 mb-2.5">
+      <div className="flex-1 md:min-w-150 mb-2.5">
         {Object.entries(projectsByCategory).map(
           ([category, categoryProjects]) => {
             const isOpen = openCategory === category;

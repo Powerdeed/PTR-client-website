@@ -18,7 +18,7 @@ export default function Overview() {
       {/* About information */}
       <div className="grid gap-5">
         <div>
-          <Title title="Overview" icon={["fas", "question"]} />
+          <Title title="Overview" icon={["fas", "list"]} />
           <DraftifyBlocksReader
             blocksData={
               aboutUs.find((about) => about.title === "Company Overview")
@@ -27,7 +27,7 @@ export default function Overview() {
           />
         </div>
 
-        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-5">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-5">
           <div>
             <Title title="Mission" icon={["far", "thumbs-up"]} />
             <DraftifyBlocksReader
@@ -63,12 +63,12 @@ export default function Overview() {
       <div className="unique-features grid gap-5">
         <Title title="Unique Features & benefits" icon={["fas", "gem"]} />
 
-        <div className="inline-flex justify-center gap-7.5 lg:gap-15">
+        <div className="inline-flex justify-center gap-5 lg:gap-15">
           <FeatureContainer {...uniqueFeatures[0]} />
           <FeatureContainer {...uniqueFeatures[1]} />
         </div>
 
-        <div className="inline-flex justify-center gap-10 lg:gap-55">
+        <div className="inline-flex justify-center gap-20 lg:gap-55">
           <FeatureContainer {...uniqueFeatures[2]} />
           <FeatureContainer {...uniqueFeatures[3]} />
         </div>

@@ -23,10 +23,10 @@ export default function Services() {
         Explore Our Services
       </h1>
 
-      <div className="w-fit lg:flex gap-2.5 mt-5 justify-center text-[14.4px] mb-10">
+      <div className="w-fit md:flex gap-2.5 mt-5 justify-center text-[14.4px] mb-10">
         <div className="grid gap-10 mx-auto mb-10">
           {services.map((service) => (
-            <div key={service.id} className="w-full lg:min-w-150 lg:max-w-180">
+            <div key={service.id} className="w-full md:min-w-150 md:max-w-180">
               <h2 className="text-lg font-semibold mb-3">{service.name}</h2>
 
               <div className="relative h-60 md:h-90 overflow-hidden rounded-xl">

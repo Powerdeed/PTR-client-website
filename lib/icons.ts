@@ -30,6 +30,7 @@ import {
   faChevronLeft,
   faChevronRight,
   faRotate,
+  faList,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -79,4 +80,5 @@ library.add(
   faLinkedin,
   faPaperPlane,
   faThumbsDown,
+  faList,
 );

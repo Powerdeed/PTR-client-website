@@ -33,12 +33,14 @@ export default function Contact() {
   // }, []);
 
   return (
-    <div className="w-full lg:inline-flex p-2.5 text-[0.8em] lg:h-[calc(100vh-350px)] lg:min-h-200">
-      <div className="flex-1 relative lg:mr-2.5 bg-(--terciary-grey)/30 p-2.5 lg:p-0 mb-2.5">
+    <div className="w-full md:inline-flex p-2.5 text-[12px] md:h-[calc(100vh-350px)] md:min-h-200">
+      <div className="flex-1 md:min-w-150 relative md:mr-2.5 bg-(--terciary-grey)/30 p-2.5 md:p-0 mb-2.5">
         <div className="w-full h-100 flex flex-col justify-center items-center relative mb-2.5">
           <div className="absolute z-1 w-full h-full text-(--primary-yellow) flex text-center items-center justify-center">
             <div>
-              <h2 className="contact-title-main">Let&apos;s Talk!</h2>
+              <h2 className="contact-title-main text-2xl font-bold">
+                Let&apos;s Talk!
+              </h2>
               <h3 className="contact-subtitle">
                 Whether you have a question, feedback, or just want to say
                 hello, we&apos;d love to hear from you!
@@ -54,9 +56,9 @@ export default function Contact() {
             />
           </div>
         </div>
-        <div className="w-full lg:px-2.5 grid gap-2.5">
-          <div className="lg:flex">
-            <div className="w-full h-50 mb-2.5 lg:w-1/2">
+        <div className="w-full md:px-2.5 grid gap-2.5">
+          <div className="md:flex">
+            <div className="w-full h-50 mb-2.5 md:w-1/2">
               <h2 className="text-(--primary-blue) font-semibold">
                 Our Contact
               </h2>
@@ -91,7 +93,7 @@ export default function Contact() {
                 </ul>
               </div>
             </div>
-            <div className="w-full h-50 mb-2.5 lg:w-1/2">
+            <div className="w-full h-50 mb-2.5 md:w-1/2">
               <h2 className="section-title text-(--primary-blue) font-semibold">
                 We&apos;re right Here
               </h2>
@@ -105,15 +107,15 @@ export default function Contact() {
             <h2 className="section-title text-(--primary-blue) font-semibold">
               Connect With Us
             </h2>
-            <div className="w-full items-start flex-col lg:items-center justify-center">
+            <div className="w-full items-start flex-col md:items-center justify-center">
               <ul>
                 {Object.entries(contacts.socials).map(([social, value]) => (
-                  <li key={social} className="list-none">
+                  <li key={social} className="list-none underline">
                     <Link
                       href={value.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center content-center no-underline text-(--primary-blue) my-1.25 gap-1.25"
+                      className="inline-flex items-center content-center text-(--primary-blue) my-1.25 gap-1.25"
                     >
                       <FontAwesomeIcon
                         className="text-(--primary-blue)"
