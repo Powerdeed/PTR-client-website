@@ -99,7 +99,7 @@ export default function Nav() {
 
       <ul
         ref={mainMenu}
-        className={`fixed md:absolute md:flex items-center gap-5 list-none pt-12.5 md:pt-0 top-0 md:top-3 right-0 md:right-[8%] pl-1 md:w-fit h-screen md:h-fit bg-(--primary-blue) md:bg-transparent transition-[width_0.3s_ease-in-out] z-3`}
+        className={`fixed md:absolute md:flex items-center gap-5 list-none pt-12.5 md:pt-0 top-0 md:top-3 right-0 md:right-[8%] pl-1 w-0 md:w-fit h-screen md:h-fit bg-(--primary-blue) md:bg-transparent transition-[width_0.3s_ease-in-out] z-3`}
       >
         {smallScreen && isMenuOpen && (
           <FontAwesomeIcon
