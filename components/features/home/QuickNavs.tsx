@@ -37,9 +37,8 @@ export default function QuickNavs() {
           hoveredNav === value.iconDescription;
 
         return (
-          <Link
+          <div
             key={key}
-            href={"/not-found"}
             className="h-7.5 flex items-center mb-5 cursor-pointer bg-[linear-gradient(45deg,var(--primary-blue)_30%,var(--secondary-blue)_70%)] rounded-tr-2xl rounded-br-2xl overflow-hidden"
             style={{
               width: isActive ? "120px" : "calc(1em + 20px)",
@@ -57,7 +56,8 @@ export default function QuickNavs() {
               />
             </div>
 
-            <h4
+            <Link
+              href={"/not-found"}
               className="w-20 text-(--primary-yellow) ml-2 text-style__small-text hover:underline"
               style={{
                 opacity: isActive ? 1 : 0,
@@ -66,8 +66,8 @@ export default function QuickNavs() {
               }}
             >
               {value.iconDescription}
-            </h4>
-          </Link>
+            </Link>
+          </div>
         );
       })}
     </div>
