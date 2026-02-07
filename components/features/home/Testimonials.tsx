@@ -60,8 +60,10 @@ export default function Testimonials() {
                   </div>
 
                   <div className="h-fit top-6.25 left-17.5 text-[12.8px]">
-                    <div className="font-semibold">{t.name}</div>
-                    <div className="italic">{t.title}</div>
+                    <div className="text-style__subheading">{t.name}</div>
+                    <div className="text-style__small-text italic">
+                      {t.title}
+                    </div>
                   </div>
                 </div>
 
@@ -71,7 +73,7 @@ export default function Testimonials() {
                   style={{ color: "#ffd600" }}
                 />
 
-                <p className="h-full mt-2.5 text-[14.4px] m-[10px_20px_40px_30px] overflow-hidden items-center flex">
+                <p className="h-full mt-2.5 text-style__body m-[10px_20px_40px_30px] overflow-hidden items-center flex">
                   {t.testimonial}
                 </p>
 

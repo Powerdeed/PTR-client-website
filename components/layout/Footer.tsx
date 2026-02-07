@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 import { contacts } from "@/data/dummyData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconName } from "@fortawesome/fontawesome-svg-core";
-import { NAVIGATION } from "@/utils/constants";
+import { NAVIGATION } from "@/utils/constants/UI-data-constants";
 
 export default function Footer() {
   // const API = import.meta.env.VITE_API_BASE_URL;
@@ -42,7 +42,7 @@ export default function Footer() {
   // }, []);
 
   return (
-    <footer className="relative w-full h-max lg:h-75 p-[0_10%_80px_10%] bg-(--primary-blue) text-[12px] text-(--primary-yellow) grid gap-5 pt-2.5">
+    <footer className="relative w-full h-max lg:h-75 p-[0_10%_80px_10%] bg-(--primary-blue) text-style__footer text-(--primary-yellow) grid gap-5 pt-2.5">
       <div>
         <ul className="w-full lg:w-[25%] list-none grid gap-2.5 text-center lg:float-left lg:text-left mb-2.5 lg:mb-0">
           <li className="Contacts font-bold text-[14px]">Our Contacts</li>
@@ -73,7 +73,10 @@ export default function Footer() {
           <li className="socials font-bold text-[14px]">Our Socials:</li>
 
           {Object.entries(contacts.socials).map(([social, value]) => (
-            <li key={social} className="grid lg:block justify-center underline">
+            <li
+              key={social}
+              className="text-style__link--inverse grid lg:block justify-center"
+            >
               <Link
                 href={value.link}
                 target="_blank"
@@ -112,7 +115,11 @@ export default function Footer() {
           <li>
             <Link href="../404">Cookie Policy</Link>
           </li>
-          <li>Subscribe to Our Newsletter “We never spam.”</li>
+          <li>
+            <Link href="../404">
+              Subscribe to Our Newsletter “We never spam.”
+            </Link>
+          </li>
         </ul>
       </div>
       <div className="flex-1 h-12.5 w-full text-center">

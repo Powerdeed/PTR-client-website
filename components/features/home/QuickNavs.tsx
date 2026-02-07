@@ -4,29 +4,8 @@
 import { useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconName, IconPrefix } from "@fortawesome/fontawesome-svg-core";
-
-const quickNavs = {
-  nav1: {
-    icon: ["fas", "charging-station"],
-    iconDescription: "an electrical installation",
-  },
-  nav2: {
-    icon: ["fas", "solar-panel"],
-    iconDescription: "a solar installation",
-  },
-  nav3: {
-    icon: ["fas", "receipt"],
-    iconDescription: "request a receipt",
-  },
-  nav4: {
-    icon: ["far", "comments"],
-    iconDescription: "a consultation",
-  },
-  nav5: {
-    icon: ["far", "hard-drive"],
-    iconDescription: "a machine installation",
-  },
-};
+import { QUICKNAVS } from "@/utils/constants/UI-data-constants";
+import Link from "next/link";
 
 export default function QuickNavs() {
   const [activeNav, setActiveNav] = useState<string | null>(null);
@@ -48,18 +27,19 @@ export default function QuickNavs() {
 
   return (
     <div className="fixed top-25 z-10">
-      <p className="w-fit mb-2.5 bg-[linear-gradient(45deg,var(--primary-blue)_30%,var(--secondary-blue)_70%)] rounded-tr-2xl rounded-br-2xl p-[5px_10px] text-(--primary-yellow)">
+      <p className="w-fit mb-2.5 bg-[linear-gradient(45deg,var(--primary-blue)_30%,var(--secondary-blue)_70%)] rounded-tr-2xl rounded-br-2xl p-[5px_10px] text-(--primary-yellow) text-style__body">
         I want:
       </p>
 
-      {Object.entries(quickNavs).map(([key, value]) => {
+      {Object.entries(QUICKNAVS).map(([key, value]) => {
         const isActive =
           activeNav === value.iconDescription ||
           hoveredNav === value.iconDescription;
 
         return (
-          <div
+          <Link
             key={key}
+            href={"/not-found"}
             className="h-7.5 flex items-center mb-5 cursor-pointer bg-[linear-gradient(45deg,var(--primary-blue)_30%,var(--secondary-blue)_70%)] rounded-tr-2xl rounded-br-2xl overflow-hidden"
             style={{
               width: isActive ? "120px" : "calc(1em + 20px)",
@@ -78,7 +58,7 @@ export default function QuickNavs() {
             </div>
 
             <h4
-              className="text-[11px] font-bold w-20 text-(--primary-yellow) ml-2 leading-3 hover:underline"
+              className="w-20 text-(--primary-yellow) ml-2 text-style__small-text hover:underline"
               style={{
                 opacity: isActive ? 1 : 0,
                 visibility: isActive ? "visible" : "hidden",
@@ -87,7 +67,7 @@ export default function QuickNavs() {
             >
               {value.iconDescription}
             </h4>
-          </div>
+          </Link>
         );
       })}
     </div>

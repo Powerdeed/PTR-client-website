@@ -76,7 +76,7 @@ export default function TopProjects() {
           setSlideIn={setSlideIn}
         />
       ) : (
-        <ul className="list-none flex gap-10 justify-center w-full h-6 m-[20px_0] bg-[linear-gradient(to_right,var(--white)_10%,var(--primary-blue)_20%,var(--primary-blue)_80%,var(--white)_90%)] items-center">
+        <ul className="list-none flex gap-10 justify-center w-full h-6 m-[20px_0] bg-[linear-gradient(to_right,var(--white)_10%,var(--primary-blue)_20%,var(--primary-blue)_80%,var(--white)_90%)] items-center text-style__body">
           {uniqueCategories.map((category) => (
             <li
               key={category}
@@ -115,7 +115,7 @@ export default function TopProjects() {
                 sizes="(max-width: 1024px) 100%, 400px"
                 className="w-full h-full object-cover rounded-[10px] group-hover:opacity-50 group-hover:duration-500"
               />
-              <p className="group-hover:opacity-100 group-hover:-translate-y-17.5 group-hover:duration-500 text-white bottom-0 absolute opacity-0 p-[0_10px]">
+              <p className="absolute bottom-0 opacity-0 p-[0_10px] text-style__body text-white group-hover:opacity-100 group-hover:-translate-y-17.5 duration-500">
                 {project.name}
               </p>
             </div>
@@ -166,7 +166,7 @@ function TopProjectsPhoneView({
           ))}
         </div>
         <div className="w-full flex justify-center">
-          <div className="grid justify-center rounded-[10px] w-57.5 h-8 bg-(--primary-blue) text-(--primary-yellow) items-center">
+          <div className="text-style__body grid justify-center rounded-[10px] w-57.5 h-8 bg-(--primary-blue) text-(--primary-yellow) items-center">
             {active}
           </div>
         </div>

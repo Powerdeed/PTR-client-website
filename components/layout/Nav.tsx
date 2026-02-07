@@ -5,7 +5,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../../lib/icons";
-import { NAVIGATION } from "@/utils/constants";
+import {
+  NAV_DISPLAY_BUSINESS_NAME_1,
+  NAV_DISPLAY_BUSINESS_NAME_2,
+  NAVIGATION,
+} from "@/utils/constants/UI-data-constants";
 
 export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -70,10 +74,10 @@ export default function Nav() {
     <nav className="relative flex items-center w-full h-12.5 px-2.5 z-3 bg-[linear-gradient(to_right,var(--secondary-blue)_30%,var(--primary-blue)_70%)] text-(--primary-yellow)">
       <Link href="/" className="company-name">
         <div className="no-underline leading-5">
-          <h1 className="font-extrabold text-[1.7em] m-0">POWERDEED</h1>
-          <h3 className="font-bold text-[0.7em] m-0">
-            TECHNOLOGY RESOURCES LTD.
-          </h3>
+          <div className="text-style__logo">{NAV_DISPLAY_BUSINESS_NAME_1}</div>
+          <div className="text-style__small-text">
+            {NAV_DISPLAY_BUSINESS_NAME_2}
+          </div>
         </div>
       </Link>
 
@@ -95,11 +99,7 @@ export default function Nav() {
 
       <ul
         ref={mainMenu}
-        className={`fixed md:absolute md:flex items-center gap-5 list-none
-    pt-12.5 md:pt-0 top-0 md:top-3 right-0 md:right-[8%]
-    text-[12px] pl-1 w-0 md:w-fit h-screen md:h-fit
-    bg-(--primary-blue) md:bg-transparent
-    transition-[width_0.3s_ease-in-out] z-3`}
+        className={`fixed md:absolute md:flex items-center gap-5 list-none pt-12.5 md:pt-0 top-0 md:top-3 right-0 md:right-[8%] pl-1 md:w-fit h-screen md:h-fit bg-(--primary-blue) md:bg-transparent transition-[width_0.3s_ease-in-out] z-3`}
       >
         {smallScreen && isMenuOpen && (
           <FontAwesomeIcon
@@ -118,7 +118,7 @@ export default function Nav() {
               ref={(el) => {
                 if (el) menuItems.current[idx] = el;
               }}
-              className={`relative cursor-pointer mb-3.75 md:mb-0 ${!hasSub && "hover:underline"}`}
+              className={`relative cursor-pointer mb-3.75 md:mb-0 ${!hasSub && "hover:underline"} text-style__nav`}
               onMouseEnter={() => {
                 if (!smallScreen && hasSub) {
                   setIsSubMenuOpen(true);

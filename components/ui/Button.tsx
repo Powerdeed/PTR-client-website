@@ -34,7 +34,7 @@ export default function Button({
         p-2.5
         border-0
         text-4
-        text-(--primary-yellow)
+        text-style__button
         cursor-pointer
       "
         onMouseEnter={(e) => {

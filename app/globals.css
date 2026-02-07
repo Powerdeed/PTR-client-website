@@ -13,6 +13,8 @@
 } */
 
 @theme inline {
+  --font-geist-sans: "Plus Jakarta Sans", "Open Sans", sans-serif;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -63,5 +65,71 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Plus Jakarta Sans", "Open Sans", sans-serif;
+  font-family: var(--font-family);
+}
+
+/********** TEXT STYLES **********/
+
+.text-style__logo {
+  @apply text-[26px] font-sans font-bold leading-tight;
+}
+
+.text-style__nav {
+  @apply text-[12px] font-sans font-medium leading-tight;
+}
+
+.text-style__footer {
+  @apply text-[12px] font-sans font-normal leading-tight;
+}
+
+.text-style__section-title {
+  @apply text-[14px] font-sans font-medium leading-tight;
+}
+
+.text-style__heading {
+  @apply text-[22px] md:text-[24px] font-sans font-semibold leading-tight;
+}
+
+.text-style__subheading {
+  @apply text-[16px] md:text-[18px] font-sans font-medium leading-tight;
+}
+
+.text-style__body {
+  @apply text-[14px] md:text-[16px] font-sans font-normal leading-normal;
+}
+
+.text-style__small-text {
+  @apply text-[11px] font-sans font-semibold leading-tight;
+}
+
+.text-style__button {
+  @apply text-[14px] md:text-[16px] font-sans font-normal leading-normal text-(--primary-yellow);
+}
+
+.text-style__form {
+  @apply text-[14px] font-sans font-normal leading-normal;
+}
+
+.text-style__additional-info {
+  @apply text-[12px] font-sans font-normal leading-normal;
+}
+
+.text-style__side-panel-top-blogs {
+  @apply text-[14px] font-sans font-normal leading-normal;
+}
+
+.text-style__side-panel-top-projects {
+  @apply text-[14px] font-sans font-normal leading-normal;
+}
+
+.text-style__side-panel-reach-us-form {
+  @apply text-[14px] font-sans font-normal leading-normal;
+}
+
+.text-style__link {
+  @apply text-[11px] font-sans font-normal leading-normal text-(--secondary-blue) hover:text-(--primary-blue) hover:underline;
+}
+
+.text-style__link--inverse {
+  @apply text-[11px] font-sans font-normal leading-normal text-(--primary-yellow) hover:text-(--secondary-yellow) hover:underline;
 }

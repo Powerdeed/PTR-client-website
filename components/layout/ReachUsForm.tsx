@@ -2,7 +2,10 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { DEFAULT_FORM_DATA, PERSONAL_INFO_FIELDS } from "@/utils/constants";
+import {
+  DEFAULT_FORM_DATA,
+  PERSONAL_INFO_FIELDS,
+} from "@/utils/constants/UI-data-constants";
 import { formFillingOptions } from "@/data/dummyData";
 
 export default function ReachUsForm() {
@@ -23,9 +26,13 @@ export default function ReachUsForm() {
 
   const submit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     setSubmitStatus("submitting");
+
     formSubmittion();
+
     clearForm();
+
     setSubmitStatus("submitted");
 
     setTimeout(() => {

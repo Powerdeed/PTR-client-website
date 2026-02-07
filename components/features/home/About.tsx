@@ -30,10 +30,10 @@ export default function About() {
               about.flipped ? "rotate-y-180" : ""
             }`}
           >
-            <h3 className="text-justify text-(--primary-blue) font-bold">
+            <h3 className="text-style__subheading text-(--primary-blue)">
               {about.title}
             </h3>
-            <p className="text-justify">{about.description}</p>
+            <p className="text-justify text-style__body">{about.description}</p>
           </div>
         </div>
       ))}
