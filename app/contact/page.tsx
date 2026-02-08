@@ -33,12 +33,12 @@ export default function Contact() {
   // }, []);
 
   return (
-    <div className="w-full md:inline-flex p-2.5 text-[12px] md:h-[calc(100vh-350px)] md:min-h-200">
+    <div className="w-full md:inline-flex p-2.5 text-style__small-text md:h-[calc(100vh-350px)] md:min-h-200">
       <div className="flex-1 md:min-w-150 relative md:mr-2.5 bg-(--terciary-grey)/30 p-2.5 md:p-0 mb-2.5">
         <div className="w-full h-100 flex flex-col justify-center items-center relative mb-2.5">
           <div className="absolute z-1 w-full h-full text-(--primary-yellow) flex text-center items-center justify-center">
             <div>
-              <h2 className="contact-title-main text-2xl font-bold">
+              <h2 className="contact-title-main text-style__section-title">
                 Let&apos;s Talk!
               </h2>
               <h3 className="contact-subtitle">

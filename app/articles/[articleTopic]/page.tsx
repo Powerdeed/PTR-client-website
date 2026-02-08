@@ -2,7 +2,7 @@
 
 import { use } from "react";
 
-import BlogTopicSection from "@/components/features/articles/ArticleTopicSection";
+import ArticleTopicSection from "@/components/features/articles/ArticleTopicSection";
 import BrowseArea from "@/components/features/articles/BrowseArea";
 
 import { useArticle } from "@/hooks/useArticle";
@@ -43,7 +43,7 @@ export default function Blogs({
       />
 
       <div className="min-h-[calc(100vh-350px)] flex-1">
-        <BlogTopicSection
+        <ArticleTopicSection
           selectedTopic={selectedTopic}
           articleTopicFromLink={articleTopic}
         />

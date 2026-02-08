@@ -11,10 +11,11 @@ import { aboutUs, uniqueFeatures } from "@/data/dummyData";
 import { DraftifyBlocksReader } from "draftify-react";
 
 import { DraftifyBlock } from "draftify";
+import Button from "@/components/ui/Button";
 
 export default function Overview() {
   return (
-    <div className="grid gap-5 text-[12px]">
+    <div className="grid gap-5 text-style__body">
       {/* About information */}
       <div className="grid gap-5">
         <div>
@@ -86,22 +87,23 @@ export default function Overview() {
       </div>
 
       {/* Other options */}
-      <div className="flex justify-center items-center gap-10 lg:gap-25 text-[12px]">
+      <div className="flex justify-center items-center gap-10 lg:gap-25">
         <Link
           href="/docs/profile/POWERDEED ENGINEERING SERVICES.pdf"
           download="POWERDEED ENGINEERING SERVICES.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-center grid items-center w-37.5 h-12 p-2 lg:w-50 bg-(--primary-blue) hover:bg-(--secondary-blue) text-(--primary-yellow) rounded-[10px] cursor-pointer font-bold transition hover:duration-300 ease-in-out no-underline"
+          className="w-37.5 lg:w-50"
         >
-          Download our Profile
+          <Button color="blue" content="Download our Profile" rounded={10} />
         </Link>
 
-        <Link
-          href={"../about/structure"}
-          className="text-center grid items-center w-37.5 h-12 p-2 lg:w-50 bg-(--primary-blue) hover:bg-(--secondary-blue) text-(--primary-yellow) rounded-[10px] cursor-pointer font-bold transition hover:duration-300 ease-in-out no-underline"
-        >
-          Checkout our Company structure &rarr;
+        <Link href={"../about/structure"} className="w-37.5 lg:w-50">
+          <Button
+            color="blue"
+            content={`Checkout our Company structure →`}
+            rounded={10}
+          />
         </Link>
       </div>
     </div>

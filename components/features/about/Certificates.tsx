@@ -11,7 +11,7 @@ export default function Certificates() {
 
   return (
     <div className="relative">
-      <div className="text-center font-bold text-[20px]">
+      <div className="text-center text-style__subheading">
         Certifications and Licenses
       </div>
 

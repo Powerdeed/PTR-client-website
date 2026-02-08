@@ -15,7 +15,7 @@ export default function About({
 
   return (
     <div className="w-full h-full md:flex md:flex-2 p-2.5 gap-2.5">
-      <div className="flex-1 flex flex-col md:mr-2.5  text-[12px]">
+      <div className="flex-1 flex flex-col md:mr-2.5">
         <div className="flex-1 md:min-w-150">
           {aboutPage === "overview" && <Overview />}
           {aboutPage === "structure" && <Strucutre />}

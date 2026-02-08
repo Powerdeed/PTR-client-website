@@ -9,7 +9,7 @@ import { ArticleMeta, ArticleTopic } from "@/lib/types/types";
 
 import Link from "next/link";
 
-export default function BlogTopicSection({
+export default function ArticleTopicSection({
   selectedTopic,
   articleTopicFromLink,
 }: {
@@ -65,14 +65,14 @@ export default function BlogTopicSection({
         />
 
         <div className="absolute top-1/2 left-2.5 md:left-10 -translate-y-1/2 max-w-[80%] text-white">
-          <div className="text-[30px] md:text-[40px] font-bold leading-tight">
+          <div className="text-style__big-text">
             Topic:{" "}
             <span className="text-(--primary-yellow)">
               {articleTopic.topic}
             </span>
           </div>
 
-          <p className="mt-2 text-[16px] lg:text-[20px] font-normal opacity-90">
+          <p className="mt-2 text-style__subheading opacity-90">
             {articleTopic.description}
           </p>
         </div>
@@ -115,15 +115,15 @@ export default function BlogTopicSection({
                   overflow-hidden
                 "
               >
-                <div className="text-(--primary-yellow) text-[14px] font-semibold">
+                <div className="text-(--primary-yellow) text-style__body">
                   {blog.title}
                 </div>
 
-                <div className="flex-1 text-white text-[14px] leading-snug">
+                <div className="flex-1 text-white text-style__body">
                   {blog.description}
                 </div>
 
-                <div className="text-(--primary-yellow) text-[13px] font-semibold italic">
+                <div className="text-(--primary-yellow) text-style__small-text italic">
                   by: {blog.author}
                 </div>
               </div>

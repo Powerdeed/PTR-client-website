@@ -44,8 +44,8 @@ export default function ArticlePostClient({
         highlightMatch={highlightMatch}
       />
 
-      <div className="px-5 py-20 lg:p-25 min-h-[calc(100vh-350px)] flex-1 flex flex-col items-center gap-2.5">
-        <div className="flex flex-col gap-2.5 items-center w-full lg:max-w-260 min-h-150 h-full px-5 py-10 md:px-20 md:py-25 bg-white text-[13px]">
+      <div className="text-style__body px-5 py-20 lg:p-25 min-h-[calc(100vh-350px)] flex-1 flex flex-col items-center gap-2.5">
+        <div className="flex flex-col gap-2.5 items-center w-full lg:max-w-260 min-h-150 h-full px-5 py-10 md:px-20 md:py-25 bg-white">
           {blogContent && (
             <DraftifyBlocksReader
               blocksData={blogContent.articleDoc.blocks}

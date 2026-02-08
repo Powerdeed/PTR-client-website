@@ -80,11 +80,11 @@ export default function BrowseArea({
           placeholder="Search by name or tag"
           value={searchedArticle ?? ""}
           onChange={(e) => setSearchedArticle(e.target.value)}
-          className={`${!compressed ? "border" : null} rounded-[10px] text-center min-h-7.5 text-[11px]`}
+          className={`${!compressed ? "border" : null} rounded-[10px] text-center min-h-7.5 text-style__small-text`}
         />
 
         <ul
-          className={`grid gap-2.5 text-[12px] ${compressed && "max-h-100 overflow-y-scroll"}`}
+          className={`grid gap-2.5 ${compressed && "max-h-100 overflow-y-scroll"}`}
         >
           {searchedArticle ? (
             articlesMatchingSearch().length > 0 ? (
@@ -111,12 +111,12 @@ export default function BrowseArea({
               >
                 <Link
                   href={`/articles/${topic}`}
-                  className="flex items-center font-semibold text-(--secondary-blue) cursor-pointer"
+                  className="h-7.5 flex items-center font-semibold text-(--secondary-blue) cursor-pointer"
                   onClick={() => {
                     if (selectedTopic !== topic) setSelectedTopic(topic);
                   }}
                 >
-                  <div className="flex-1">
+                  <div className="flex-1 text-style__link">
                     {topic.charAt(0).toUpperCase() + topic.slice(1)}
                   </div>
                   <FontAwesomeIcon
@@ -127,7 +127,7 @@ export default function BrowseArea({
                   />
                 </Link>
 
-                <ol className="p-1 leading-normal grid gap-2.5">
+                <ol className="p-1 text-style__small-text text-justify grid gap-2.5">
                   {blogArray.map((b) => (
                     <li key={b.id} className="cursor-pointer">
                       <Link href={`/articles/${topic}/${b.id}`}>{b.title}</Link>

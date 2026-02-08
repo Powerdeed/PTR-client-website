@@ -19,15 +19,15 @@ export default function Services() {
 
   return (
     <div className="border w-full px-4 grid justify-center box-border">
-      <h1 className="text-center text-2xl font-bold mt-4">
+      <div className="text-center text-style__section-title mt-4">
         Explore Our Services
-      </h1>
+      </div>
 
       <div className="w-fit md:flex gap-2.5 mt-5 justify-center text-[14.4px] mb-10">
         <div className="grid gap-10 mx-auto mb-10">
           {services.map((service) => (
             <div key={service.id} className="w-full md:min-w-150 md:max-w-180">
-              <h2 className="text-lg font-semibold mb-3">{service.name}</h2>
+              <h2 className="text-style__subheading mb-3">{service.name}</h2>
 
               <div className="relative h-60 md:h-90 overflow-hidden rounded-xl">
                 <FontAwesomeIcon
@@ -59,7 +59,6 @@ export default function Services() {
                   ))}
                 </div>
 
-                {/* Right Arrow */}
                 <FontAwesomeIcon
                   icon={["fas", "circle-arrow-right"]}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-3xl cursor-pointer z-1 text-white drop-shadow"
@@ -67,7 +66,7 @@ export default function Services() {
                 />
               </div>
 
-              <p className="mt-4 text-sm text-gray-700">
+              <p className="mt-4 text-style__body text-gray-700">
                 {service.description}
               </p>
             </div>

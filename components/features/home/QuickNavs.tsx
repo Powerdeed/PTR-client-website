@@ -51,7 +51,7 @@ export default function QuickNavs() {
             <div className="w-[22.4px] h-[22.4px] ml-2">
               <FontAwesomeIcon
                 icon={value.icon as [IconPrefix, IconName]}
-                className="text-(--secondary-yellow) rounded-2xl object-cover"
+                className="text-(--primary-yellow) rounded-2xl object-cover"
                 style={{ transform: "scaleX(-1)" }}
               />
             </div>

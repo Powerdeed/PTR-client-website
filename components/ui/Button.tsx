@@ -30,10 +30,9 @@ export default function Button({
         }}
         className="
         w-full
-        h-12.5
+        min-h-12.5
         p-2.5
         border-0
-        text-4
         text-style__button
         cursor-pointer
       "

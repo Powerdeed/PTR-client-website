@@ -26,7 +26,7 @@ export default function Projects() {
   }, []);
 
   return (
-    <div className="md:flex w-full p-[20px_10px] text-[12px] gap-2.5">
+    <div className="md:flex w-full p-[20px_10px] gap-2.5">
       <div className="flex-1 md:min-w-150 mb-2.5">
         {Object.entries(projectsByCategory).map(
           ([category, categoryProjects]) => {
@@ -34,9 +34,7 @@ export default function Projects() {
             return (
               <div key={category} className="relative w-full grid gap-2.5">
                 {/* Category title */}
-                <div className="m-2.5 text-[16px] font-semibold">
-                  {category}
-                </div>
+                <div className="m-2.5 text-style__subheading">{category}</div>
 
                 {/* Horizontal scroll area */}
                 <div className="relative overflow-hidden">
@@ -64,7 +62,6 @@ export default function Projects() {
                           }}
                           className="group relative h-75 w-57.5 shrink-0 cursor-pointer rounded-[10px] transition-shadow duration-500 hover:shadow-[0_0_10px_var(--primary-blue)]"
                         >
-                          {/* Image Container - CHANGED HERE */}
                           <div className="absolute top-0 left-0 w-full h-full overflow-hidden rounded-[10px] transition-[height] duration-500 ease-in-out group-hover:h-65">
                             <Image
                               src={
@@ -81,7 +78,7 @@ export default function Projects() {
                           </div>
 
                           {/* Title */}
-                          <h5 className="absolute bottom-0 z-[-1] h-12.5 w-full grid place-items-center px-2.5 italic text-(--primary-blue)">
+                          <h5 className="text-style__small-text absolute bottom-0 z-[-1] h-12.5 w-full grid place-items-center px-2.5 italic text-(--primary-blue)">
                             {project.name}
                           </h5>
                         </div>
@@ -125,7 +122,7 @@ export default function Projects() {
                     {/* Title */}
                     <div
                       className={`
-                    text-[14px] font-semibold text-center italic transition-all duration-500
+                    text-style__subheading text-center transition-all duration-500
                     ${isOpen ? "block" : "hidden"}
                   `}
                     >
@@ -163,7 +160,7 @@ export default function Projects() {
                       </div>
 
                       {/* Description */}
-                      <div className="w-1/2 text-[1em] max-md:w-full">
+                      <div className="w-1/2 text-style__body max-md:w-full">
                         {selectedProj?.description}
                       </div>
                     </div>

@@ -58,7 +58,7 @@ export default function TopBlogs() {
 
   return (
     <div className="w-full h-fit border border-(--terciary-grey) rounded-[10px] inline-block text-center p-2.5">
-      <div className="relative mx-5 text-[1.3em] text-(--secondary-blue) font-semibold text-center">
+      <div className="relative mx-5 text-style__subheading text-(--secondary-blue) font-semibold text-center">
         Hot Topics
         <FontAwesomeIcon
           icon={["fas", "rotate"]}
@@ -83,19 +83,21 @@ export default function TopBlogs() {
                 className="h-[2em] bg-[linear-gradient(to_right,var(--primary-blue)_60%,var(--secondary-blue)_90%)] pl-[1.2em] text-(--primary-yellow) italic rounded-t-[5px] rounded-r-[5px] translate-y-1.5"
                 style={{ clipPath: clipPathTop }}
               >
-                <h5 className="blog-glimpse-topic">topic: {blog.topic}</h5>
+                topic: {blog.topic}
               </div>
+
               <div className="flex flex-col bg-(--terciary-grey)/25 mx-[4%] py-1.25 h-30">
                 <div className="flex-1">
-                  <div className="text-[1em] mb-1.25 text-(--secondary-blue) px-[4%]">
+                  <div className="text-style__small-text mb-1.25 text-(--secondary-blue) px-[4%]">
                     {blog.title}
                   </div>
-                  <p className="line-clamp-4 mb-1.25 text-[0.9em] px-[4%] text-justify">
+                  <p className="line-clamp-4 mb-1.25 text-style__small-text px-[4%] text-justify">
                     {blog.description}
                   </p>
                 </div>
+
                 <Link
-                  className="text-[0.9em] italic no-underline text-(--secondary-blue) px-[4%] hover:underline"
+                  className="text-style__small-text italic no-underline text-(--secondary-blue) px-[4%] hover:underline"
                   href={`/blogs/${blog.id}`}
                 >
                   Continue reading &rarr;
@@ -105,16 +107,15 @@ export default function TopBlogs() {
                 className="h-[2em] bg-[linear-gradient(to_right,var(--primary-blue)_60%,var(--secondary-blue)_90%)] pl-[1.2em] text-(--primary-yellow) italic rounded-b-[5px] rounded-r-[5px] pt-[0.4em] -translate-y-1.5"
                 style={{ clipPath: clipPathBottom }}
               >
-                <div className="blog-glimpse-date">
-                  Posted on{" "}
-                  {blog.createdAt &&
-                    getCurrentDateFormatted(new Date(blog.createdAt))}
-                </div>
+                Posted on{" "}
+                {blog.createdAt &&
+                  getCurrentDateFormatted(new Date(blog.createdAt))}
               </div>
             </div>
           </div>
         ))}
       </div>
+
       <FontAwesomeIcon
         className="cursor-pointer my-2.5 p-2.5 border border-(--terciary-grey) rounded-[50%] hover:bg-(--secondary-grey) hover:text-(--primary-yellow)"
         icon={["fas", "angle-down"]}

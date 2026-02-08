@@ -83,7 +83,7 @@ body {
 }
 
 .text-style__section-title {
-  @apply text-[14px] font-sans font-medium leading-tight;
+  @apply text-[24px] font-sans font-semibold leading-tight;
 }
 
 .text-style__heading {
@@ -95,11 +95,15 @@ body {
 }
 
 .text-style__body {
-  @apply text-[14px] md:text-[16px] font-sans font-normal leading-normal;
+  @apply text-[14px] font-sans font-normal leading-normal;
+}
+
+.text-style__big-text {
+  @apply text-[30px] md:text-[40px] font-sans font-bold leading-tight;
 }
 
 .text-style__small-text {
-  @apply text-[11px] font-sans font-semibold leading-tight;
+  @apply text-[12px] font-sans font-medium leading-tight;
 }
 
 .text-style__button {
@@ -107,23 +111,11 @@ body {
 }
 
 .text-style__form {
-  @apply text-[14px] font-sans font-normal leading-normal;
+  @apply text-[12px] font-sans font-medium leading-normal;
 }
 
 .text-style__additional-info {
   @apply text-[12px] font-sans font-normal leading-normal;
-}
-
-.text-style__side-panel-top-blogs {
-  @apply text-[14px] font-sans font-normal leading-normal;
-}
-
-.text-style__side-panel-top-projects {
-  @apply text-[14px] font-sans font-normal leading-normal;
-}
-
-.text-style__side-panel-reach-us-form {
-  @apply text-[14px] font-sans font-normal leading-normal;
 }
 
 .text-style__link {

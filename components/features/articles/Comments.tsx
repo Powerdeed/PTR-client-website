@@ -14,7 +14,7 @@ export default function Comments({ articleId }: { articleId: string }) {
     useArticlePost(articleId);
 
   return (
-    <div className="text-[12px] w-full flex flex-col gap-2.5">
+    <div className="text-style__small-text w-full flex flex-col gap-2.5">
       <strong>Comments (Anonymous)</strong>
       <div className="grid gap-5">
         <EditComment

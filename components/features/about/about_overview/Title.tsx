@@ -11,7 +11,7 @@ export default function Title({
   icon: string[];
 }) {
   return (
-    <div className="text-l font-semibold  text-[14px]">
+    <div className="text-style__subheading">
       <h3 className="relative inline-flex w-full">
         {title}
         <div className="absolute w-5 right-0">
