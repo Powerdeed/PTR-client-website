@@ -1,27 +1,27 @@
 "use client";
 
 import { ArticleMeta } from "@/lib/types/types";
-import { getRandomTopBlogs } from "@/services/articles";
+import { getRandomTopArticles } from "@/services/articles";
 import { getCurrentDateFormatted } from "@/utils/dateConverter";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
-export default function TopBlogs() {
-  const blogsContainerRef = useRef<HTMLDivElement | null>(null);
+export default function TopArticles() {
+  const articlesContainerRef = useRef<HTMLDivElement | null>(null);
   const [isAtTop, setIsAtTop] = useState(true);
-  const [topBlogs, setTopBlogs] = useState<ArticleMeta[]>([]);
+  const [topArticles, setTopArticles] = useState<ArticleMeta[]>([]);
 
   useEffect(() => {
-    function topBlogsFunc() {
-      setTopBlogs(getRandomTopBlogs());
+    function topArticlesFunc() {
+      setTopArticles(getRandomTopArticles());
     }
 
-    topBlogsFunc();
+    topArticlesFunc();
   }, []);
 
   useEffect(() => {
-    const container = blogsContainerRef.current;
+    const container = articlesContainerRef.current;
     if (!container) return;
 
     const handleScroll = () => {
@@ -36,12 +36,12 @@ export default function TopBlogs() {
     };
   }, []);
 
-  const handleRefreshBlogs = () => {
-    setTopBlogs(getRandomTopBlogs());
+  const handleRefreshArticles = () => {
+    setTopArticles(getRandomTopArticles());
   };
 
   const scrollProjects = (direction: "up" | "down") => {
-    const container = blogsContainerRef.current;
+    const container = articlesContainerRef.current;
     if (container) {
       container.scrollBy({
         top: direction === "down" ? 250 : -250,
@@ -63,7 +63,7 @@ export default function TopBlogs() {
         <FontAwesomeIcon
           icon={["fas", "rotate"]}
           className="absolute right-0 top-[25%] text-[0.8em] float-right cursor-pointer"
-          onClick={handleRefreshBlogs}
+          onClick={handleRefreshArticles}
         />
       </div>
 
@@ -75,30 +75,30 @@ export default function TopBlogs() {
         />
       )}
 
-      <div className="h-[60vh] overflow-hidden" ref={blogsContainerRef}>
-        {topBlogs.map((blog) => (
-          <div key={blog.id}>
+      <div className="h-[60vh] overflow-hidden" ref={articlesContainerRef}>
+        {topArticles.map((article) => (
+          <div key={article.id}>
             <div className="w-75 inline-block text-left my-1.25">
               <div
                 className="h-[2em] bg-[linear-gradient(to_right,var(--primary-blue)_60%,var(--secondary-blue)_90%)] pl-[1.2em] text-(--primary-yellow) italic rounded-t-[5px] rounded-r-[5px] translate-y-1.5"
                 style={{ clipPath: clipPathTop }}
               >
-                topic: {blog.topic}
+                topic: {article.topic}
               </div>
 
               <div className="flex flex-col bg-(--terciary-grey)/25 mx-[4%] py-1.25 h-30">
                 <div className="flex-1">
                   <div className="text-style__small-text mb-1.25 text-(--secondary-blue) px-[4%]">
-                    {blog.title}
+                    {article.title}
                   </div>
                   <p className="line-clamp-4 mb-1.25 text-style__small-text px-[4%] text-justify">
-                    {blog.description}
+                    {article.description}
                   </p>
                 </div>
 
                 <Link
                   className="text-style__small-text italic no-underline text-(--secondary-blue) px-[4%] hover:underline"
-                  href={`/blogs/${blog.id}`}
+                  href={`/articles/${article.topic}/${article.id}`}
                 >
                   Continue reading &rarr;
                 </Link>
@@ -108,8 +108,8 @@ export default function TopBlogs() {
                 style={{ clipPath: clipPathBottom }}
               >
                 Posted on{" "}
-                {blog.createdAt &&
-                  getCurrentDateFormatted(new Date(blog.createdAt))}
+                {article.createdAt &&
+                  getCurrentDateFormatted(new Date(article.createdAt))}
               </div>
             </div>
           </div>

@@ -20,7 +20,7 @@ export const getTopicArticles = (currentTopic: string) =>
 export const getArticleContent = (blogSelected: string) =>
   articlesContent.find((blog) => blog.id === blogSelected);
 
-export const getRandomTopBlogs = () => {
+export const getRandomTopArticles = () => {
   const shuffled = [...articlesMeta];
   shuffleArray(shuffled);
   return shuffled.slice(0, 10);

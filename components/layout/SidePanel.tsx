@@ -1,7 +1,7 @@
 // components
 import ReachUsForm from "@/components/layout/ReachUsForm";
 import TopProjects from "./TopProjects";
-import TopBlogs from "./TopBlogs";
+import TopArticles from "./TopArticles";
 
 type Option = "reach us" | "projects" | "blogs";
 
@@ -13,7 +13,7 @@ export default function SidePanel({ options }: { options: Option[] }) {
           <div>
             {option === "reach us" && <ReachUsForm />}
             {option === "projects" && <TopProjects />}
-            {option === "blogs" && <TopBlogs />}
+            {option === "blogs" && <TopArticles />}
           </div>
 
           {idx < options.length - 1 && (
