@@ -3,12 +3,6 @@ export const BUSINESS_NAME = "POWERDEED TECHNOLOGY RESOURCES LTD.";
 export const NAV_DISPLAY_BUSINESS_NAME_1 = "POWERDEED";
 export const NAV_DISPLAY_BUSINESS_NAME_2 = "TECHNOLOGY RESOURCES LTD.";
 
-export const HOME_INTRO_TEXT_1 =
-  "Powering Kenya's Future: Expert Electrical & Solar Solutions";
-
-export const HOME_INTRO_TEXT_2 =
-  "Delivering reliable electrical engineering and solar energy solutions across Kenya.";
-
 type NavItem = {
   href: string;
   label: string;

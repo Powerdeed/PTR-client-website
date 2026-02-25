@@ -62,7 +62,7 @@ export default function Testimonials() {
                   <div className="h-fit top-6.25 left-17.5 text-[12.8px]">
                     <div className="text-style__subheading">{t.name}</div>
                     <div className="text-style__small-text italic">
-                      {t.title}
+                      {t.industry}, {t.position}
                     </div>
                   </div>
                 </div>

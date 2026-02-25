@@ -33,7 +33,8 @@ export type UniqueFeatures = {
 export type Testimonial = {
   id: string;
   name: string;
-  title: string;
+  position: string;
+  industry: string;
   testimonial: string;
   profilePic: string;
 };
@@ -51,6 +52,8 @@ export type Project = {
   images: string[];
   description: string;
   category: string;
+  status: "Ongoing" | "Completed";
+  featured: boolean;
 };
 
 export type Projects = Project[];

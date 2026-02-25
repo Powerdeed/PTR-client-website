@@ -14,6 +14,13 @@ import {
   UniqueFeatures,
 } from "@/lib/types/types";
 
+export const hero = {
+  title: "Powering Kenya's Future: Expert Electrical & Solar Solutions",
+  subtitle:
+    "Delivering reliable electrical engineering and solar energy solutions across Kenya.",
+  image: "/images/PES-site-image.jpg",
+};
+
 export const coreValues: CoreValue[] = [
   {
     name: "Integrity",
@@ -51,7 +58,8 @@ export const testimonials: Testimonial[] = [
   {
     id: "6870da6360461b0545bb47e6",
     name: "John Doe",
-    title: "CEO, Acme Corp",
+    position: "Acme Corp",
+    industry: "CEO",
     testimonial:
       "Powerdeed exceeded our expectations with their professionalism and expertise.",
     profilePic: "profile-image",
@@ -59,56 +67,64 @@ export const testimonials: Testimonial[] = [
   {
     id: "6870e4f7e43b11bdb76674b5",
     name: "Jane Smith",
-    title: "Resident",
+    position: "Resident",
+    industry: "Project Manager",
     testimonial: "The team was friendly and efficient. Highly recommended!",
     profilePic: "profile-image",
   },
   {
     id: "6870e52d5f5d5c2b57831af2",
     name: "Michael Brown",
-    title: "Facility Manager",
+    position: "Facility Manager",
+    industry: "Facility Management",
     testimonial: "Their solutions are reliable and cost-effective.",
     profilePic: "profile-image",
   },
   {
     id: "6870e5435f5d5c2b57831af5",
     name: "Emily White",
-    title: "Homeowner",
+    position: "Homeowner",
+    industry: "Residential",
     testimonial: "I am very satisfied with the service provided by Powerdeed.",
     profilePic: "profile-image",
   },
   {
     id: "6870e5545f5d5c2b57831af8",
     name: "David Green",
-    title: "Business Owner",
+    position: "Business Owner",
+    industry: "Commercial",
     testimonial: "Prompt response and excellent customer care.",
     profilePic: "profile-image",
   },
   {
     id: "6870e5795f5d5c2b57831afb",
     name: "Sophia Lee",
-    title: "Resident",
+    position: "Resident",
+    industry: "Residential",
     testimonial: "They made the whole process seamless and easy.",
     profilePic: "profile-image",
   },
   {
     id: "6870e5a55f5d5c2b57831afe",
     name: "Olivia Brown",
-    title: "Property Manager",
+    position: "Property Manager",
+    industry: "Olivia Corp",
     testimonial: "We will definitely work with Powerdeed again.",
     profilePic: "profile-image",
   },
   {
     id: "6870e5b85f5d5c2b57831b01",
     name: "Daniel Kim",
-    title: "Resident",
+    position: "Resident",
+    industry: "Residential",
     testimonial: "Great value for money and top-notch service.",
     profilePic: "profile-image",
   },
   {
     id: "6870e5cb5f5d5c2b57831b04",
     name: "Grace Wilson",
-    title: "CEO, Wilson Enterprises",
+    position: "Wilson Enterprises",
+    industry: "CEO",
     testimonial: "Professional, reliable, and trustworthy.",
     profilePic: "profile-image",
   },
@@ -183,7 +199,7 @@ export const services: Service[] = [
 export const projects: Projects = [
   {
     id: "686f8a913673b0db0950398b",
-    category: "Electrical",
+    category: "Electrical Installation",
     name: "Commercial Office Wiring Upgrade",
     images: [
       "expansionProject",
@@ -193,10 +209,12 @@ export const projects: Projects = [
     ],
     description:
       "Complete rewiring and electrical system upgrade for a multi-story commercial office building, ensuring compliance with modern safety standards.",
+    status: "Completed",
+    featured: true,
   },
   {
     id: "686f8c333673b0db0950398d",
-    category: "Electrical",
+    category: "Electrical Installation",
     name: "Residential Smart Home Installation",
     images: [
       "solarPower",
@@ -206,10 +224,12 @@ export const projects: Projects = [
     ],
     description:
       "Installation of smart electrical systems, including automated lighting and energy-efficient wiring in a luxury residential estate.",
+    status: "Completed",
+    featured: false,
   },
   {
     id: "686f955050a5c5fc27b617e2",
-    category: "Electrical",
+    category: "Electrical Installation",
     name: "Industrial Panel Board Replacement",
     images: [
       "electricalInstallation3",
@@ -219,10 +239,12 @@ export const projects: Projects = [
     ],
     description:
       "Replacement and commissioning of outdated industrial panel boards to improve reliability and safety in a manufacturing facility.",
+    status: "Completed",
+    featured: false,
   },
   {
     id: "686f95f450a5c5fc27b617ec",
-    category: "Electrical",
+    category: "Electrical Installation",
     name: "Hospital Emergency Power System",
     images: [
       "electricalInstallation2",
@@ -232,10 +254,12 @@ export const projects: Projects = [
     ],
     description:
       "Design and installation of a backup power system for critical care units in a regional hospital.",
+    status: "Completed",
+    featured: false,
   },
   {
     id: "686f962750a5c5fc27b617f0",
-    category: "Electrical",
+    category: "Electrical Installation",
     name: "School Electrical Renovation",
     images: [
       "electricalInstallation3",
@@ -245,10 +269,12 @@ export const projects: Projects = [
     ],
     description:
       "Comprehensive electrical renovation for a public school, including new lighting, outlets, and surge protection.",
+    status: "Completed",
+    featured: false,
   },
   {
     id: "686f967650a5c5fc27b617f4",
-    category: "Solar",
+    category: "Solar Installation",
     name: "Commercial Rooftop Solar PV System",
     images: [
       "hydrogenProduction",
@@ -258,26 +284,32 @@ export const projects: Projects = [
     ],
     description:
       "Installation of a high-capacity rooftop solar photovoltaic system for a shopping mall.",
+    status: "Completed",
+    featured: true,
   },
   {
     id: "686f969c50a5c5fc27b617f8",
-    category: "Solar",
+    category: "Solar Installation",
     name: "Residential Solar Water Heating",
     images: ["gridScale", "solarResources", "hydrogenProduction", "solarPower"],
     description:
       "Integration of solar water heating panels in a residential housing project.",
+    status: "Completed",
+    featured: false,
   },
   {
     id: "686f96c250a5c5fc27b617fc",
-    category: "Solar",
+    category: "Solar Installation",
     name: "Solar-Powered Irrigation System",
     images: ["solarPower", "expansionProject", "powerPost", "wasteRecycle"],
     description:
       "Design and implementation of a solar-powered irrigation system for an agricultural farm.",
+    status: "Completed",
+    featured: false,
   },
   {
     id: "686f96e750a5c5fc27b61800",
-    category: "Solar",
+    category: "Solar Installation",
     name: "Grid-Tied Solar Power Plant",
     images: [
       "hydrogenProduction",
@@ -287,6 +319,8 @@ export const projects: Projects = [
     ],
     description:
       "Construction and commissioning of a grid-tied solar power plant for a municipal utility.",
+    status: "Completed",
+    featured: false,
   },
   {
     id: "686f974e50a5c5fc27b61808",
@@ -300,6 +334,8 @@ export const projects: Projects = [
     ],
     description:
       "Installation of high-capacity standby generators to ensure uninterrupted power supply for a hospital.",
+    status: "Completed",
+    featured: true,
   },
   {
     id: "686f97a450a5c5fc27b6180c",
@@ -308,6 +344,8 @@ export const projects: Projects = [
     images: ["expansionProject", "solarRural", "solarPanelImage", "powerPost"],
     description:
       "Upgrade and maintenance of diesel generators for a large-scale manufacturing plant.",
+    status: "Completed",
+    featured: false,
   },
   {
     id: "686f97e950a5c5fc27b61814",
@@ -321,6 +359,8 @@ export const projects: Projects = [
     ],
     description:
       "Synchronization of multiple generators for seamless power transfer in a commercial complex.",
+    status: "Completed",
+    featured: false,
   },
   {
     id: "686f981350a5c5fc27b61818",
@@ -334,6 +374,8 @@ export const projects: Projects = [
     ],
     description:
       "Design and installation of a backup generator system for a mission-critical data center.",
+    status: "Completed",
+    featured: false,
   },
   {
     id: "686f983350a5c5fc27b6181c",
@@ -347,6 +389,8 @@ export const projects: Projects = [
     ],
     description:
       "Supply and installation of backup generators for a gated residential estate.",
+    status: "Completed",
+    featured: false,
   },
   {
     id: "686f985b50a5c5fc27b61820",
@@ -360,6 +404,8 @@ export const projects: Projects = [
     ],
     description:
       "Upgrade of factory automation systems to improve production efficiency and reduce downtime.",
+    status: "Completed",
+    featured: true,
   },
   {
     id: "686f987d50a5c5fc27b61824",
@@ -368,6 +414,8 @@ export const projects: Projects = [
     images: ["gridScale", "powerPost", "expansionProject", "wasteRecycle"],
     description:
       "Integration of a centralized building management system for automated control of HVAC, lighting, and security.",
+    status: "Completed",
+    featured: false,
   },
   {
     id: "686f98a450a5c5fc27b61828",
@@ -376,6 +424,8 @@ export const projects: Projects = [
     images: ["solarRural", "solarEnergy", "expansionProject", "gridScale"],
     description:
       "Design and installation of automated lighting control for a large-scale commercial project.",
+    status: "Completed",
+    featured: false,
   },
 ];
 
