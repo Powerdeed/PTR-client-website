@@ -12,8 +12,19 @@ import { DraftifyBlocksReader } from "draftify-react";
 
 import { DraftifyBlock } from "draftify";
 import Button from "@/components/ui/Button";
+import { useEffect, useState } from "react";
 
 export default function Overview() {
+  const [smallScreen, setSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const screenSizeSetter = () => setSmallScreen(window.innerWidth < 768);
+
+    screenSizeSetter();
+    window.addEventListener("resize", screenSizeSetter);
+
+    return () => window.removeEventListener("resize", screenSizeSetter);
+  }, []);
   return (
     <div className="grid gap-5 text-style__body">
       {/* About information */}
@@ -61,22 +72,27 @@ export default function Overview() {
       </div>
 
       {/* Unique features */}
-      <div className="unique-features grid gap-5">
-        <Title title="Unique Features & benefits" icon={["fas", "gem"]} />
+      <div className="relative w-125 h-125 mx-auto">
+        {uniqueFeatures.map((feature, index) => {
+          const total = uniqueFeatures.length;
+          const angle = ((index + 0.5) / total) * 2 * Math.PI - Math.PI / 2;
+          const radius = smallScreen ? 130 : 180;
 
-        <div className="inline-flex justify-center gap-5 lg:gap-15">
-          <FeatureContainer {...uniqueFeatures[0]} />
-          <FeatureContainer {...uniqueFeatures[1]} />
-        </div>
+          const x = radius * Math.cos(angle);
+          const y = radius * Math.sin(angle);
 
-        <div className="inline-flex justify-center gap-20 lg:gap-55">
-          <FeatureContainer {...uniqueFeatures[2]} />
-          <FeatureContainer {...uniqueFeatures[3]} />
-        </div>
-
-        <div className="inline-flex justify-center">
-          <FeatureContainer {...uniqueFeatures[4]} />
-        </div>
+          return (
+            <div
+              key={index}
+              className="absolute left-1/2 top-1/2"
+              style={{
+                transform: `translate(-50%, -50%) translate(${x}px, ${y}px)`,
+              }}
+            >
+              <FeatureContainer {...feature} />
+            </div>
+          );
+        })}
       </div>
 
       {/* Core Values */}
