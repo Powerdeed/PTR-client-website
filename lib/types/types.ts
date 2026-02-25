@@ -2,7 +2,7 @@ import { DraftifyBlock, DraftifyDocument } from "draftify";
 
 export type AboutUs = {
   title: string;
-  description: DraftifyBlock[];
+  description: DraftifyBlock[] | string[] | string;
 };
 
 export type AboutIntro = {

@@ -25,8 +25,9 @@ export default function Overview() {
 
     return () => window.removeEventListener("resize", screenSizeSetter);
   }, []);
+
   return (
-    <div className="grid gap-5 text-style__body">
+    <div className="flex flex-col gap-5 text-style__body">
       {/* About information */}
       <div className="grid gap-5">
         <div>
@@ -62,37 +63,51 @@ export default function Overview() {
 
         <div>
           <Title title="Why choose us" icon={["fas", "question"]} />
-          <DraftifyBlocksReader
-            blocksData={
+          <div className="flex flex-wrap gap-2.5 mt-2.5">
+            {Array.isArray(
               aboutUs.find((about) => about.title === "Why Choose Powerdeed?")
-                ?.description as DraftifyBlock[]
-            }
-          />
+                ?.description,
+            ) &&
+              (
+                aboutUs.find((about) => about.title === "Why Choose Powerdeed?")
+                  ?.description as string[]
+              ).map((item: string, index: number) => (
+                <div
+                  key={index}
+                  className="py-1 px-2 w-fit bg-[linear-gradient(to_right,var(--primary-blue)_60%,var(--secondary-blue)_80%)] rounded-[10px] text-(--primary-yellow) text-style__small-text"
+                >
+                  {item}
+                </div>
+              ))}
+          </div>
         </div>
       </div>
 
       {/* Unique features */}
-      <div className="relative w-125 h-125 mx-auto">
-        {uniqueFeatures.map((feature, index) => {
-          const total = uniqueFeatures.length;
-          const angle = ((index + 0.5) / total) * 2 * Math.PI - Math.PI / 2;
-          const radius = smallScreen ? 130 : 180;
+      <div className="">
+        <Title title="Unique Features & benefits" icon={["fas", "gem"]} />
+        <div className="unique-features relative w-full h-125">
+          {uniqueFeatures.map((feature, index) => {
+            const total = uniqueFeatures.length;
+            const angle = ((index + 0.5) / total) * 2 * Math.PI - Math.PI / 2;
+            const radius = smallScreen ? 110 : 180;
 
-          const x = radius * Math.cos(angle);
-          const y = radius * Math.sin(angle);
+            const x = radius * Math.cos(angle);
+            const y = radius * Math.sin(angle);
 
-          return (
-            <div
-              key={index}
-              className="absolute left-1/2 top-1/2"
-              style={{
-                transform: `translate(-50%, -50%) translate(${x}px, ${y}px)`,
-              }}
-            >
-              <FeatureContainer {...feature} />
-            </div>
-          );
-        })}
+            return (
+              <div
+                key={index}
+                className="absolute left-1/2 top-1/2"
+                style={{
+                  transform: `translate(-50%, -50%) translate(${x}px, ${y}px)`,
+                }}
+              >
+                <FeatureContainer feature={feature} smallScreen={smallScreen} />
+              </div>
+            );
+          })}
+        </div>
       </div>
 
       {/* Core Values */}
