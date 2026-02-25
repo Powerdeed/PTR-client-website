@@ -14,7 +14,7 @@ export default function CoreValues() {
               style={{ boxShadow: `1px 1px 15px ${value.color}` }}
             >
               <div
-                className="text-style__subheading text-center"
+                className="text-style__body text-center"
                 style={{ color: `${value.color}` }}
               >
                 {value.name}
