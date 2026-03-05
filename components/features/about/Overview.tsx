@@ -6,7 +6,7 @@ import CoreValues from "../../layout/CoreValues";
 import FeatureContainer from "./about_overview/FeatureContainer";
 import Title from "./about_overview/Title";
 
-import { aboutUs, uniqueFeatures } from "@/data/dummyData";
+import { aboutUs } from "@/data/dummyData";
 
 import { DraftifyBlocksReader } from "draftify-react";
 
@@ -43,21 +43,21 @@ export default function Overview() {
         <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-5">
           <div>
             <Title title="Mission" icon={["far", "thumbs-up"]} />
-            <DraftifyBlocksReader
-              blocksData={
+            <div className="">
+              {
                 aboutUs.find((about) => about.title === "Mission")
-                  ?.description as DraftifyBlock[]
+                  ?.description as string
               }
-            />
+            </div>
           </div>
           <div>
             <Title title="Vision" icon={["fas", "crosshairs"]} />
-            <DraftifyBlocksReader
-              blocksData={
+            <div>
+              {
                 aboutUs.find((about) => about.title === "Vision")
-                  ?.description as DraftifyBlock[]
+                  ?.description as string
               }
-            />
+            </div>
           </div>
         </div>
 
@@ -87,26 +87,50 @@ export default function Overview() {
       <div className="">
         <Title title="Unique Features & benefits" icon={["fas", "gem"]} />
         <div className="unique-features relative w-full h-125">
-          {uniqueFeatures.map((feature, index) => {
-            const total = uniqueFeatures.length;
-            const angle = ((index + 0.5) / total) * 2 * Math.PI - Math.PI / 2;
-            const radius = smallScreen ? 110 : 180;
+          {Array.isArray(
+            aboutUs.find((about) => about.title === "Unique Features")
+              ?.description,
+          ) &&
+            (
+              aboutUs.find((about) => about.title === "Unique Features")
+                ?.description as string[]
+            ).map((feature, index) => {
+              const total =
+                aboutUs.find((about) => about.title === "Unique Features")
+                  ?.description.length || 0;
+              const angle = ((index + 0.5) / total) * 2 * Math.PI - Math.PI / 2;
+              const radius = smallScreen ? 110 : 180;
 
-            const x = radius * Math.cos(angle);
-            const y = radius * Math.sin(angle);
+              const x = radius * Math.cos(angle);
+              const y = radius * Math.sin(angle);
 
-            return (
-              <div
-                key={index}
-                className="absolute left-1/2 top-1/2"
-                style={{
-                  transform: `translate(-50%, -50%) translate(${x}px, ${y}px)`,
-                }}
-              >
-                <FeatureContainer feature={feature} smallScreen={smallScreen} />
-              </div>
-            );
-          })}
+              const colors = [
+                ["#0a1f44", "#0043b9"],
+                ["#ffd600", "#ffeb86"],
+                ["#ff0000", "#ff3636"],
+                ["#00c896", "#61ffd7"],
+                ["#454545", "#838383"],
+              ];
+
+              const colorIndex = index % colors.length;
+
+              return (
+                <div
+                  key={index}
+                  className="absolute left-1/2 top-1/2"
+                  style={{
+                    transform: `translate(-50%, -50%) translate(${x}px, ${y}px)`,
+                  }}
+                >
+                  <FeatureContainer
+                    feature={feature}
+                    color1={colors[colorIndex][0]}
+                    color2={colors[colorIndex][1]}
+                    smallScreen={smallScreen}
+                  />
+                </div>
+              );
+            })}
         </div>
       </div>
 

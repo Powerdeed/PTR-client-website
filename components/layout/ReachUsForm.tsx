@@ -70,6 +70,7 @@ export default function ReachUsForm() {
                   id={field.id}
                   type={field.type}
                   required
+                  autoComplete={field.autocomplete || "on"}
                   className="w-full h-[3em] pl-1.25 rounded-[10px] border border-(--secondary-grey)"
                   value={formData[field.id as keyof typeof formData]}
                   onChange={(e) =>
@@ -89,6 +90,7 @@ export default function ReachUsForm() {
           {formFillingOptions.projectSectorOptions.map((service) => (
             <div key={service}>
               <input
+                id={service}
                 type="checkbox"
                 className="mx-2.5"
                 onChange={(e) =>
@@ -112,6 +114,7 @@ export default function ReachUsForm() {
           {formFillingOptions.propertyTypeOptions.map((property) => (
             <div key={property}>
               <input
+                id={property}
                 type="checkbox"
                 className="mx-2.5"
                 onChange={(e) =>
@@ -129,6 +132,7 @@ export default function ReachUsForm() {
         </div>
 
         <textarea
+          id="reachUs-form-additional-info"
           placeholder="Additional information"
           className="w-full min-h-[5em] p-1.25 rounded-[10px] border border-(--secodary-grey)"
           value={formData.additionalInfo}
@@ -140,6 +144,7 @@ export default function ReachUsForm() {
         <div>
           How did you hear about us
           <select
+            id="hear-about-us-selector"
             className="w-full h-[3em] pl-1.25 rounded-[10px] border border-(--secodary-grey)"
             required
             value={formData.hearAboutUs}

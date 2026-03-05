@@ -6,12 +6,10 @@ import {
   ArticleTopics,
   Comment,
   Contacts,
-  CoreValue,
   FormFillingOptions,
   Projects,
   Service,
   Testimonial,
-  UniqueFeatures,
 } from "@/lib/types/types";
 
 export const hero = {
@@ -20,39 +18,6 @@ export const hero = {
     "Delivering reliable electrical engineering and solar energy solutions across Kenya.",
   image: "/images/PES-site-image.jpg",
 };
-
-export const coreValues: CoreValue[] = [
-  {
-    name: "Integrity",
-    description: "We act honestly and ethically in all we do.",
-    color: "#0a1f44",
-  },
-  {
-    name: "Excellence",
-    description: "We strive for the highest standards and results.",
-    color: "#0043b9",
-  },
-  {
-    name: "Innovation",
-    description: "We embrace creativity and new ideas.",
-    color: "#ffd600",
-  },
-  {
-    name: "Customer Focus",
-    description: "We prioritize our clients’ needs and satisfaction.",
-    color: "#ff0000",
-  },
-  {
-    name: "Teamwork",
-    description: "We collaborate and support each other.",
-    color: "#00c896",
-  },
-  {
-    name: "Safety",
-    description: "We ensure a safe environment for all.",
-    color: "#61ffd7",
-  },
-];
 
 export const testimonials: Testimonial[] = [
   {
@@ -522,29 +487,13 @@ export const aboutUs: AboutUs[] = [
   },
   {
     title: "Mission",
-    description: [
-      {
-        id: "b805a61f-2527-477e-8c72-1b8256784929",
-        type: "paragraph",
-        createdAt: "2026-01-22T13:06:05.776Z",
-        data: {
-          text: "To provide sustainable, safe, and innovative energy and security solutions that empower our clients and communities.",
-        },
-      },
-    ],
+    description:
+      "To provide sustainable, safe, and innovative energy and security solutions that empower our clients and communities.",
   },
   {
     title: "Vision",
-    description: [
-      {
-        id: "b805a61f-2527-477e-8c72-1b8256784929",
-        type: "paragraph",
-        createdAt: "2026-01-22T13:06:05.776Z",
-        data: {
-          text: "To be the most reliable and forward-thinking engineering service provider in Africa, recognized for excellence, safety, and environmental responsibility.",
-        },
-      },
-    ],
+    description:
+      "To be the most reliable and forward-thinking engineering service provider in Africa, recognized for excellence, safety, and environmental responsibility.",
   },
   {
     title: "Why Choose Powerdeed?",
@@ -559,33 +508,26 @@ export const aboutUs: AboutUs[] = [
       "reliable partner from consultation to completion",
     ],
   },
-];
-
-export const uniqueFeatures: UniqueFeatures[] = [
   {
-    benefit: "Turnkey Solutions",
-    color1: "#0a1f44",
-    color2: "#0043b9",
+    title: "Unique Features",
+    description: [
+      "Turnkey Solutions",
+      "Customized Approach",
+      "Certified Expertise",
+      "Sustainable Focus",
+      "24/7 Support",
+    ],
   },
   {
-    benefit: "Customized Approach",
-    color1: "#ffd600",
-    color2: "#ffeb86",
-  },
-  {
-    benefit: "Certified Expertise",
-    color1: "#ff0000",
-    color2: "#ff3636",
-  },
-  {
-    benefit: "Sustainable Focus",
-    color1: "#00c896",
-    color2: "#61ffd7",
-  },
-  {
-    benefit: "24/7 Support",
-    color1: "#454545",
-    color2: "#838383",
+    title: "Core Values",
+    description: [
+      ["Integrity", "We act honestly and ethically in all we do."],
+      ["Excellence", "We strive for the highest standards and results."],
+      ["Innovation", "We strive for the highest standards and results."],
+      ["Customer Focus", "We prioritize our clients’ needs and satisfaction."],
+      ["Teamwork", "We collaborate and support each other."],
+      ["Safety", "We ensure a safe environment for all."],
+    ],
   },
 ];
 
@@ -1196,20 +1138,46 @@ export const comments: Comment[] = [
 ];
 
 export const contacts: Contacts = {
-  general: {
-    location: "Wakiawa House, Nyeri Town, Kenya",
-    phone: "+254 722 316 721",
-    email: "powerdeedtechnologies@gmail.com",
-    "working-hours": "Mon-Fri: 8:00am - 5:00pm",
+  Hero: {
+    image: "/images/agreement.png",
+    title: "Let's Talk",
+    subtitle:
+      "Whether you have a question, feedback, or just want to say hello, we'd love to hear from you!",
   },
-  socials: {
-    linkedIn: {
-      link: "https://www.linkedin.com/in/alfred-kuria-58199a106/?originalSubdomain=ke",
-    },
-    WhatsApp: {
-      link: "https://wa.me/254722316721?text=Hi%2C%20I%20found%20you%20on%20the%20website",
-    },
+  Location: {
+    Country: "Kenya",
+    City: "Nyeri",
+    Town: "Nyeri town",
+    Address: "Wakiawa House",
   },
+  ContactInformation: {
+    Phone: ["+254 722 316 721", "+254 722 316 721"],
+    Email: [
+      "powerdeedtechnologies@gmail.com",
+      "powerdeedtechnologies@gmail.com",
+    ],
+  },
+  "working-hours": {
+    Weekdays: {
+      from: "8:00 AM",
+      to: "6:00 PM",
+    },
+    Saturday: {
+      from: "9:00 AM",
+      to: "2:00 PM",
+    },
+    Sunday: null,
+  },
+  Socials: [
+    [
+      "LinkedIn",
+      "https://www.linkedin.com/in/alfred-kuria-58199a106/?originalSubdomain=ke",
+    ],
+    [
+      "WhatsApp",
+      "https://wa.me/254722316721?text=Hi%2C%20I%20found%20you%20on%20the%20website",
+    ],
+  ],
 };
 
 export const formFillingOptions: FormFillingOptions = {

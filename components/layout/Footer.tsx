@@ -42,21 +42,44 @@ export default function Footer() {
   // }, []);
 
   return (
-    <footer className="relative w-full h-max lg:h-75 p-[0_10%_80px_10%] bg-(--primary-blue) text-style__footer text-(--primary-yellow) grid gap-5 pt-2.5">
+    <footer className="relative w-full h-max md:h-75 p-[0_10%_80px_10%] bg-(--primary-blue) text-style__footer text-(--primary-yellow) grid gap-5 pt-2.5">
       <div>
-        <ul className="w-full lg:w-[25%] list-none grid gap-2.5 text-center lg:float-left lg:text-left mb-2.5 lg:mb-0">
-          <li className="Contacts font-bold text-[14px]">Our Contacts</li>
+        <div className="Contacts font-bold text-[14px] text-center md:text-left">
+          Our Contacts
+        </div>
 
-          {!contacts.general ? (
+        {!contacts ? (
+          <ul className="w-full md:w-[25%] list-none grid gap-2.5 text-center md:float-left md:text-left mb-2.5 md:mb-0">
             <li>Loading contacts...</li>
-          ) : (
-            Object.entries(contacts.general).map(([title, value]) => (
-              <li key={title}> {value}</li>
-            ))
-          )}
-        </ul>
+          </ul>
+        ) : (
+          <ul className="w-full md:w-[25%] list-none grid gap-2.5 text-center md:float-left md:text-left mb-2.5 md:mb-0">
+            <li>{Object.values(contacts.Location).join(", ")}</li>
+            <li>
+              {contacts.ContactInformation.Phone.map((contact) => contact).join(
+                ", ",
+              )}
+            </li>
+            <li>
+              {contacts.ContactInformation.Email.map((email) => email).join(
+                ", ",
+              )}
+            </li>
+            <li className="flex flex-col gap-2.5">
+              {Object.entries(contacts["working-hours"]).map(
+                ([days, hours]) => (
+                  <div key={days}>
+                    {days +
+                      ":" +
+                      (hours ? hours.from + "-" + hours.to : "closed")}
+                  </div>
+                ),
+              )}
+            </li>
+          </ul>
+        )}
 
-        <ul className="w-full lg:w-[25%] list-none grid justify-center gap-2.5 float-none text-center lg:float-left lg:text-left mb-2.5 lg:mb-0">
+        <ul className="w-full md:w-[25%] list-none grid justify-center gap-2.5 float-none text-center md:float-left md:text-left mb-2.5 md:mb-0">
           {flattenedNavigation.map((path, index) => (
             <li key={index}>
               <Link
@@ -69,32 +92,32 @@ export default function Footer() {
           ))}
         </ul>
 
-        <ul className="w-full lg:w-[25%] list-none grid justify-center gap-2.5 float-none text-center lg:float-left lg:text-left mb-2.5 lg:mb-0">
+        <ul className="w-full md:w-[25%] list-none grid justify-center gap-2.5 float-none text-center md:float-left md:text-left mb-2.5 md:mb-0">
           <li className="socials font-bold text-[14px]">Our Socials:</li>
 
-          {Object.entries(contacts.socials).map(([social, value]) => (
+          {contacts.Socials.map((social, idx) => (
             <li
-              key={social}
-              className="text-style__link--inverse grid lg:block justify-center"
+              key={idx}
+              className="text-style__link--inverse grid md:block justify-center"
             >
               <Link
-                href={value.link}
+                href={social[1]}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2.5"
               >
                 <FontAwesomeIcon
                   className="text-(--primary-yellow) text-[14px]"
-                  icon={["fab", social.toLocaleLowerCase() as IconName]}
+                  icon={["fab", social[0].toLocaleLowerCase() as IconName]}
                 />
 
-                {social}
+                {social[0]}
               </Link>
             </li>
           ))}
         </ul>
 
-        <ul className="w-full lg:w-[25%] list-none grid justify-center gap-2.5 float-none text-center lg:float-left lg:text-left mb-2.5 lg:mb-0">
+        <ul className="w-full md:w-[25%] list-none grid justify-center gap-2.5 float-none text-center md:float-left md:text-left mb-2.5 md:mb-0">
           <li>
             <a
               href="/docs/profile/POWERDEED ENGINEERING SERVICES.pdf"

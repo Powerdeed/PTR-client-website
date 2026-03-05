@@ -2,7 +2,7 @@ import { DraftifyBlock, DraftifyDocument } from "draftify";
 
 export type AboutUs = {
   title: string;
-  description: DraftifyBlock[] | string[] | string;
+  description: DraftifyBlock[] | string | string[] | string[][];
 };
 
 export type AboutIntro = {
@@ -15,7 +15,6 @@ export type AboutIntro = {
 export type CoreValue = {
   name: string;
   description: string;
-  color: string;
 };
 
 export type CoreValuesData = {
@@ -98,17 +97,28 @@ export type Comment = {
 };
 
 export type Contacts = {
-  general: {
-    location: string;
-    phone: string | string[];
-    email: string;
-    "working-hours": string;
+  Hero: {
+    image: string;
+    title: string;
+    subtitle: string;
   };
-  socials: {
+  Location: {
+    Address: string;
+    City: string;
+    Town: string;
+    Country: string;
+  };
+  ContactInformation: {
+    Phone: string[];
+    Email: string[];
+  };
+  "working-hours": {
     [key: string]: {
-      link: string;
-    };
+      from: string;
+      to: string;
+    } | null;
   };
+  Socials: [string, string][];
 };
 
 export type FormFillingOptions = {
