@@ -2,10 +2,10 @@
 
 import { use } from "react";
 
-import ArticleTopicSection from "@/components/features/articles/ArticleTopicSection";
-import BrowseArea from "@/components/features/articles/BrowseArea";
+import ArticleTopicSection from "@/app/articles/[articleTopic]/components/ArticleTopicSection";
+import BrowseArea from "@/app/articles/[articleTopic]/components/BrowseArea";
 
-import { useArticle } from "@/hooks/useArticle";
+import { useArticle } from "@/app/articles/[articleTopic]/hooks/useArticle";
 
 export default function Blogs({
   params,

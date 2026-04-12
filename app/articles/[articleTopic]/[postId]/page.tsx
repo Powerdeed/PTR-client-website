@@ -1,4 +1,4 @@
-import ArticlePostClient from "@/components/features/articles/ArticlePostClient";
+import ArticlePostClient from "@/app/articles/[articleTopic]/components/ArticlePostClient";
 
 export default async function Post({
   params,

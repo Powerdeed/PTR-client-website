@@ -9,10 +9,11 @@ import Image from "next/image";
 import SidePanel from "@/components/layout/SidePanel";
 
 // data
-import { projectImages, services } from "@/data/dummyData";
+import { projectImages } from "@/data/dummyData";
+import { services } from "./services/services";
 
 // utils
-import { handleScroll } from "@/utils/interactions";
+import { handleScroll } from "@/global-utils/scroll-interactions";
 
 export default function Services() {
   const imageRefs = useRef<Record<string, HTMLDivElement | null>>({});

@@ -1,10 +1,10 @@
 import { use } from "react";
 
 import SidePanel from "@/components/layout/SidePanel";
-import Overview from "@/components/features/about/Overview";
-import Strucutre from "@/components/features/about/Strucutre";
-import Certificates from "@/components/features/about/Certificates";
-import Pagination from "@/components/layout/Pagination";
+import Overview from "./components/Overview";
+import Strucutre from "./components/Strucutre";
+import Certificates from "./components/Certificates";
+import Pagination from "../../../components/layout/Pagination";
 
 export default function About({
   params,

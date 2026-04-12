@@ -4,10 +4,11 @@ import { useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { projectImages, projects } from "@/data/dummyData";
+import { projectImages } from "@/data/dummyData";
+import { projects } from "./services/projects";
 import SidePanel from "@/components/layout/SidePanel";
-import { Project } from "@/lib/types/types";
-import { handleScroll } from "@/utils/interactions";
+import { Project } from "./types/project.types";
+import { handleScroll } from "@/global-utils/scroll-interactions";
 
 export default function Projects() {
   const [selectedProj, setSelectedProj] = useState<Project | null>(null);
