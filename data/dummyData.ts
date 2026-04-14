@@ -1,5 +1,3 @@
-import { FormFillingOptions } from "@/lib/types/form.types";
-
 export const projectImages = {
   elecJobsConstruction:
     "/images/projects-images/Electrical-engineering-jobs-in-the-construction-industry.jpg",

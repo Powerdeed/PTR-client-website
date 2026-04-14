@@ -232,3 +232,7 @@ body {
 .asset-handling-interface {
   @apply fixed pl-70 pr-5 w-full h-full top-0 left-0 flex flex-col justify-center items-center bg-(--terciary-grey)/40 z-2;
 }
+
+.arrow-icon-bg-layer {
+  @apply cursor-pointer rounded-full bg-(--terciary-grey)/70 p-1.5 text-white text-[18px] hover:bg-(--terciary-grey) hover:text-(--primary-yellow);
+}
