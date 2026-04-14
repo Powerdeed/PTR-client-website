@@ -1,10 +1,7 @@
 import { use } from "react";
 
-import SidePanel from "@/components/layout/SidePanel";
-import Overview from "./components/Overview";
-import Strucutre from "./components/Strucutre";
-import Certificates from "./components/Certificates";
-import Pagination from "../../../components/layout/Pagination";
+import AboutView from "./components/AboutView";
+import AboutCertificationsProvider from "./context/AboutCertificationsProvider";
 
 export default function About({
   params,
@@ -14,17 +11,8 @@ export default function About({
   const { aboutPage } = use(params);
 
   return (
-    <div className="w-full h-full md:flex md:flex-2 p-2.5 gap-2.5">
-      <div className="flex-1 flex flex-col md:mr-2.5">
-        <div className="flex-1 md:min-w-150">
-          {aboutPage === "overview" && <Overview />}
-          {aboutPage === "structure" && <Strucutre />}
-          {aboutPage === "certificates" && <Certificates />}
-        </div>
-
-        <Pagination />
-      </div>
-      <SidePanel options={["reach us", "projects"]} />
-    </div>
+    <AboutCertificationsProvider>
+      <AboutView aboutPage={aboutPage} />
+    </AboutCertificationsProvider>
   );
 }
