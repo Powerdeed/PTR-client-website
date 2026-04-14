@@ -22,15 +22,11 @@ export default function Header() {
       </div>
       <div className="w-full flex justify-center gap-5 md:gap-10 p-[0_2px]">
         <Link href={"/services"}>
-          <Button
-            color={"blue"}
-            content={"Explore Our Services"}
-            rounded={100}
-          />
+          <Button color="blue" content="Explore Our Services" rounded="full" />
         </Link>
 
-        <Link href={"../articles/electrical"}>
-          <Button color={"grey"} content={"What's new in Tech"} rounded={100} />
+        <Link href="../articles/electrical">
+          <Button color="grey" content="What's new in Tech" rounded="full" />
         </Link>
       </div>
     </div>

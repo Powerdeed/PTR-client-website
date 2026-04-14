@@ -26,7 +26,7 @@ export interface ArticleTopic {
 
 export type ArticleTopics = ArticleTopic[];
 
-export interface Comment {
+export interface CommentType {
   docId: string;
   id: string;
   comment: string;

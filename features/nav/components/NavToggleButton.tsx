@@ -19,7 +19,7 @@ export default function NavToggleButton() {
       {/* Overlay */}
       {state.smallScreen && state.isMenuOpen && (
         <div
-          className="absolute top-0 left-0 w-screen h-screen bg-(--primary-blue)/50 z-2"
+          className="absolute top-0 left-0 w-screen h-screen bg-(--primary-blue)/50"
           onClick={() => actions.toggleMenu()}
         ></div>
       )}

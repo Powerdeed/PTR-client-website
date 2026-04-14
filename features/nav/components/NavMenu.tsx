@@ -33,8 +33,12 @@ export default function NavMenu() {
             key={item.label}
             className={`relative cursor-pointer mb-3.75 md:mb-0 ${!hasSub && "hover:underline"} ${state.smallScreen && state.isMenuOpen ? "block" : state.smallScreen && !state.isMenuOpen ? "hidden" : ""} text-style__nav`}
             onClick={() => {
-              if (state.smallScreen && hasSub) {
-                actions.toggleSubMenu();
+              if (state.smallScreen) {
+                if (hasSub) {
+                  actions.toggleSubMenu();
+                } else {
+                  actions.toggleMenu();
+                }
               } else if (!state.smallScreen && hasSub) {
                 actions.toggleMenu();
               }

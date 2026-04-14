@@ -6,13 +6,13 @@ import { IconName } from "@fortawesome/fontawesome-svg-core";
 
 import useContact from "../hooks/useContact";
 
-import SubTitle from "./SubTitle";
-
 export default function Socials() {
   const { state } = useContact();
   return (
-    <div className="w-full">
-      <SubTitle subtitle={"Connect With Us"} />
+    <div className="vertical-layout__inner">
+      <div className="text-style__heading text-(--primary-blue)">
+        {`Connect With Us`}
+      </div>
       <div className="w-full items-start flex-col md:items-center justify-center">
         <ul>
           {state.contacts.Socials.map((social, idx) => (

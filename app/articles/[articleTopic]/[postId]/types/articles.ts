@@ -2,7 +2,7 @@ import {
   ArticleContent,
   ArticleMeta,
   ArticleTopics,
-  Comment,
+  CommentType,
 } from "../../types/article.types";
 
 export const articleTopics: ArticleTopics = [
@@ -578,7 +578,7 @@ export const articlesContent: ArticleContent[] = [
   },
 ];
 
-export const comments: Comment[] = [
+export const comments: CommentType[] = [
   {
     docId: "1",
     id: "1",

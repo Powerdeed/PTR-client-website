@@ -4,6 +4,7 @@ import "./globals.css";
 import Nav from "@/features/nav/Nav";
 import ScrollIndicator from "@/components/layout/ScrollIndicator";
 import Footer from "@/features/footer/Footer";
+import GlobalProvider from "@/global-utils/context/GlobalProvider";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
@@ -32,7 +33,9 @@ export default function RootLayout({
       >
         <Nav />
         <ScrollIndicator />
-        <div className="flex-1">{children}</div>
+        <GlobalProvider>
+          <div className="flex-1">{children}</div>
+        </GlobalProvider>
         <Footer />
       </body>
     </html>

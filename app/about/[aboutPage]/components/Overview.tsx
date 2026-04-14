@@ -143,14 +143,18 @@ export default function Overview() {
           rel="noopener noreferrer"
           className="w-37.5 lg:w-50"
         >
-          <Button color="blue" content="Download our Profile" rounded={10} />
+          <Button
+            color="blue"
+            content="Download our Profile"
+            rounded="smooth"
+          />
         </Link>
 
         <Link href={"../about/structure"} className="w-37.5 lg:w-50">
           <Button
             color="blue"
             content={`Checkout our Company structure →`}
-            rounded={10}
+            rounded="smooth"
           />
         </Link>
       </div>

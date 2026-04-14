@@ -15,7 +15,7 @@ export const groupedArticles = articlesMeta.reduce<
   return acc;
 }, {});
 
-export const getArticleTopic = (currentTopic: string) =>
+export const getArticleFromTopic = (currentTopic: string) =>
   articleTopics.find((t) => t.topic === currentTopic);
 
 export const getTopicArticles = (currentTopic: string) =>

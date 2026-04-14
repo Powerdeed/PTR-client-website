@@ -1,4 +1,4 @@
-import { Project, Projects } from "../types/project.types";
+import { Projects } from "../types/project.types";
 
 export const projects: Projects = [
   {
@@ -232,17 +232,3 @@ export const projects: Projects = [
     featured: false,
   },
 ];
-
-const grouped = projects.reduce<Record<string, Project[]>>((acc, item) => {
-  if (!acc[item.category]) acc[item.category] = [];
-  acc[item.category].push(item);
-  return acc;
-}, {});
-
-export const topProjects = Object.entries(grouped).flatMap(
-  ([category, projects]) =>
-    projects.map((project) => ({
-      ...project,
-      category,
-    })),
-);

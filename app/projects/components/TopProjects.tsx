@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { topProjects } from "@/app/projects/services/projects";
+import { topProjects } from "../utils/top-projects";
 
 import { Project } from "@/app/projects/types/project.types";
 

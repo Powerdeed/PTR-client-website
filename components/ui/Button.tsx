@@ -5,22 +5,32 @@ import { ReactNode } from "react";
 export default function Button({
   color,
   content,
-  rounded,
+  children,
+  rounded = "smooth",
+  type = "button",
+  clickHandler,
 }: {
-  color: string;
-  content: ReactNode;
-  rounded: number;
+  color?: string;
+  content?: string;
+  children?: ReactNode;
+  rounded?: "full" | "smooth";
+  type?: "submit" | "button" | "reset";
+  clickHandler?: () => void;
 }) {
+  const borderRadius = rounded === "full" ? "100px" : "10px";
+
   return (
     <div
       style={{
-        borderRadius: `${rounded}px`,
+        height: "fit-content",
+        borderRadius,
         background: `var(--secondary-${color})`,
       }}
     >
       <button
+        type={type}
         style={{
-          borderRadius: `${rounded}px`,
+          borderRadius,
           background: `linear-gradient(
           45deg,
           var(--primary-${color}) 50%,
@@ -28,14 +38,8 @@ export default function Button({
         )`,
           transition: "background 0.3s ease-in-out",
         }}
-        className="
-        w-full
-        min-h-12.5
-        p-2.5
-        border-0
-        text-style__button
-        cursor-pointer
-      "
+        className={`w-full p-2.5 border-0 text-style__button cursor-pointer ${children ? "flex items-center justify-center gap-1" : ""}
+      `}
         onMouseEnter={(e) => {
           e.currentTarget.style.background = `var(--primary-${color})`;
         }}
@@ -46,8 +50,10 @@ export default function Button({
           var(--secondary-${color}) 90%
         )`;
         }}
+        onClick={clickHandler}
       >
         {content}
+        {children}
       </button>
     </div>
   );

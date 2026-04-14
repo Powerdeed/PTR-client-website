@@ -1,0 +1,1 @@
+export const COMMENTS_VISIBILITY_COUNT = 5;

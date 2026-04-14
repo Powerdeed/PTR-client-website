@@ -14,7 +14,8 @@ export default function NavSubMenu({ item }: { item: NavItem }) {
         return (
           <li
             key={sub.href}
-            className={`bg-(--primary-blue) pl-2 leading-6 hover:underline ${state.smallScreen && state.isAboutMenuOpen ? "block opacity-100 opacity 0.3s ease-in-out" : state.smallScreen && !state.isMenuOpen ? "hidden" : !state.smallScreen && state.isMenuOpen ? "block" : "hidden"}`}
+            className={`bg-(--primary-blue) pl-2 leading-6 hover:underline
+              ${state.smallScreen && state.isAboutMenuOpen ? "block opacity-100 opacity 0.3s ease-in-out" : state.smallScreen && !state.isMenuOpen ? "hidden" : !state.smallScreen && state.isMenuOpen ? "block" : "hidden"}`}
           >
             <Link
               href={sub.href}

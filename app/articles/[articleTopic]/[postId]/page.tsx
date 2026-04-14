@@ -1,4 +1,6 @@
-import ArticlePostClient from "@/app/articles/[articleTopic]/components/ArticlePostClient";
+import ArticleTopicProvider from "../context/ArticleTopicProvider";
+import ArticlePostView from "./components/ArticlePostView";
+import ArticlePostProvider from "./context/ArticlePostProvider";
 
 export default async function Post({
   params,
@@ -10,5 +12,11 @@ export default async function Post({
 }) {
   const { articleTopic, postId } = await params;
 
-  return <ArticlePostClient articleTopic={articleTopic} postId={postId} />;
+  return (
+    <ArticleTopicProvider>
+      <ArticlePostProvider>
+        <ArticlePostView articleTopic={articleTopic} postId={postId} />
+      </ArticlePostProvider>
+    </ArticleTopicProvider>
+  );
 }
