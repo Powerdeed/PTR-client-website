@@ -15,7 +15,7 @@ import {
 
 // components
 import Title from "./Title";
-import CoreValues from "./CoreValues";
+import CoreValues from "../../../../../components/layout/CoreValues";
 import UniqueFeatures from "./UniqueFeatures";
 
 export default function AboutFeature({ about }: { about: AboutUs }) {

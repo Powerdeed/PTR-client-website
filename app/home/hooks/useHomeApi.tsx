@@ -4,7 +4,9 @@ import { useContext, useEffect } from "react";
 
 import { homeContext } from "../context/HomeContext";
 
-import { homepage } from "../services/home";
+import { getHomePageData } from "../services/home.service";
+
+import { execute } from "@/lib/api/execute";
 
 export default function useHomeApi() {
   const homepageState = useContext(homeContext);
@@ -12,13 +14,19 @@ export default function useHomeApi() {
   if (!homepageState)
     throw new Error("Homepage context must be within a provider.");
 
-  const { setHomepage } = homepageState;
+  const { setHomepage, setFetchingHomepageData, setFetchingHomepageDataError } =
+    homepageState;
 
   useEffect(() => {
-    const homepageSetter = () => setHomepage(homepage);
+    const fetchData = async () =>
+      await execute(getHomePageData, {
+        setLoading: setFetchingHomepageData,
+        setError: setFetchingHomepageDataError,
+        onSuccess: (homepages) => setHomepage(homepages),
+      });
 
-    homepageSetter();
-  }, [setHomepage]);
+    fetchData();
+  }, [setFetchingHomepageData, setFetchingHomepageDataError, setHomepage]);
 
   return {};
 }

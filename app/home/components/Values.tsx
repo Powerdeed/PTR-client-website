@@ -1,4 +1,4 @@
-import CoreValues from "@/app/about/[aboutPage]/components/about_overview/CoreValues";
+import CoreValues from "@/components/layout/CoreValues";
 import SubTitle from "./SubTitle";
 import { aboutUs } from "@/app/about/[aboutPage]/services/about";
 import { isStringMatrix } from "@/app/about/[aboutPage]/utils/typeCheckers";

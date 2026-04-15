@@ -1,4 +1,4 @@
-import { FormFillingOptions } from "@/lib/types/form.types";
+import { FormFillingOptions } from "@/components/types/form.types";
 
 export const formFillingOptions: FormFillingOptions = {
   projectSectorOptions: [

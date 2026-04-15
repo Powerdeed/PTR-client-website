@@ -2,6 +2,8 @@ import { Homepage } from "@/app/about/[aboutPage]/types/about.types";
 import { Testimonial } from "../types/testimonial.types";
 import { projectImages } from "@/data/dummyData";
 
+import { apiRequest } from "@/lib/api/apiRequest";
+
 export const homepage: Homepage = {
   hero: {
     title: "Powering Kenya's Future: Expert Electrical & Solar Solutions",
@@ -102,3 +104,9 @@ export const testimonials: Testimonial[] = [
     profilePic: "profile-image",
   },
 ];
+
+export const getHomePageData = () =>
+  apiRequest<Homepage>({
+    method: "GET",
+    url: "/homepage",
+  });

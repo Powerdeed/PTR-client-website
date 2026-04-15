@@ -12,6 +12,11 @@ export default function HomeProvider({ children }: { children: ReactNode }) {
 
   const [hoveredNav, setHoveredNav] = useState<string | null>(null);
 
+  const [fetchingHomepageData, setFetchingHomepageData] = useState(false);
+
+  const [fetchingHomepageDataError, setFetchingHomepageDataError] =
+    useState("");
+
   return (
     <homeContext.Provider
       value={{
@@ -21,6 +26,10 @@ export default function HomeProvider({ children }: { children: ReactNode }) {
         setActiveNav,
         hoveredNav,
         setHoveredNav,
+        fetchingHomepageData,
+        setFetchingHomepageData,
+        fetchingHomepageDataError,
+        setFetchingHomepageDataError,
       }}
     >
       {children}

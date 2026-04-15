@@ -11,14 +11,11 @@ import SubTitle from "./SubTitle";
 // utils
 import { handleScroll } from "@/global-utils/scroll-interactions";
 
-// data
-import { testimonials } from "../services/home";
-
 // hooks
 import useHome from "../hooks/useHome";
 
 export default function Testimonials() {
-  const { actions } = useHome();
+  const { state, actions } = useHome();
 
   return (
     <div className="p-0 w-full md:px-[10%] mb-7.5 relative">
@@ -39,8 +36,8 @@ export default function Testimonials() {
           if (el) actions.setTestimonials(el);
         }}
       >
-        {testimonials.length > 0
-          ? testimonials.map((t, idx) => (
+        {state.testimonials.length > 0
+          ? state.testimonials.map((t, idx) => (
               <div
                 key={idx}
                 className="w-full md:w-full h-62.5 border-r-0 md:border-r border-r-(--secondary-blue) flex flex-col shrink-0 relative"

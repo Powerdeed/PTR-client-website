@@ -12,6 +12,12 @@ type HomeContextState = {
 
   hoveredNav: string | null;
   setHoveredNav: Dispatch<SetStateAction<string | null>>;
+
+  fetchingHomepageData: boolean;
+  setFetchingHomepageData: Dispatch<SetStateAction<boolean>>;
+
+  fetchingHomepageDataError: string;
+  setFetchingHomepageDataError: Dispatch<SetStateAction<string>>;
 };
 
 export const homeContext = createContext<HomeContextState | null>(null);

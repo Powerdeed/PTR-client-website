@@ -15,6 +15,6 @@ export * from "./hooks/useHome";
 export * from "./hooks/useHomeStates";
 export * from "./hooks/useQuickNavs";
 
-export * from "./services/home";
+export * from "./services/home.service";
 
 export * from "./types/testimonial.types";

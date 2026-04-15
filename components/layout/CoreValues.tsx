@@ -1,8 +1,8 @@
 "use client";
 
 import { PRIMARY_COLORS } from "@/global-utils/constants/primary-colors";
-import { isStringMatrix } from "../../utils/typeCheckers";
-import { AboutUs } from "../../types/about.types";
+import { isStringMatrix } from "../../app/about/[aboutPage]/utils/typeCheckers";
+import { AboutUs } from "../../app/about/[aboutPage]/types/about.types";
 
 export default function CoreValues({ about }: { about: AboutUs }) {
   if (!isStringMatrix(about.description)) return;
