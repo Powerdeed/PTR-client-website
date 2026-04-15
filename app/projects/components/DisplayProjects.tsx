@@ -4,7 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 
 // components
-import ArrowIcons from "./ArrowIcons";
+import ArrowIcons from "../../../components/layout/ArrowIcons";
 
 // hooks
 import useProjects from "../hooks/useProjects";
@@ -30,7 +30,7 @@ export default function DisplayProjects({
 
   return (
     <div className="relative overflow-hidden">
-      <ArrowIcons category={category} projectScrollRefs={projectScrollRefs} />
+      <ArrowIcons refs={projectScrollRefs} refId={category} />
 
       <div
         ref={(el) => {
@@ -61,7 +61,6 @@ export default function DisplayProjects({
               />
             </div>
 
-            {/* Title */}
             <h5 className="text-style__small-text absolute bottom-0 z-[-1] h-12.5 w-full grid place-items-center px-2.5 italic text-(--primary-blue)">
               {project.name}
             </h5>

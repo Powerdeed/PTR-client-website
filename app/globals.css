@@ -234,5 +234,5 @@ body {
 }
 
 .arrow-icon-bg-layer {
-  @apply cursor-pointer rounded-full bg-(--terciary-grey)/70 p-1.5 text-white text-[18px] hover:bg-(--terciary-grey) hover:text-(--primary-yellow);
+  @apply cursor-pointer text-white hover:text-(--primary-yellow) duration-300;
 }

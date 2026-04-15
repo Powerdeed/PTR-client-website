@@ -1,6 +1,6 @@
-import { Projects } from "../types/project.types";
+import { Project } from "../types/project.types";
 
-export const projects: Projects = [
+export const projects: Project[] = [
   {
     id: "686f8a913673b0db0950398b",
     category: "Electrical Installation",

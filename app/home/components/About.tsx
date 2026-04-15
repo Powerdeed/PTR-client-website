@@ -1,11 +1,17 @@
+"use client";
+
 import Image from "next/image";
 
-import { aboutIntro } from "../services/home";
+import useHome from "../hooks/useHome";
 
 export default function About() {
+  const { state } = useHome();
+
+  if (!state.homepage) return;
+
   return (
     <div className="w-full flex flex-col gap-7.5">
-      {aboutIntro.map((about, idx) => (
+      {state.homepage.aboutIntro.map((about, idx) => (
         <div
           key={idx}
           className={`w-full flex flex-col mb-7.5 md:grid grid-cols-2 items-center gap-5 ${

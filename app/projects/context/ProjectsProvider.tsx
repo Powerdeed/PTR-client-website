@@ -11,12 +11,22 @@ export default function ProjectsProvider({
 }: {
   children: ReactNode;
 }) {
+  const [projects, setProjects] = useState<Project[]>([]);
+
   const [selectedProj, setSelectedProj] = useState<Project | null>(null);
+
   const [openCategory, setOpenCategory] = useState("");
 
   return (
     <projectsContext.Provider
-      value={{ selectedProj, setSelectedProj, openCategory, setOpenCategory }}
+      value={{
+        projects,
+        setProjects,
+        selectedProj,
+        setSelectedProj,
+        openCategory,
+        setOpenCategory,
+      }}
     >
       {children}
     </projectsContext.Provider>

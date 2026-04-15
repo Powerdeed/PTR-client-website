@@ -1,15 +1,21 @@
+"use client";
+
 // modules
 import Link from "next/link.js";
 import Image from "next/image.js";
 import Button from "@/components/ui/Button";
-import { hero } from "../services/home";
+import useHome from "../hooks/useHome";
 
 export default function Header() {
+  const { state } = useHome();
+
+  if (!state.homepage) return;
+
   return (
     <div className="relative w-full items-center">
       <div className="relative w-full h-100">
         <Image
-          src={hero.image}
+          src={state.homepage.hero.image}
           alt="PES site preview"
           fill
           priority
@@ -17,8 +23,10 @@ export default function Header() {
         />
       </div>
       <div className="grid justify-center my-7.5 text-(--primary-blue) gap-2.5 text-center">
-        <div className="text-style__heading">{hero.title}</div>
-        <div className="text-style__subheading">{hero.subtitle}</div>
+        <div className="text-style__heading">{state.homepage.hero.title}</div>
+        <div className="text-style__subheading">
+          {state.homepage.hero.subtitle}
+        </div>
       </div>
       <div className="w-full flex justify-center gap-5 md:gap-10 p-[0_2px]">
         <Link href={"/services"}>
