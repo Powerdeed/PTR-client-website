@@ -2,6 +2,7 @@ import { use } from "react";
 
 import AboutView from "./components/AboutView";
 import AboutCertificationsProvider from "./context/AboutCertificationsProvider";
+import AboutOverviewProvider from "./context/AboutOverviewProvider";
 
 export default function About({
   params,
@@ -11,8 +12,10 @@ export default function About({
   const { aboutPage } = use(params);
 
   return (
-    <AboutCertificationsProvider>
-      <AboutView aboutPage={aboutPage} />
-    </AboutCertificationsProvider>
+    <AboutOverviewProvider>
+      <AboutCertificationsProvider>
+        <AboutView aboutPage={aboutPage} />
+      </AboutCertificationsProvider>
+    </AboutOverviewProvider>
   );
 }

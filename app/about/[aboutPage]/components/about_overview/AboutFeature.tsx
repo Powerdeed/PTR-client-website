@@ -15,7 +15,7 @@ import {
 
 // components
 import Title from "./Title";
-import CoreValues from "../../../../../components/layout/CoreValues";
+import CoreValues from "./CoreValues";
 import UniqueFeatures from "./UniqueFeatures";
 
 export default function AboutFeature({ about }: { about: AboutUs }) {
@@ -67,7 +67,7 @@ export default function AboutFeature({ about }: { about: AboutUs }) {
       <div className="about-core-values grid gap-5">
         <Title title="Core Values" icon={["fas", "arrows-to-circle"]} />
 
-        <CoreValues about={about} />
+        <CoreValues />
       </div>
     );
 

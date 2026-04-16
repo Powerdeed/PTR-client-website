@@ -13,8 +13,21 @@ export default function ServicesProvider({
 }) {
   const [services, setServices] = useState<Service[]>([]);
 
+  const [fetchingServices, setFetchingServices] = useState(false);
+
+  const [fetchingServicesError, setFetchingServicesError] = useState("");
+
   return (
-    <serviceContext.Provider value={{ services, setServices }}>
+    <serviceContext.Provider
+      value={{
+        services,
+        fetchingServices,
+        fetchingServicesError,
+        setServices,
+        setFetchingServices,
+        setFetchingServicesError,
+      }}
+    >
       {children}
     </serviceContext.Provider>
   );

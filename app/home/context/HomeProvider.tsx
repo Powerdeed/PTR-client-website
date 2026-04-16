@@ -3,7 +3,7 @@
 import { ReactNode, useState } from "react";
 
 import { homeContext } from "./HomeContext";
-import { Homepage } from "@/app/about/[aboutPage]/types/about.types";
+import { Homepage } from "../types/home.types";
 
 export default function HomeProvider({ children }: { children: ReactNode }) {
   const [homepage, setHomepage] = useState<Homepage | null>(null);

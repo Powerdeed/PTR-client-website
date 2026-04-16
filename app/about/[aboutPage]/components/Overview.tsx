@@ -2,17 +2,22 @@
 
 import Link from "next/link";
 
-import { aboutUs } from "../services/about";
-
 import Button from "@/components/ui/Button";
+
 import AboutFeature from "./about_overview/AboutFeature";
 
+import useAboutOverview from "../hooks/overview/useAboutOverview";
+
 export default function Overview() {
+  const { state } = useAboutOverview();
+
+  if (!state.about) return;
+
   return (
     <div className="flex flex-col gap-5 text-style__body">
       {/* About information */}
       <div className="grid gap-5">
-        {aboutUs.map((about, index) => (
+        {state.about.map((about, index) => (
           <AboutFeature key={index} about={about} />
         ))}
       </div>

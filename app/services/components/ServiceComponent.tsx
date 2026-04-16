@@ -14,17 +14,17 @@ export default function ServiceComponent({ service }: { service: Service }) {
 
   return (
     <div
-      key={service.id}
+      key={service._id}
       className="vertical-layout__inner w-full md:min-w-150 md:max-w-180"
     >
       <div className="text-style__subheading">{service.name}</div>
 
       <div className="relative h-60 md:h-90 overflow-hidden rounded-xl">
-        <ArrowIcons refs={imageRefs} refId={service.id} />
+        <ArrowIcons refs={imageRefs} refId={service._id} />
 
         <div
           ref={(el) => {
-            if (el) imageRefs.current[service.id] = el;
+            if (el) imageRefs.current[service._id] = el;
           }}
           className="flex h-full overflow-x-auto scroll-smooth snap-x snap-mandatory no-scrollbar"
         >

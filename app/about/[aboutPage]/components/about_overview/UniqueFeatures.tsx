@@ -1,25 +1,26 @@
 "use client";
 
-import { aboutUs } from "../../services/about";
-
 import useGlobalStates from "@/global-utils/hooks/useGlobalStates";
 import { PRIMARY_COLORS } from "@/global-utils/constants/primary-colors";
 import { isStringArray } from "../../utils/typeCheckers";
 
 import FeatureContainer from "./FeatureContainer";
-
 import { AboutUs } from "../../types/about.types";
+import useAboutOverview from "../../hooks/overview/useAboutOverview";
 
 export default function UniqueFeatures({ about }: { about: AboutUs }) {
   const { globalState } = useGlobalStates();
+  const { state } = useAboutOverview();
 
   if (!isStringArray(about.description)) return;
+
+  if (!state.about) return;
 
   return (
     <div className="unique-features relative w-full h-125">
       {about.description.map((feature, index) => {
         const total =
-          aboutUs.find((about) => about.title === "Unique Features")
+          state.about?.find((about) => about.title === "Unique Features")
             ?.description.length || 0;
         const angle = ((index + 0.5) / total) * 2 * Math.PI - Math.PI / 2;
         const radius = globalState.smallScreen ? 110 : 180;

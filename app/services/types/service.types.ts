@@ -1,6 +1,7 @@
 export interface Service {
-  id: string;
+  _id: string;
   name: string;
-  images: string[];
   description: string;
+  images: string[];
+  status: boolean;
 }

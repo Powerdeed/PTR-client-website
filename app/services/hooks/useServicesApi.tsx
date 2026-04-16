@@ -4,7 +4,9 @@ import { useContext, useEffect } from "react";
 
 import { serviceContext } from "../context/ServicesContext";
 
-import { services as s } from "../services/services";
+import { getServices } from "../services/services";
+
+import { execute } from "@/lib/api/execute";
 
 export default function useServicesApi() {
   const servicesState = useContext(serviceContext);
@@ -12,12 +14,19 @@ export default function useServicesApi() {
   if (!servicesState)
     throw new Error("Services context must be within a provider");
 
-  const { setServices } = servicesState;
+  const { setServices, setFetchingServices, setFetchingServicesError } =
+    servicesState;
 
   useEffect(() => {
-    const serviceSetter = () => setServices(s);
+    const fetchData = async () =>
+      await execute(getServices, {
+        setLoading: setFetchingServices,
+        setError: setFetchingServicesError,
+        onSuccess: (homepages) => setServices(homepages),
+      });
 
-    serviceSetter();
-  }, [setServices]);
+    fetchData();
+  }, [setFetchingServices, setFetchingServicesError, setServices]);
+
   return {};
 }

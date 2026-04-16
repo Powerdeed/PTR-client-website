@@ -1,7 +1,8 @@
 "use client";
 
-import { Homepage } from "@/app/about/[aboutPage]/types/about.types";
 import { createContext, Dispatch, SetStateAction } from "react";
+
+import { Homepage } from "../types/home.types";
 
 type HomeContextState = {
   homepage: Homepage | null;
