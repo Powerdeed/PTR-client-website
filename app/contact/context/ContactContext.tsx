@@ -6,8 +6,8 @@ import { DEFAULT_FORM_DATA } from "@/global-utils/constants/default-form-data";
 import { Contacts } from "../types/contact.types";
 
 type ContactState = {
-  contacts: Contacts;
-  setContacts: Dispatch<SetStateAction<Contacts>>;
+  contacts: Contacts | null;
+  setContacts: Dispatch<SetStateAction<Contacts | null>>;
 
   formData: DEFAULT_FORM_DATA;
   setFormData: Dispatch<SetStateAction<DEFAULT_FORM_DATA>>;
@@ -16,6 +16,12 @@ type ContactState = {
   setSubmitStatus: Dispatch<
     SetStateAction<"submitted" | "idle" | "submitting" | "Failed">
   >;
+
+  fetchingContacts: boolean;
+  setFetchingContacts: Dispatch<SetStateAction<boolean>>;
+
+  fetchingContactsError: string;
+  setFetchingContactsError: Dispatch<SetStateAction<string>>;
 };
 
 export const contactContext = createContext<ContactState | null>(null);

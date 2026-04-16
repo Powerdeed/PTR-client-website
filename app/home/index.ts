@@ -4,7 +4,7 @@ export * from "./components/HomeView";
 export * from "./components/QuickNavs";
 export * from "./components/SubTitle";
 export * from "./components/Testimonials";
-export * from "./components/TopProjects";
+export * from "../projects/components/TopProjectsLandingPage";
 
 export * from "./constants/quick-navs";
 

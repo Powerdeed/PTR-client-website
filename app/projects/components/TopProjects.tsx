@@ -14,11 +14,15 @@ export default function TopProjects() {
   const [projects, setProjects] = useState<Project[]>([]);
 
   useEffect(() => {
-    function getRandomProjects() {
-      const shuffledProjects = [...topProjects].sort(() => 0.5 - Math.random());
+    const getRandomProjects = async () => {
+      const top = await topProjects();
+
+      if (!top) return;
+
+      const shuffledProjects = [...top].sort(() => 0.5 - Math.random());
 
       setProjects(shuffledProjects.slice(0, 3));
-    }
+    };
 
     getRandomProjects();
   }, []);

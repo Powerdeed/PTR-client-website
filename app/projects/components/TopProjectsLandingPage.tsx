@@ -2,15 +2,17 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image.js";
-import SubTitle from "./SubTitle";
-import { projects } from "@/app/projects/services/projects";
+import SubTitle from "../../home/components/SubTitle";
 import { projectImages } from "@/data/dummyData";
+import useProjects from "@/app/projects/hooks/useProjects";
 
-export default function TopProjects() {
+export default function TopProjectsLandingPage() {
   const [active, setActive] = useState("Electrical");
   const [slideIn, setSlideIn] = useState(false);
   const projectCards = useRef<HTMLDivElement | null>(null);
   const [isMobile, setIsMobile] = useState(false);
+
+  const { state } = useProjects();
 
   useEffect(() => {
     const cardsSection = projectCards.current;
@@ -52,7 +54,7 @@ export default function TopProjects() {
   }, [slideIn, setSlideIn]);
 
   const uniqueCategories = [
-    ...new Set(projects.map((project) => project.category)),
+    ...new Set(state.projects.map((project) => project.category)),
   ];
 
   useEffect(() => {
@@ -63,6 +65,8 @@ export default function TopProjects() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  if (!state.projects) return;
 
   return (
     <div className="w-full px-0.5 md:p-0">
@@ -98,12 +102,12 @@ export default function TopProjects() {
         ref={projectCards}
         className="mx-auto w-full md:w-fit grid grid-cols-[1fr] md:grid-cols-[1fr_1fr] gap-37.5 justify-center"
       >
-        {projects
+        {state.projects
           .filter((project) => project.category === active)
           .slice(0, 4)
           .map((project, idx) => (
             <div
-              key={project.id || project.name || idx}
+              key={project._id || project.name || idx}
               className="group bg-(--primary-blue) relative w-full md:w-100 h-62.5 rounded-[10px] cursor-pointer"
             >
               <Image

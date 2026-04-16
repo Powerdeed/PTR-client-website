@@ -20,17 +20,17 @@ export default function FooterSocials() {
           className="text-style__link--inverse grid md:block justify-center"
         >
           <Link
-            href={social[1]}
+            href={social.url}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2.5"
           >
             <FontAwesomeIcon
               className="text-(--primary-yellow) text-[14px]"
-              icon={["fab", social[0].toLocaleLowerCase() as IconName]}
+              icon={["fab", social.name.toLocaleLowerCase() as IconName]}
             />
 
-            {social[0]}
+            {social.name}
           </Link>
         </li>
       ))}

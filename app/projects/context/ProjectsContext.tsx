@@ -12,6 +12,12 @@ type ProjectsState = {
 
   openCategory: string;
   setOpenCategory: Dispatch<SetStateAction<string>>;
+
+  fetchingProjects: boolean;
+  setFetchingProjects: Dispatch<SetStateAction<boolean>>;
+
+  fetchingProjectsError: string;
+  setFetchingProjectsError: Dispatch<SetStateAction<string>>;
 };
 
 export const projectsContext = createContext<ProjectsState | null>(null);

@@ -6,6 +6,8 @@ import useContact from "../hooks/useContact";
 export default function ContactHero() {
   const { state } = useContact();
 
+  if (!state.contacts) return;
+
   return (
     <div className="w-full h-100 flex flex-col justify-center items-center relative mb-2.5">
       <div className="absolute z-1 w-full text-(--primary-yellow) flex text-center items-center justify-center">

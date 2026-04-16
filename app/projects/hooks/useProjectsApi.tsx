@@ -4,7 +4,8 @@ import { useContext, useEffect } from "react";
 
 import { projectsContext } from "../context/ProjectsContext";
 
-import { projects as p } from "../services/projects";
+import { getProjects } from "../services/projects";
+import { execute } from "@/lib/api/execute";
 
 export default function useProjectsApi() {
   const projectsStates = useContext(projectsContext);
@@ -12,13 +13,22 @@ export default function useProjectsApi() {
   if (!projectsStates)
     throw new Error("Projects context must be within a provider");
 
-  const { setProjects } = projectsStates;
+  const { setProjects, setFetchingProjects, setFetchingProjectsError } =
+    projectsStates;
 
   useEffect(() => {
-    const projectsSetter = () => setProjects(p);
+    const fetchData = async () =>
+      await execute(getProjects, {
+        setLoading: setFetchingProjects,
+        setError: setFetchingProjectsError,
+        onSuccess: (projects) => {
+          console.log(projects);
+          setProjects(projects);
+        },
+      });
 
-    projectsSetter();
-  }, [setProjects]);
+    fetchData();
+  }, [setFetchingProjects, setFetchingProjectsError, setProjects]);
 
   return {};
 }

@@ -52,7 +52,9 @@ export default function DisplayProjects({
             >
               <Image
                 src={
-                  projectImages[project.images[0] as keyof typeof projectImages]
+                  projectImages[
+                    project.featuredImage as keyof typeof projectImages
+                  ]
                 }
                 alt={project.name}
                 fill

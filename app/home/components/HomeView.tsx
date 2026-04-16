@@ -1,10 +1,12 @@
 import About from "./About";
 import Header from "./Header";
 import QuickNavs from "./QuickNavs";
-import TopProjects from "./TopProjects";
+import TopProjectsLandingPage from "../../projects/components/TopProjectsLandingPage";
 import Testimonials from "./Testimonials";
 import Values from "./Values";
+
 import AboutOverviewProvider from "@/app/about/[aboutPage]/context/AboutOverviewProvider";
+import ProjectsProvider from "@/app/projects/context/ProjectsProvider";
 
 export default function HomeView() {
   return (
@@ -19,7 +21,10 @@ export default function HomeView() {
           <Values />
         </AboutOverviewProvider>
 
-        <TopProjects />
+        <ProjectsProvider>
+          <TopProjectsLandingPage />
+        </ProjectsProvider>
+
         <Testimonials />
       </div>
     </div>

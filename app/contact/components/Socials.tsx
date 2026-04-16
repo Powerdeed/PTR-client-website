@@ -8,6 +8,8 @@ import useContact from "../hooks/useContact";
 
 export default function Socials() {
   const { state } = useContact();
+
+  if (!state.contacts) return;
   return (
     <div className="vertical-layout__inner">
       <div className="text-style__heading text-(--primary-blue)">
@@ -18,16 +20,16 @@ export default function Socials() {
           {state.contacts.Socials.map((social, idx) => (
             <li key={idx} className="list-none underline">
               <Link
-                href={social[1]}
+                href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center content-center text-(--primary-blue) my-1.25 gap-1.25"
               >
                 <FontAwesomeIcon
                   className="text-(--primary-blue)"
-                  icon={["fab", social[0].toLocaleLowerCase() as IconName]}
+                  icon={["fab", social.name.toLocaleLowerCase() as IconName]}
                 />
-                {social[0]}
+                {social.name}
               </Link>
             </li>
           ))}

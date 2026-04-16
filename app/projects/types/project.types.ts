@@ -1,9 +1,10 @@
 export interface Project {
-  id: string;
+  _id: string;
+  category: string;
   name: string;
+  featuredImage: string;
   images: string[];
   description: string;
-  category: string;
   status: "Ongoing" | "Completed";
   featured: boolean;
 }

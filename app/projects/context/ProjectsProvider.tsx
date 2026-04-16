@@ -17,6 +17,10 @@ export default function ProjectsProvider({
 
   const [openCategory, setOpenCategory] = useState("");
 
+  const [fetchingProjects, setFetchingProjects] = useState(false);
+
+  const [fetchingProjectsError, setFetchingProjectsError] = useState("");
+
   return (
     <projectsContext.Provider
       value={{
@@ -26,6 +30,10 @@ export default function ProjectsProvider({
         setSelectedProj,
         openCategory,
         setOpenCategory,
+        fetchingProjects,
+        setFetchingProjects,
+        fetchingProjectsError,
+        setFetchingProjectsError,
       }}
     >
       {children}
