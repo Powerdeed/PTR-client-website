@@ -18,6 +18,15 @@ type ProjectsState = {
 
   fetchingProjectsError: string;
   setFetchingProjectsError: Dispatch<SetStateAction<string>>;
+
+  active: string;
+  setActive: Dispatch<SetStateAction<string>>;
+
+  slideIn: boolean;
+  setSlideIn: Dispatch<SetStateAction<boolean>>;
+
+  isVisible: boolean;
+  setIsVisible: Dispatch<SetStateAction<boolean>>;
 };
 
 export const projectsContext = createContext<ProjectsState | null>(null);

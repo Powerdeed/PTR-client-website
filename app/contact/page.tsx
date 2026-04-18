@@ -1,12 +1,12 @@
 "use client";
 
-import Contact from "./components/Contact";
+import ContactView from "./components/ContactView";
 import ContactProvider from "./context/ContactProvider";
 
 export default function Page() {
   return (
     <ContactProvider>
-      <Contact />
+      <ContactView />
     </ContactProvider>
   );
 }

@@ -10,6 +10,7 @@ export default function Socials() {
   const { state } = useContact();
 
   if (!state.contacts) return;
+
   return (
     <div className="vertical-layout__inner">
       <div className="text-style__heading text-(--primary-blue)">

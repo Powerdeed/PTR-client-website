@@ -7,19 +7,24 @@ import Button from "@/components/ui/Button";
 import AboutFeature from "./about_overview/AboutFeature";
 
 import useAboutOverview from "../hooks/overview/useAboutOverview";
+import { Loader } from "@/app/loading";
 
 export default function Overview() {
   const { state } = useAboutOverview();
 
-  if (!state.about) return;
-
   return (
-    <div className="flex flex-col gap-5 text-style__body">
+    <div className="h-full flex flex-col gap-5 text-style__body">
       {/* About information */}
-      <div className="grid gap-5">
-        {state.about.map((about, index) => (
-          <AboutFeature key={index} about={about} />
-        ))}
+      <div className="flex flex-col h-full gap-5">
+        {state.about ? (
+          state.about.map((about, index) => (
+            <AboutFeature key={index} about={about} />
+          ))
+        ) : (
+          <div className="w-full h-1/2 flex justify-center items-center">
+            <Loader />
+          </div>
+        )}
       </div>
 
       {/* Other options */}

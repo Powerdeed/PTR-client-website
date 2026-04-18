@@ -21,6 +21,12 @@ export default function ProjectsProvider({
 
   const [fetchingProjectsError, setFetchingProjectsError] = useState("");
 
+  const [active, setActive] = useState("Electrical Installation");
+
+  const [slideIn, setSlideIn] = useState(false);
+
+  const [isVisible, setIsVisible] = useState(false);
+
   return (
     <projectsContext.Provider
       value={{
@@ -34,6 +40,12 @@ export default function ProjectsProvider({
         setFetchingProjects,
         fetchingProjectsError,
         setFetchingProjectsError,
+        active,
+        setActive,
+        slideIn,
+        setSlideIn,
+        isVisible,
+        setIsVisible,
       }}
     >
       {children}

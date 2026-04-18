@@ -1,95 +1,39 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
 import Image from "next/image.js";
-import SubTitle from "../../home/components/SubTitle";
+
 import { projectImages } from "@/data/dummyData";
+
 import useProjects from "@/app/projects/hooks/useProjects";
 
+import useGlobalStates from "@/global-utils/hooks/useGlobalStates";
+
 export default function TopProjectsLandingPage() {
-  const [active, setActive] = useState("Electrical");
-  const [slideIn, setSlideIn] = useState(false);
-  const projectCards = useRef<HTMLDivElement | null>(null);
-  const [isMobile, setIsMobile] = useState(false);
-
-  const { state } = useProjects();
-
-  useEffect(() => {
-    const cardsSection = projectCards.current;
-
-    function animate() {
-      if (cardsSection) {
-        cardsSection.style.transition =
-          "transform 800ms cubic-bezier(0.4, 0, 0.2, 1), gap 800ms cubic-bezier(0.4, 0, 0.2, 1)";
-        cardsSection.style.gap = "20px";
-      }
-    }
-
-    function imageSliderAnimation() {
-      if (slideIn && cardsSection) {
-        cardsSection.style.transition = "none";
-        cardsSection.style.gap = "150px";
-        void cardsSection.offsetWidth;
-        animate();
-        setSlideIn(false);
-      }
-    }
-
-    imageSliderAnimation();
-
-    function updateSectionRectTop() {
-      if (!cardsSection) return;
-      const rect = cardsSection.getBoundingClientRect();
-      const halfway = window.innerHeight / 2;
-      if (rect.top <= halfway && rect.bottom >= 0) {
-        animate();
-      }
-    }
-
-    window.addEventListener("scroll", updateSectionRectTop);
-
-    return () => {
-      window.removeEventListener("scroll", updateSectionRectTop);
-    };
-  }, [slideIn, setSlideIn]);
-
-  const uniqueCategories = [
-    ...new Set(state.projects.map((project) => project.category)),
-  ];
-
-  useEffect(() => {
-    function handleResize() {
-      setIsMobile(window.innerWidth <= 700);
-    }
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const { state, actions } = useProjects();
+  const { globalState } = useGlobalStates();
 
   if (!state.projects) return;
 
   return (
     <div className="w-full px-0.5 md:p-0">
-      <SubTitle subTitle="Our Top Projects" />
-
-      {isMobile ? (
+      {globalState.smallScreen ? (
         <TopProjectsPhoneView
-          uniqueCategories={uniqueCategories}
-          active={active}
-          setActive={setActive}
-          setSlideIn={setSlideIn}
+          uniqueCategories={actions.uniqueCategories}
+          active={state.active}
+          setActive={state.setActive}
+          setSlideIn={state.setSlideIn}
         />
       ) : (
         <ul className="list-none flex gap-10 justify-center w-full h-6 m-[20px_0] bg-[linear-gradient(to_right,var(--white)_10%,var(--primary-blue)_20%,var(--primary-blue)_80%,var(--white)_90%)] items-center text-style__body">
-          {uniqueCategories.map((category) => (
+          {actions.uniqueCategories.map((category) => (
             <li
               key={category}
               className={`${
-                active === category ? "underline" : ""
+                state.active === category ? "underline" : ""
               } cursor-pointer text-(--primary-yellow) hover:underline`}
               onClick={() => {
-                setActive(category);
-                setSlideIn(true);
+                state.setActive(category);
+                state.setSlideIn(true);
               }}
             >
               {category}
@@ -99,11 +43,17 @@ export default function TopProjectsLandingPage() {
       )}
 
       <div
-        ref={projectCards}
-        className="mx-auto w-full md:w-fit grid grid-cols-[1fr] md:grid-cols-[1fr_1fr] gap-37.5 justify-center"
+        id="project-cards"
+        className={`
+          mx-auto w-full md:w-fit 
+          grid grid-cols-1 md:grid-cols-2 
+          justify-center
+          transition-all duration-700 ease-in-out
+          ${state.isVisible ? "gap-5" : "gap-37.5"}
+        `}
       >
         {state.projects
-          .filter((project) => project.category === active)
+          .filter((project) => project.category === state.active)
           .slice(0, 4)
           .map((project, idx) => (
             <div
@@ -117,9 +67,11 @@ export default function TopProjectsLandingPage() {
                 alt=""
                 fill
                 sizes="(max-width: 1024px) 100%, 400px"
-                className="w-full h-full object-cover rounded-[10px] group-hover:opacity-50 group-hover:duration-500"
+                className={`w-full h-full object-cover rounded-[10px] ${globalState.smallScreen ? "opacity-50" : "group-hover:opacity-50 group-hover:duration-500"}`}
               />
-              <p className="absolute bottom-0 opacity-0 p-[0_10px] text-style__body text-white group-hover:opacity-100 group-hover:-translate-y-17.5 duration-500">
+              <p
+                className={`absolute bottom-0 opacity-0 p-[0_10px] text-style__body text-white ${globalState.smallScreen ? "opacity-100 -translate-y-17.5" : "group-hover:opacity-100 group-hover:-translate-y-17.5 duration-500"}`}
+              >
                 {project.name}
               </p>
             </div>
@@ -142,8 +94,8 @@ function TopProjectsPhoneView({
 }) {
   return (
     <div className="mb-5">
-      <div className="w-full flex flex-col justify-center">
-        <div className="w-full flex grid-cols-[repeat(5,1fr)] justify-center gap-2.5">
+      <div className="grid justify-center">
+        <div className="flex grid-cols-[repeat(5,1fr)] justify-center gap-2.5">
           {uniqueCategories.map((category) => (
             <div
               className={`w-7.5 h-7.5 rounded-[10px] cursor-pointer ${
@@ -156,20 +108,20 @@ function TopProjectsPhoneView({
                 setActive(category);
                 setSlideIn(true);
               }}
-            ></div>
+            />
           ))}
         </div>
-        <div className="w-full flex grid-cols-[repeat(5,1fr)] justify-center gap-7.5">
+        <div className="flex grid-cols-[repeat(5,1fr)] justify-center gap-7.5">
           {uniqueCategories.map((category) => (
             <div
               className={`w-2.5 h-1.25 bg-(--primary-blue) opacity-0 ${
                 active === category ? "opacity-100" : ""
               }`}
               key={category}
-            ></div>
+            />
           ))}
         </div>
-        <div className="w-full flex justify-center">
+        <div className="flex justify-center">
           <div className="text-style__body grid justify-center rounded-[10px] w-57.5 h-8 bg-(--primary-blue) text-(--primary-yellow) items-center">
             {active}
           </div>

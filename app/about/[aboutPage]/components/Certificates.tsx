@@ -1,6 +1,7 @@
 "use client";
 
 import AllImages from "./about_certificates/AllImages";
+
 import SelectedImage from "./about_certificates/SelectedImage";
 
 export default function Certificates() {

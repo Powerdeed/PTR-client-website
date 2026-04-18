@@ -2,13 +2,15 @@
 
 import { ReactNode } from "react";
 import useContact from "../hooks/useContact";
+import { Loader } from "@/app/loading";
 
 export default function RenderContactList() {
   const { state } = useContact();
+
   if (!state.contacts) {
     return (
-      <ul className="w-full grid gap-5">
-        <li>Loading contacts...</li>
+      <ul className="w-full h-full flex justify-center items-center">
+        <Loader />
       </ul>
     );
   }
@@ -20,7 +22,7 @@ export default function RenderContactList() {
   } = state.contacts;
 
   return (
-    <div className="vertical-layout__inner">
+    <div className="vertical-layout__inner p-2.5">
       <div className="text-style__heading text-(--primary-blue)">
         Our Contact
       </div>

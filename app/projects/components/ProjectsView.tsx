@@ -7,9 +7,10 @@ import DisplayProjects from "./DisplayProjects";
 
 // hooks
 import useProjects from "../hooks/useProjects";
+import ContainerLoadingAnimation from "@/components/layout/ContainerLoadingAnimation";
 
 export default function ProjectsView() {
-  const { actions } = useProjects();
+  const { state, actions } = useProjects();
 
   return (
     <div className="md:flex gap-2.5 p-4">
@@ -17,7 +18,11 @@ export default function ProjectsView() {
         {Object.entries(actions.projectsByCategory).map(
           ([category, categoryProjects]) => (
             <div key={category} className="relative grid gap-2.5">
-              <div className="m-2.5 text-style__subheading">{category}</div>
+              {!state.fetchingProjects ? (
+                <div className="mt-2.5 text-style__subheading">{category}</div>
+              ) : (
+                <ContainerLoadingAnimation styling="mt-2.5 h-5 w-1/2" />
+              )}
 
               <DisplayProjects
                 category={category}

@@ -236,3 +236,18 @@ body {
 .arrow-icon-bg-layer {
   @apply cursor-pointer text-white hover:text-(--primary-yellow) duration-300;
 }
+
+.loading-animation {
+  @apply h-full w-full;
+
+  animation: 2s loading-mvt ease-in-out infinite;
+}
+
+@keyframes loading-mvt {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}

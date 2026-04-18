@@ -7,6 +7,7 @@ import Values from "./Values";
 
 import AboutOverviewProvider from "@/app/about/[aboutPage]/context/AboutOverviewProvider";
 import ProjectsProvider from "@/app/projects/context/ProjectsProvider";
+import SubTitle from "./SubTitle";
 
 export default function HomeView() {
   return (
@@ -22,7 +23,10 @@ export default function HomeView() {
         </AboutOverviewProvider>
 
         <ProjectsProvider>
-          <TopProjectsLandingPage />
+          <div>
+            <SubTitle subTitle="Our Top Projects" />
+            <TopProjectsLandingPage />
+          </div>
         </ProjectsProvider>
 
         <Testimonials />
