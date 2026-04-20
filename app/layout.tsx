@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Open_Sans } from "next/font/google";
 import "./globals.css";
+
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 import Nav from "@/features/nav/Nav";
 import ScrollIndicator from "@/components/layout/ScrollIndicator";
 import Footer from "@/features/footer/Footer";
 import GlobalProvider from "@/global-utils/context/GlobalProvider";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
