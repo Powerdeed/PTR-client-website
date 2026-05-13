@@ -60,7 +60,9 @@ export default function TopProjectsLandingPage() {
               className="group bg-(--primary-blue) relative w-full md:w-100 h-62.5 rounded-[10px] cursor-pointer"
             >
               <Image
-                src={getAssetImageSrc(project.images[0])}
+                src={getAssetImageSrc(
+                  project.featuredImage || project.images[0],
+                )}
                 alt=""
                 fill
                 sizes="(max-width: 1024px) 100%, 400px"

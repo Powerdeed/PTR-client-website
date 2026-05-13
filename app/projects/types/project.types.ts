@@ -1,10 +1,10 @@
-import { AssetLink } from "@/app/utils/asset-images";
+import { AssetImageRef, AssetLink } from "@/app/utils/asset-images";
 
 export interface Project {
   _id: string;
   category: string;
   name: string;
-  featuredImage: string;
+  featuredImage: AssetImageRef;
   images: Array<string | AssetLink>;
   description: string;
   status: "Ongoing" | "Completed";

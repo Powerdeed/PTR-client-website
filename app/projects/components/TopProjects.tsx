@@ -44,7 +44,9 @@ export default function TopProjects() {
         >
           <div className="relative w-full h-62.5 overflow-hidden">
             <Image
-              src={getAssetImageSrc(project.images[0])}
+              src={getAssetImageSrc(
+                project.featuredImage || project.images[0],
+              )}
               alt="proj-img"
               fill
               sizes="(max-width: 1024px) 100%"
