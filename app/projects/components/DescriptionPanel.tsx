@@ -1,12 +1,11 @@
 "use client";
 
-import { projectImages } from "@/data/dummyData";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import useProjects from "../hooks/useProjects";
 
 import Image from "next/image";
+import { getAssetImageKey, getAssetImageSrc } from "@/app/utils/asset-images";
 
 export default function DescriptionPanel({ category }: { category: string }) {
   const { state } = useProjects();
@@ -43,10 +42,13 @@ export default function DescriptionPanel({ category }: { category: string }) {
         >
           {/* Images */}
           <div className="flex w-1/2 flex-wrap gap-1.25 max-md:w-full">
-            {state.selectedProj?.images.map((image, i) => (
-              <div key={i} className="relative h-32 w-[calc(50%-5px)]">
+            {(state.selectedProj?.images ?? []).map((image, i) => (
+              <div
+                key={getAssetImageKey(image, i)}
+                className="relative h-32 w-[calc(50%-5px)]"
+              >
                 <Image
-                  src={projectImages[image as keyof typeof projectImages]}
+                  src={getAssetImageSrc(image)}
                   alt={state.selectedProj?.name ?? "Project image"}
                   fill
                   sizes="(max-width: 768px) 50vw, 25vw"

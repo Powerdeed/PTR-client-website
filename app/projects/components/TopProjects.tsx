@@ -8,7 +8,7 @@ import { topProjects } from "../utils/top-projects";
 
 import { Project } from "@/app/projects/types/project.types";
 
-import { projectImages } from "@/data/dummyData";
+import { getAssetImageSrc } from "@/app/utils/asset-images";
 
 export default function TopProjects() {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -44,9 +44,7 @@ export default function TopProjects() {
         >
           <div className="relative w-full h-62.5 overflow-hidden">
             <Image
-              src={
-                projectImages[project.images[0] as keyof typeof projectImages]
-              }
+              src={getAssetImageSrc(project.images[0])}
               alt="proj-img"
               fill
               sizes="(max-width: 1024px) 100%"

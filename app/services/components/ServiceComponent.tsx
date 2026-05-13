@@ -5,9 +5,8 @@ import Image from "next/image";
 
 import { Service } from "../types/service.types";
 
-import { projectImages } from "@/data/dummyData";
-
 import ArrowIcons from "@/components/layout/ArrowIcons";
+import { getAssetImageKey, getAssetImageSrc } from "@/app/utils/asset-images";
 
 export default function ServiceComponent({ service }: { service: Service }) {
   const imageRefs = useRef<Record<string, HTMLDivElement | null>>({});
@@ -28,10 +27,13 @@ export default function ServiceComponent({ service }: { service: Service }) {
           }}
           className="flex h-full overflow-x-auto scroll-smooth snap-x snap-mandatory no-scrollbar"
         >
-          {service.images.map((img) => (
-            <div key={img} className="relative min-w-full h-full snap-start">
+          {(service.images ?? []).map((img, index) => (
+            <div
+              key={getAssetImageKey(img, index)}
+              className="relative min-w-full h-full snap-start"
+            >
               <Image
-                src={projectImages[img as keyof typeof projectImages]}
+                src={getAssetImageSrc(img)}
                 alt={service.name}
                 fill
                 className="object-cover"

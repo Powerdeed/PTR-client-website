@@ -13,9 +13,8 @@ import useGlobalStates from "@/global-utils/hooks/useGlobalStates";
 // types
 import { Project } from "../types/project.types";
 
-// services
-import { projectImages } from "@/data/dummyData";
 import ContainerLoadingAnimation from "@/components/layout/ContainerLoadingAnimation";
+import { getAssetImageSrc } from "@/app/utils/asset-images";
 
 export default function DisplayProjects({
   category,
@@ -54,9 +53,9 @@ export default function DisplayProjects({
               >
                 <Image
                   src={
-                    projectImages[
-                      project.featuredImage as keyof typeof projectImages
-                    ]
+                    getAssetImageSrc(
+                      project.featuredImage || project.images[0],
+                    )
                   }
                   alt={project.name}
                   fill

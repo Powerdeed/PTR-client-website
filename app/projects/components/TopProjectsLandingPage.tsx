@@ -2,11 +2,10 @@
 
 import Image from "next/image.js";
 
-import { projectImages } from "@/data/dummyData";
-
 import useProjects from "@/app/projects/hooks/useProjects";
 
 import useGlobalStates from "@/global-utils/hooks/useGlobalStates";
+import { getAssetImageSrc } from "@/app/utils/asset-images";
 
 export default function TopProjectsLandingPage() {
   const { state, actions } = useProjects();
@@ -61,9 +60,7 @@ export default function TopProjectsLandingPage() {
               className="group bg-(--primary-blue) relative w-full md:w-100 h-62.5 rounded-[10px] cursor-pointer"
             >
               <Image
-                src={`${
-                  projectImages[project.images[0] as keyof typeof projectImages]
-                }`}
+                src={getAssetImageSrc(project.images[0])}
                 alt=""
                 fill
                 sizes="(max-width: 1024px) 100%, 400px"

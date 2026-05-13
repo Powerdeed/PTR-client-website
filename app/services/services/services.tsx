@@ -5,4 +5,11 @@ export const getServices = () =>
   apiRequest<Service[]>({
     method: "GET",
     url: "/services",
-  });
+  }).then((services) =>
+    Array.isArray(services)
+      ? services.map((service) => ({
+          ...service,
+          images: Array.isArray(service.images) ? service.images : [],
+        }))
+      : [],
+  );

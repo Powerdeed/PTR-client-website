@@ -22,7 +22,8 @@ export default function useServicesApi() {
       await execute(getServices, {
         setLoading: setFetchingServices,
         setError: setFetchingServicesError,
-        onSuccess: (homepages) => setServices(homepages),
+        onSuccess: (services) =>
+          setServices(Array.isArray(services) ? services : []),
       });
 
     fetchData();

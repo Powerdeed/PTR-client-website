@@ -22,8 +22,7 @@ export default function useProjectsApi() {
         setLoading: setFetchingProjects,
         setError: setFetchingProjectsError,
         onSuccess: (projects) => {
-          console.log(projects);
-          setProjects(projects);
+          setProjects(Array.isArray(projects) ? projects : []);
         },
       });
 

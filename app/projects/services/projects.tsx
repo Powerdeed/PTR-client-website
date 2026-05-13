@@ -238,4 +238,11 @@ export const getProjects = () =>
   apiRequest<Project[]>({
     method: "GET",
     url: "/projects",
-  });
+  }).then((projects) =>
+    Array.isArray(projects)
+      ? projects.map((project) => ({
+          ...project,
+          images: Array.isArray(project.images) ? project.images : [],
+        }))
+      : [],
+  );
