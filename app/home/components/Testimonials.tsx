@@ -3,8 +3,6 @@
 // modules
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import Image from "next/image";
-
 // components
 import SubTitle from "./SubTitle";
 
@@ -14,6 +12,7 @@ import { handleScroll } from "@/global-utils/scroll-interactions";
 // hooks
 import useHome from "../hooks/useHome";
 import { Loader } from "@/app/loading";
+import AssetImage from "@/components/layout/AssetImage";
 
 export default function Testimonials() {
   const { state, actions } = useHome();
@@ -46,15 +45,11 @@ export default function Testimonials() {
             >
               <div className="flex m-[20px_0_0_20px] gap-2.5 items-center">
                 <div className="w-10 h-10 rounded-full relative overflow-hidden bg-gray-400">
-                  <Image
-                    src={
-                      t.profilePic && t.profilePic !== "profile-image"
-                        ? `/${t.profilePic}`
-                        : "/images/userIcon.jpg"
-                    }
-                    alt=""
+                  <AssetImage
+                    asset={t.profilePic}
+                    alt={t.name}
                     fill
-                    sizes="(max-width: 1024px) 100%"
+                    sizes="40px"
                     className="object-cover rounded-[50%] relative overflow-hidden"
                   />
                 </div>

@@ -2,10 +2,10 @@
 
 // modules
 import Link from "next/link.js";
-import Image from "next/image.js";
 import Button from "@/components/ui/Button";
 import useHome from "../hooks/useHome";
 import { Loader } from "@/app/loading";
+import AssetImage from "@/components/layout/AssetImage";
 
 export default function Header() {
   const { state } = useHome();
@@ -20,11 +20,12 @@ export default function Header() {
         )}
 
         {state.homepage && (
-          <Image
-            src={state.homepage.hero.image}
+          <AssetImage
+            asset={state.homepage.hero.image}
             alt="PES site preview"
             fill
             priority
+            sizes="100vw"
             className="object-cover object-[10%_25%]"
           />
         )}

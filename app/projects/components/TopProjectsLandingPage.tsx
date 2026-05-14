@@ -1,11 +1,9 @@
 "use client";
 
-import Image from "next/image.js";
-
 import useProjects from "@/app/projects/hooks/useProjects";
 
 import useGlobalStates from "@/global-utils/hooks/useGlobalStates";
-import { getAssetImageSrc } from "@/app/utils/asset-images";
+import AssetImage from "@/components/layout/AssetImage";
 
 export default function TopProjectsLandingPage() {
   const { state, actions } = useProjects();
@@ -59,13 +57,11 @@ export default function TopProjectsLandingPage() {
               key={project._id || project.name || idx}
               className="group bg-(--primary-blue) relative w-full md:w-100 h-62.5 rounded-[10px] cursor-pointer"
             >
-              <Image
-                src={getAssetImageSrc(
-                  project.featuredImage || project.images[0],
-                )}
-                alt=""
+              <AssetImage
+                asset={project.featuredImage}
+                alt={project.name}
                 fill
-                sizes="(max-width: 1024px) 100%, 400px"
+                sizes="(max-width: 1024px) 100vw, 400px"
                 className={`w-full h-full object-cover rounded-[10px] ${globalState.smallScreen ? "opacity-50" : "group-hover:opacity-50 group-hover:duration-500"}`}
               />
               <p

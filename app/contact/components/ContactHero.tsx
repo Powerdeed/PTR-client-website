@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import useContact from "../hooks/useContact";
+import AssetImage from "@/components/layout/AssetImage";
 
 export default function ContactHero() {
   const { state } = useContact();
@@ -21,10 +21,11 @@ export default function ContactHero() {
       </div>
       <div className="relative bg-black w-full h-100 overflow-hidden">
         {state.contacts ? (
-          <Image
-            src={state.contacts.Hero.image}
+          <AssetImage
+            asset={state.contacts.Hero.image}
             alt=""
             fill
+            sizes="100vw"
             className="w-full h-full object-cover opacity-40 z-0"
             loading="eager"
           />

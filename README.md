@@ -62,29 +62,27 @@ NEXT_PUBLIC_API_BASE_URL=http://localhost:5500
 
 The Axios client appends `/api/v1`.
 
-## Asset Images
+## Asset Gallery
 
-The backend/command center now store project and service images as asset-link
-tuples:
+The backend/command center store project and service media in the `gallery`
+field as asset-link tuples:
 
 ```ts
-type AssetLink = [assetId: string, fileName: string, fileUrl: string];
+type AssetLink = [
+  assetId: string,
+  fileName: string,
+  fileUrl: string,
+  assetType: "image" | "video" | "document" | "diagram",
+];
 ```
 
-The public website still supports older dummy image keys while the site is being
-migrated. Use the shared helpers in:
+Use the shared helpers in:
 
 ```txt
 app/utils/asset-images.ts
 ```
 
-Those helpers resolve either:
-
-```ts
-"solarPower"
-```
-
-or:
+Those helpers resolve:
 
 ```ts
 ["asset-123", "before.jpg", "https://storage.googleapis.com/..."]
@@ -114,7 +112,7 @@ app/contact
   Contact content and reach-us form.
 
 app/utils/asset-images.ts
-  Compatibility layer for old image keys and new asset-link tuples.
+  Helpers for gallery asset-link tuples and featured image links.
 
 lib/api
   Axios instance, API request helper, and execution wrapper.
@@ -122,8 +120,5 @@ lib/api
 
 ## Defensive Rendering Rules
 
-- Treat project/service `images` as optional arrays.
-- Use `getAssetImageSrc` instead of indexing `projectImages` directly.
-- Keep a fallback image for missing or malformed image data.
-- Normalize API results before setting state where possible.
-
+- Treat project/service `gallery` as the media array.
+- Use `getAssetImageSrc` for gallery and featured image rendering.

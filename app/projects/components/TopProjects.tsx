@@ -1,14 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 
 import { topProjects } from "../utils/top-projects";
 
 import { Project } from "@/app/projects/types/project.types";
 
-import { getAssetImageSrc } from "@/app/utils/asset-images";
+import AssetImage from "@/components/layout/AssetImage";
 
 export default function TopProjects() {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -43,13 +42,11 @@ export default function TopProjects() {
           className="group w-full h-fit p-1.25 my-1.25 cursor-pointer"
         >
           <div className="relative w-full h-62.5 overflow-hidden">
-            <Image
-              src={getAssetImageSrc(
-                project.featuredImage || project.images[0],
-              )}
-              alt="proj-img"
+            <AssetImage
+              asset={project.featuredImage}
+              alt={project.name}
               fill
-              sizes="(max-width: 1024px) 100%"
+              sizes="(max-width: 1024px) 100vw, 320px"
               className="object-cover rounded-[10px] scale-100 duration-300 hover:scale-[1.2]"
             />
           </div>

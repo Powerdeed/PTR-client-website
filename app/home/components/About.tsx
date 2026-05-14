@@ -1,8 +1,7 @@
 "use client";
 
-import Image from "next/image";
-
 import useHome from "../hooks/useHome";
+import AssetImage from "@/components/layout/AssetImage";
 
 export default function About() {
   const { state } = useHome();
@@ -23,10 +22,10 @@ export default function About() {
               about.flipped ? "rotate-y-180" : ""
             }`}
           >
-            <Image
-              src="/images/projects-images/Electrical-engineering-jobs-in-the-construction-industry.jpg"
+            <AssetImage
+              asset={about.image}
               alt="Milestone Electrical and Solar Solutions"
-              sizes="(max-width: 1024px) 100%"
+              sizes="(max-width: 1024px) 100vw, 50vw"
               fill
               className="w-full h-full object-cover"
             />

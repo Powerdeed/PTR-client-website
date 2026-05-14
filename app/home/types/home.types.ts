@@ -1,8 +1,10 @@
+import { FeaturedImageLink } from "@/app/utils/asset-images";
+
 export interface Homepage {
   hero: {
     title: string;
     subtitle: string;
-    image: string;
+    image: FeaturedImageLink;
   };
   aboutIntro: AboutIntro[];
 }
@@ -10,6 +12,6 @@ export interface Homepage {
 export interface AboutIntro {
   title: string;
   description: string;
-  image: string;
+  image: FeaturedImageLink;
   flipped: boolean;
 }

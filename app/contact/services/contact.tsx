@@ -3,7 +3,12 @@ import { Contacts } from "../types/contact.types";
 
 export const contacts: Contacts = {
   Hero: {
-    image: "/images/agreement.png",
+    image: {
+      assetId: "local-contact-hero",
+      fileName: "agreement.png",
+      fileUrl: "/images/agreement.png",
+      assetType: "image",
+    },
     title: "Let's Talk",
     subtitle:
       "Whether you have a question, feedback, or just want to say hello, we'd love to hear from you!",

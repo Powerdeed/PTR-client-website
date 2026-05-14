@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import useProjects from "../hooks/useProjects";
 
-import Image from "next/image";
-import { getAssetImageKey, getAssetImageSrc } from "@/app/utils/asset-images";
+import { getAssetImageKey } from "@/app/utils/asset-images";
+import AssetImage from "@/components/layout/AssetImage";
 
 export default function DescriptionPanel({ category }: { category: string }) {
   const { state } = useProjects();
@@ -42,13 +42,13 @@ export default function DescriptionPanel({ category }: { category: string }) {
         >
           {/* Images */}
           <div className="flex w-1/2 flex-wrap gap-1.25 max-md:w-full">
-            {(state.selectedProj?.images ?? []).map((image, i) => (
+            {(state.selectedProj?.gallery ?? []).map((image, i) => (
               <div
                 key={getAssetImageKey(image, i)}
                 className="relative h-32 w-[calc(50%-5px)]"
               >
-                <Image
-                  src={getAssetImageSrc(image)}
+                <AssetImage
+                  asset={image}
                   alt={state.selectedProj?.name ?? "Project image"}
                   fill
                   sizes="(max-width: 768px) 50vw, 25vw"

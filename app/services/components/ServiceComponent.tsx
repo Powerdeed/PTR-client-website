@@ -1,12 +1,12 @@
 "use client";
 
 import { useRef } from "react";
-import Image from "next/image";
 
 import { Service } from "../types/service.types";
 
 import ArrowIcons from "@/components/layout/ArrowIcons";
-import { getAssetImageKey, getAssetImageSrc } from "@/app/utils/asset-images";
+import { getAssetImageKey } from "@/app/utils/asset-images";
+import AssetImage from "@/components/layout/AssetImage";
 
 export default function ServiceComponent({ service }: { service: Service }) {
   const imageRefs = useRef<Record<string, HTMLDivElement | null>>({});
@@ -27,17 +27,17 @@ export default function ServiceComponent({ service }: { service: Service }) {
           }}
           className="flex h-full overflow-x-auto scroll-smooth snap-x snap-mandatory no-scrollbar"
         >
-          {(service.images ?? []).map((img, index) => (
+          {(service.gallery ?? []).map((img, index) => (
             <div
               key={getAssetImageKey(img, index)}
               className="relative min-w-full h-full snap-start"
             >
-              <Image
-                src={getAssetImageSrc(img)}
+              <AssetImage
+                asset={img}
                 alt={service.name}
                 fill
                 className="object-cover"
-                sizes="100%"
+                sizes="100vw"
                 priority
               />
             </div>

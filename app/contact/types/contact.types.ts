@@ -1,6 +1,8 @@
+import { FeaturedImageLink } from "@/app/utils/asset-images";
+
 export interface Contacts {
   Hero: {
-    image: string;
+    image: FeaturedImageLink;
     title: string;
     subtitle: string;
   };

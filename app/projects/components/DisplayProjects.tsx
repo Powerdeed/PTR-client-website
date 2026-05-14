@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef } from "react";
-import Image from "next/image";
 
 // components
 import ArrowIcons from "../../../components/layout/ArrowIcons";
@@ -14,7 +13,7 @@ import useGlobalStates from "@/global-utils/hooks/useGlobalStates";
 import { Project } from "../types/project.types";
 
 import ContainerLoadingAnimation from "@/components/layout/ContainerLoadingAnimation";
-import { getAssetImageSrc } from "@/app/utils/asset-images";
+import AssetImage from "@/components/layout/AssetImage";
 
 export default function DisplayProjects({
   category,
@@ -51,12 +50,8 @@ export default function DisplayProjects({
               <div
                 className={`absolute top-0 left-0 w-full overflow-hidden rounded-[10px] transition-[height] duration-500 ease-in-out ${globalState.smallScreen ? "h-65" : "h-full group-hover:h-65"}`}
               >
-                <Image
-                  src={
-                    getAssetImageSrc(
-                      project.featuredImage || project.images[0],
-                    )
-                  }
+                <AssetImage
+                  asset={project.featuredImage}
                   alt={project.name}
                   fill
                   sizes="(max-width: 768px) 100vw, 230px"
