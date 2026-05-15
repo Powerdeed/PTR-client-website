@@ -6,5 +6,5 @@ export interface Testimonial {
   position: string;
   industry: string;
   testimonial: string;
-  profilePic: FeaturedImageLink;
+  profilePic: FeaturedImageLink | null;
 }

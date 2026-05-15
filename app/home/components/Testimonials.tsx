@@ -44,14 +44,21 @@ export default function Testimonials() {
               ref={actions.testimonialEl}
             >
               <div className="flex m-[20px_0_0_20px] gap-2.5 items-center">
-                <div className="w-10 h-10 rounded-full relative overflow-hidden bg-gray-400">
-                  <AssetImage
-                    asset={t.profilePic}
-                    alt={t.name}
-                    fill
-                    sizes="40px"
-                    className="object-cover rounded-[50%] relative overflow-hidden"
-                  />
+                <div className="w-10 h-10 rounded-full relative overflow-hidden bg-gray-400 flex justify-center items-center">
+                  {t.profilePic ? (
+                    <AssetImage
+                      asset={t.profilePic}
+                      alt={t.name}
+                      fill
+                      sizes="40px"
+                      className="object-cover rounded-[50%] relative overflow-hidden"
+                    />
+                  ) : (
+                    <FontAwesomeIcon
+                      icon={["far", "user"]}
+                      className="text-style__subheading"
+                    />
+                  )}
                 </div>
 
                 <div className="h-fit top-6.25 left-17.5 text-[12.8px]">

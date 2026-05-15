@@ -4,7 +4,7 @@ export interface Homepage {
   hero: {
     title: string;
     subtitle: string;
-    image: FeaturedImageLink;
+    image: FeaturedImageLink | null;
   };
   aboutIntro: AboutIntro[];
 }
@@ -12,6 +12,6 @@ export interface Homepage {
 export interface AboutIntro {
   title: string;
   description: string;
-  image: FeaturedImageLink;
+  image: FeaturedImageLink | null;
   flipped: boolean;
 }

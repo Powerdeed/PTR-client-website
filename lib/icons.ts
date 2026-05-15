@@ -39,6 +39,7 @@ import {
   faPaperPlane,
   faThumbsUp,
   faThumbsDown,
+  faUser,
 } from "@fortawesome/free-regular-svg-icons";
 
 import { faWhatsapp, faLinkedin } from "@fortawesome/free-brands-svg-icons";
@@ -81,4 +82,5 @@ library.add(
   faPaperPlane,
   faThumbsDown,
   faList,
+  faUser,
 );

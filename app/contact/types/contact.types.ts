@@ -2,7 +2,7 @@ import { FeaturedImageLink } from "@/app/utils/asset-images";
 
 export interface Contacts {
   Hero: {
-    image: FeaturedImageLink;
+    image: FeaturedImageLink | null;
     title: string;
     subtitle: string;
   };
