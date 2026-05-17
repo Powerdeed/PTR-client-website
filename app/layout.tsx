@@ -31,6 +31,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <meta
+        name="google-site-verification"
+        content="Zc-M2BbJp3Ckc5J4Ws5AQSx-KHJIaYieAA6jh7hWQNs"
+      />
       <body
         className={`${plusJakartaSans.variable} ${openSans.variable} antialiased flex flex-col min-h-screen`}
       >
