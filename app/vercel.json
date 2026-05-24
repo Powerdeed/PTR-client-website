@@ -1,9 +1,0 @@
-{
-  "redirects": [
-    {
-      "source": "/(.*)",
-      "destination": "https://powerdeed.co.ke",
-      "permanent": true
-    }
-  ]
-}
