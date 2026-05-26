@@ -1,9 +1,1 @@
-{
-  "redirects": [
-    {
-      "source": "/:path*",
-      "destination": "https://powerdeed.co.ke",
-      "statusCode": 301
-    }
-  ]
-}
+{}
