@@ -1,150 +1,299 @@
 "use client";
 
+import { useState } from "react";
+import { Controller, ControllerRenderProps, useForm } from "react-hook-form";
 import Link from "next/link";
 
 import { formFillingOptions } from "../constants/ReactUsFormOptions";
 import { PERSONAL_INFO_FIELDS } from "@/global-utils/constants/personal-info-fields";
 import { DEFAULT_FORM_DATA } from "@/global-utils/constants/default-form-data";
 
-import useContact from "../hooks/useContact";
+type FormValues = typeof DEFAULT_FORM_DATA;
+type SubmitStatus = "idle" | "submitting" | "submitted" | "failed";
 
 export default function ReachUsForm() {
-  const { state, actions } = useContact();
+  const {
+    register,
+    handleSubmit,
+    control,
+    reset,
+    setError,
+    clearErrors,
+    formState: { errors, isSubmitting },
+  } = useForm<FormValues>({
+    defaultValues: DEFAULT_FORM_DATA,
+    mode: "onChange",
+  });
+
+  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>("idle");
+  const [formError, setFormError] = useState<string | null>(null);
+
+  const onSubmit = async (data: FormValues) => {
+    setFormError(null);
+    clearErrors();
+    setSubmitStatus("submitting");
+
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      console.log("Submitting form:", data);
+      reset();
+      setSubmitStatus("submitted");
+
+      setTimeout(() => {
+        setSubmitStatus("idle");
+      }, 3000);
+    } catch (error) {
+      setFormError("Unable to submit the form right now. Please try again.");
+      setSubmitStatus("failed");
+      if (error instanceof Error) {
+        setError("email", {
+          type: "server",
+          message: error.message,
+        });
+      } else {
+        setError("email", {
+          type: "server",
+          message: "Server error occurred. Please try again later.",
+        });
+      }
+    }
+  };
+
+  const getButtonText = () => {
+    if (isSubmitting) return "Sending...";
+    if (submitStatus === "submitted") return "Sent Successfully!";
+    if (submitStatus === "failed") return "Failed to Send";
+    return "Send My Inquiry";
+  };
 
   return (
-    <div className="text-style__form h-max bg-(--terciary-grey)/30 rounded-[10px] p-2.5">
+    <div className="font-semibold text-style__form h-max bg-(--terciary-grey)/30 rounded-[10px] p-2.5">
       <div className="text-style__subheading text-center m-1.25 mb-2.5">
         Here&apos;s How You Can Reach Us
       </div>
 
-      <form
-        action="submit"
-        className="flex flex-col gap-2.5"
-        onSubmit={(e) => actions.submitContact(e)}
-      >
-        <div className="grid grid-cols-2 gap-2.5">
-          {PERSONAL_INFO_FIELDS.map((field) => (
-            <div key={field.id} className="w-full inline-flex gap-2.5">
-              <label key={field.id} htmlFor={field.id} className="w-full">
-                {field.label}
-                <input
-                  id={field.id}
-                  type={field.type}
-                  required
-                  autoComplete={field.autocomplete || "on"}
-                  className="w-full h-[3em] pl-1.25 rounded-[10px] border border-(--secondary-grey)"
-                  value={
-                    state.formData[field.id as keyof typeof state.formData]
-                  }
-                  onChange={(e) =>
-                    actions.handleUpdateFormData(
-                      field.id as keyof DEFAULT_FORM_DATA,
-                      e.currentTarget.value,
-                    )
-                  }
-                />
-              </label>
-            </div>
-          ))}
-        </div>
+      <form onSubmit={handleSubmit(onSubmit)} noValidate>
+        <fieldset disabled={isSubmitting} className="vertical-layout__inner">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+            {PERSONAL_INFO_FIELDS.map((field) => (
+              <div key={field.id} className="vertical-layout__inner">
+                <label htmlFor={field.id} className="w-full">
+                  {field.label}
+                  <input
+                    id={field.id}
+                    type={field.type}
+                    autoComplete={field.autocomplete || "on"}
+                    aria-invalid={
+                      errors[field.id as keyof FormValues] ? "true" : "false"
+                    }
+                    aria-describedby={`${field.id}-error`}
+                    className={`w-full h-[3em] pl-1.25 rounded-[10px] border ${
+                      errors[field.id as keyof FormValues]
+                        ? "border-(--secondary-red)"
+                        : "border-(--secondary-grey)"
+                    }`}
+                    {...register(field.id as keyof FormValues, {
+                      required: `${field.label} is required`,
+                      ...(field.id === "email"
+                        ? {
+                            pattern: {
+                              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                              message: "Enter a valid email address",
+                            },
+                          }
+                        : {}),
+                      ...(field.id === "phone-number"
+                        ? {
+                            pattern: {
+                              value:
+                                /^[+]?[(]?[0-9]{1,4}[)]?[-\s.]?[(]?[0-9]{1,4}[)]?[-\s.]?[0-9]{1,9}$/,
+                              message: "Enter a valid phone number",
+                            },
+                          }
+                        : {}),
+                    })}
+                  />
+                </label>
 
-        <div>
-          Which services are you interested in?
-          {formFillingOptions.projectSectorOptions.map((service) => (
-            <div key={service}>
-              <input
-                id={service}
-                type="checkbox"
-                className="mx-2.5"
-                onChange={(e) =>
-                  actions.handleUpdateFormData(
-                    "servicesInterested",
-                    e.target.checked
-                      ? [...state.formData.servicesInterested, service]
-                      : state.formData.servicesInterested.filter(
-                          (s) => s !== service,
-                        ),
-                  )
-                }
-              />
-              {service}
-            </div>
-          ))}
-        </div>
-
-        <div>
-          Select Property
-          {formFillingOptions.propertyTypeOptions.map((property) => (
-            <div key={property}>
-              <input
-                id={property}
-                type="checkbox"
-                className="mx-2.5"
-                onChange={(e) =>
-                  actions.handleUpdateFormData(
-                    "propertyType",
-                    e.target.checked
-                      ? [...state.formData.propertyType, property]
-                      : state.formData.propertyType.filter(
-                          (s) => s !== property,
-                        ),
-                  )
-                }
-              />
-              {property}
-            </div>
-          ))}
-        </div>
-
-        <textarea
-          id="reachUs-form-additional-info"
-          placeholder="Additional information"
-          className="w-full min-h-[5em] p-1.25 rounded-[10px] border border-(--secodary-grey)"
-          value={state.formData.additionalInfo}
-          onChange={(e) =>
-            actions.handleUpdateFormData("additionalInfo", e.target.value)
-          }
-        />
-
-        <div>
-          How did you hear about us
-          <select
-            id="hear-about-us-selector"
-            className="w-full h-[3em] pl-1.25 rounded-[10px] border border-(--secodary-grey)"
-            required
-            value={state.formData.hearAboutUs}
-            onChange={(e) =>
-              actions.handleUpdateFormData("hearAboutUs", e.target.value)
-            }
-          >
-            {formFillingOptions.hearAboutUsOptions.map((option) => (
-              <option key={option} value={option}>
-                {option}
-              </option>
+                {errors[field.id as keyof FormValues] && (
+                  <ErrorMessage
+                    id={`${field.id}-error`}
+                    message={errors[field.id as keyof FormValues]?.message}
+                  />
+                )}
+              </div>
             ))}
-          </select>
-        </div>
-
-        <button className="w-full h-[3em] pl-1.25 rounded-[10px] border border-(--secodary-grey)">
-          {state.submitStatus === "idle"
-            ? "Send My Inquiry"
-            : state.submitStatus === "submitting"
-              ? "Sending..."
-              : state.submitStatus === "submitted"
-                ? "Sent Successfully!"
-                : "Failed to Send"}
-        </button>
-
-        {state.submitStatus === "submitted" && (
-          <div className="text-center text-(--secondary-blue)">
-            *We&apos;ll reveiw your form and get in touch soon!*
           </div>
-        )}
 
-        <Link href="/help" className="italic text-style__link">
-          Need Help?
-        </Link>
+          <div className="vertical-layout__inner">
+            <fieldset>
+              <legend>Which services are you interested in?</legend>
+
+              <Controller
+                name="servicesInterested"
+                control={control}
+                rules={{
+                  validate: (value) =>
+                    value.length > 0 || "Select at least one service",
+                }}
+                render={({ field }) => (
+                  <CheckboxGroup
+                    checkboxOptions={formFillingOptions.projectSectorOptions}
+                    field={field}
+                  />
+                )}
+              />
+
+              {errors.servicesInterested && (
+                <ErrorMessage message={errors.servicesInterested.message} />
+              )}
+            </fieldset>
+          </div>
+
+          <div className="vertical-layout__inner">
+            <fieldset>
+              <legend>Select Property</legend>
+
+              <Controller
+                name="propertyType"
+                control={control}
+                rules={{
+                  validate: (value) =>
+                    value.length > 0 || "Select at least one property type",
+                }}
+                render={({ field }) => (
+                  <CheckboxGroup
+                    checkboxOptions={formFillingOptions.propertyTypeOptions}
+                    field={field}
+                  />
+                )}
+              />
+
+              {errors.propertyType && (
+                <ErrorMessage message={errors.propertyType.message} />
+              )}
+            </fieldset>
+          </div>
+
+          <div className="vertical-layout__inner">
+            <label htmlFor="reachUs-form-additional-info" className="sr-only">
+              Additional information
+            </label>
+
+            <textarea
+              id="reachUs-form-additional-info"
+              placeholder="Additional information"
+              className="w-full min-h-[5em] p-1.25 rounded-[10px] border border-(--secondary-grey)"
+              {...register("additionalInfo")}
+            />
+
+            {errors.additionalInfo && (
+              <ErrorMessage message={errors.additionalInfo.message} />
+            )}
+          </div>
+
+          <div className="vertical-layout__inner">
+            <div>How did you hear about us</div>
+
+            <select
+              id="hear-about-us-selector"
+              className="w-full h-[3em] pl-1.25 rounded-[10px] border border-(--secondary-grey)"
+              aria-invalid={errors.hearAboutUs ? "true" : "false"}
+              aria-describedby="hear-about-us-error"
+              {...register("hearAboutUs", {
+                required: "Please tell us how you heard about us",
+              })}
+            >
+              <option value="" disabled>
+                Select an option
+              </option>
+              {formFillingOptions.hearAboutUsOptions.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+            {errors.hearAboutUs && (
+              <ErrorMessage
+                id="hear-about-us-error"
+                message={errors.hearAboutUs.message}
+              />
+            )}
+          </div>
+
+          {formError && <ErrorMessage message={formError} />}
+
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full h-[3em] pl-1.25 rounded-[10px] border border-(--secondary-grey) disabled:opacity-50"
+          >
+            {getButtonText()}
+          </button>
+
+          {submitStatus === "submitted" && <SuccessMessage />}
+
+          <Link href="/help" className="italic text-style__link">
+            Need Help?
+          </Link>
+        </fieldset>
       </form>
     </div>
+  );
+}
+
+function CheckboxGroup({
+  checkboxOptions,
+  field,
+}: {
+  checkboxOptions: string[];
+  field: ControllerRenderProps<
+    DEFAULT_FORM_DATA,
+    "servicesInterested" | "propertyType"
+  >;
+}) {
+  const handleCheckboxChange = (checkBoxItem: string, isChecked: boolean) => {
+    const currentArray = field.value;
+
+    const updatedArray = isChecked
+      ? [...currentArray, checkBoxItem]
+      : currentArray.filter((item) => item !== checkBoxItem);
+
+    field.onChange(updatedArray);
+  };
+
+  return (
+    <div className="vertical-layout__inner">
+      {checkboxOptions.map((checkBoxItem) => (
+        <label key={checkBoxItem} className="inline-flex items-center gap-2">
+          <input
+            id={checkBoxItem}
+            type="checkbox"
+            className="mx-2.5"
+            checked={field.value.includes(checkBoxItem)}
+            onChange={(e) =>
+              handleCheckboxChange(checkBoxItem, e.target.checked)
+            }
+          />
+          {checkBoxItem}
+        </label>
+      ))}
+    </div>
+  );
+}
+
+function SuccessMessage() {
+  return (
+    <div className="text-center text-(--secondary-blue) font-semibold">
+      *We&apos;ll review your form and get in touch soon!*
+    </div>
+  );
+}
+
+function ErrorMessage({ id, message }: { id?: string; message?: string }) {
+  return (
+    <p id={id || "error"} role="alert" className="text-(--primary-red) mt-px">
+      {message}
+    </p>
   );
 }

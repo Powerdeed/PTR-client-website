@@ -21,13 +21,13 @@ export const PERSONAL_INFO_FIELDS: PERSONAL_INFO_FIELDS = [
   {
     label: "Phone Number",
     id: "phone-number",
-    type: "number",
-    autocomplete: "email",
+    type: "text",
+    autocomplete: "tel",
   },
   {
     label: "Email Address",
     id: "email",
     type: "email",
-    autocomplete: "tel",
+    autocomplete: "email",
   },
 ];

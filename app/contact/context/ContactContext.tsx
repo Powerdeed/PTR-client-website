@@ -12,9 +12,9 @@ type ContactState = {
   formData: DEFAULT_FORM_DATA;
   setFormData: Dispatch<SetStateAction<DEFAULT_FORM_DATA>>;
 
-  submitStatus: "submitted" | "idle" | "submitting" | "Failed";
+  submitStatus: "submitted" | "idle" | "submitting" | "failed";
   setSubmitStatus: Dispatch<
-    SetStateAction<"submitted" | "idle" | "submitting" | "Failed">
+    SetStateAction<"submitted" | "idle" | "submitting" | "failed">
   >;
 
   fetchingContacts: boolean;

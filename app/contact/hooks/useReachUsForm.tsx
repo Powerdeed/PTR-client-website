@@ -12,13 +12,14 @@ export default function useReachUsForm() {
   if (!contactState)
     throw new Error("Contact context must be within a provider");
 
-  const { setFormData, setSubmitStatus } = contactState;
+  const { formData, setFormData, setSubmitStatus } = contactState;
 
   const clearForm = () => {
     setFormData(DEFAULT_FORM_DATA);
   };
 
   const formSubmittion = () => {
+    console.log("Submitting form:", formData);
     // Store form to database
     // Send email to office
   };
@@ -36,7 +37,7 @@ export default function useReachUsForm() {
 
     setTimeout(() => {
       setSubmitStatus("idle");
-    }, 2000);
+    }, 3000);
   };
 
   const handleUpdateFormData = <K extends keyof DEFAULT_FORM_DATA>(
