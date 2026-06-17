@@ -9,5 +9,5 @@ export default function useContact() {
   const reachusForm = useReachUsForm();
   const api = useContactApi();
 
-  return { state, actions: { ...reachusForm }, api };
+  return { contactState: state, actions: { ...reachusForm }, api };
 }

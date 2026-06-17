@@ -7,9 +7,9 @@ import { IconName } from "@fortawesome/fontawesome-svg-core";
 import useContact from "../hooks/useContact";
 
 export default function Socials() {
-  const { state } = useContact();
+  const { contactState } = useContact();
 
-  if (!state.contacts) return;
+  if (!contactState.contacts) return;
 
   return (
     <div className="vertical-layout__inner">
@@ -18,7 +18,7 @@ export default function Socials() {
       </div>
       <div className="w-full items-start flex-col md:items-center justify-center">
         <ul>
-          {state.contacts.Socials.map((social, idx) => (
+          {contactState.contacts.Socials.map((social, idx) => (
             <li key={idx} className="list-none underline">
               <Link
                 href={social.url}

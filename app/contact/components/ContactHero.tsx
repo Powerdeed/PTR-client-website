@@ -4,25 +4,25 @@ import useContact from "../hooks/useContact";
 import AssetImage from "@/components/layout/AssetImage";
 
 export default function ContactHero() {
-  const { state } = useContact();
+  const { contactState } = useContact();
 
   return (
     <div className="w-full h-100 flex flex-col justify-center items-center relative mb-2.5">
       <div className="absolute z-1 w-full text-(--primary-yellow) flex text-center items-center justify-center">
-        {state.contacts && (
+        {contactState.contacts && (
           <div>
             <div className="contact-title-main text-style__section-title">
-              {state.contacts.Hero.title}
+              {contactState.contacts.Hero.title}
             </div>
 
-            {state.contacts.Hero.subtitle}
+            {contactState.contacts.Hero.subtitle}
           </div>
         )}
       </div>
       <div className="relative bg-black w-full h-100 overflow-hidden">
-        {state.contacts ? (
+        {contactState.contacts ? (
           <AssetImage
-            asset={state.contacts.Hero.image}
+            asset={contactState.contacts.Hero.image}
             alt=""
             fill
             sizes="100vw"

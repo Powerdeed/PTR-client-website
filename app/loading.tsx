@@ -18,3 +18,18 @@ export function Loader() {
     />
   );
 }
+
+export function LoaderYellow() {
+  return (
+    <TailSpin
+      visible={true}
+      height="20"
+      width="20"
+      color="#ffd600"
+      ariaLabel="tail-spin-loading"
+      radius="1"
+      wrapperStyle={{}}
+      wrapperClass=""
+    />
+  );
+}

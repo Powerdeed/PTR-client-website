@@ -7,6 +7,7 @@ import Link from "next/link";
 import { formFillingOptions } from "../constants/ReactUsFormOptions";
 import { PERSONAL_INFO_FIELDS } from "@/global-utils/constants/personal-info-fields";
 import { DEFAULT_FORM_DATA } from "@/global-utils/constants/default-form-data";
+import { sendInquiry } from "../services/formSubmission";
 
 type FormValues = typeof DEFAULT_FORM_DATA;
 type SubmitStatus = "idle" | "submitting" | "submitted" | "failed";
@@ -34,8 +35,7 @@ export default function ReachUsForm() {
     setSubmitStatus("submitting");
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 500));
-      console.log("Submitting form:", data);
+      await sendInquiry(data);
       reset();
       setSubmitStatus("submitted");
 
@@ -94,20 +94,20 @@ export default function ReachUsForm() {
                     }`}
                     {...register(field.id as keyof FormValues, {
                       required: `${field.label} is required`,
-                      ...(field.id === "email"
-                        ? {
-                            pattern: {
-                              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                              message: "Enter a valid email address",
-                            },
-                          }
-                        : {}),
                       ...(field.id === "phone-number"
                         ? {
                             pattern: {
                               value:
                                 /^[+]?[(]?[0-9]{1,4}[)]?[-\s.]?[(]?[0-9]{1,4}[)]?[-\s.]?[0-9]{1,9}$/,
                               message: "Enter a valid phone number",
+                            },
+                          }
+                        : {}),
+                      ...(field.id === "email"
+                        ? {
+                            pattern: {
+                              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                              message: "Enter a valid email address",
                             },
                           }
                         : {}),

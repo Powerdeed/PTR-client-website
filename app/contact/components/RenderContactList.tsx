@@ -5,9 +5,9 @@ import useContact from "../hooks/useContact";
 import { Loader } from "@/app/loading";
 
 export default function RenderContactList() {
-  const { state } = useContact();
+  const { contactState } = useContact();
 
-  if (!state.contacts) {
+  if (!contactState.contacts) {
     return (
       <ul className="w-full h-full flex justify-center items-center">
         <Loader />
@@ -19,7 +19,7 @@ export default function RenderContactList() {
     Location,
     ContactInformation,
     "working-hours": workingHours,
-  } = state.contacts;
+  } = contactState.contacts;
 
   return (
     <div className="vertical-layout__inner p-2.5">

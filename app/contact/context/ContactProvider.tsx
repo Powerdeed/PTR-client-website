@@ -12,7 +12,7 @@ export default function ContactProvider({ children }: { children: ReactNode }) {
   const [formData, setFormData] = useState(DEFAULT_FORM_DATA);
 
   const [submitStatus, setSubmitStatus] = useState<
-    "idle" | "submitting" | "submitted" | "Failed"
+    "idle" | "submitting" | "submitted" | "failed"
   >("idle");
 
   const [fetchingContacts, setFetchingContacts] = useState(false);
