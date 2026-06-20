@@ -21,7 +21,7 @@ export const PERSONAL_INFO_FIELDS: PERSONAL_INFO_FIELDS = [
   {
     label: "Phone Number",
     id: "phone-number",
-    type: "text",
+    type: "tel",
     autocomplete: "tel",
   },
   {

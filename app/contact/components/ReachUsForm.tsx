@@ -43,18 +43,12 @@ export default function ReachUsForm() {
         setSubmitStatus("idle");
       }, 3000);
     } catch (error) {
-      setFormError("Unable to submit the form right now. Please try again.");
       setSubmitStatus("failed");
+
       if (error instanceof Error) {
-        setError("email", {
-          type: "server",
-          message: error.message,
-        });
+        setFormError(error.message);
       } else {
-        setError("email", {
-          type: "server",
-          message: "Server error occurred. Please try again later.",
-        });
+        setFormError("Server error occurred. Please try again later.");
       }
     }
   };
@@ -114,15 +108,23 @@ export default function ReachUsForm() {
                     })}
                   />
                 </label>
-
-                {errors[field.id as keyof FormValues] && (
-                  <ErrorMessage
-                    id={`${field.id}-error`}
-                    message={errors[field.id as keyof FormValues]?.message}
-                  />
-                )}
               </div>
             ))}
+          </div>
+
+          <div className="vertical-layout__inner">
+            {PERSONAL_INFO_FIELDS.map((field) => {
+              const errorMessage =
+                errors[field.id as keyof FormValues]?.message;
+
+              return errorMessage ? (
+                <ErrorMessage
+                  key={field.id}
+                  id={`${field.id}-error`}
+                  message={errorMessage}
+                />
+              ) : null;
+            })}
           </div>
 
           <div className="vertical-layout__inner">
