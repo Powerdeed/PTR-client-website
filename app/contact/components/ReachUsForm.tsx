@@ -18,7 +18,6 @@ export default function ReachUsForm() {
     handleSubmit,
     control,
     reset,
-    setError,
     clearErrors,
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({
