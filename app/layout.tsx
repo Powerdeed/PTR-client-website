@@ -37,6 +37,7 @@ export default function RootLayout({
       >
         <SpeedInsights />
         <Analytics />
+
         <Nav />
         <ScrollIndicator />
         <GlobalProvider>
